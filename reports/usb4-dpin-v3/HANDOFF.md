@@ -58,6 +58,19 @@ What does NOT work (the wall):
   link, and there is no USB on Linux (see the PCIe-tunnel blocker below). Always confirm any claimed
   picture with an actual webcam frame (`scripts/webcam-snap.sh`).
 
+## Source trees on GitHub (the `sources/` dir is gitignored here)
+
+- Kernel: **https://github.com/mertcanekiz/linux** (fork of AsahiLinux/linux). Branches
+  `thunderbolt-7.1.13-dpin-v3` (active), `thunderbolt-7.1.13-gpu` (baseline), `thunderbolt-7.1.13-dpalt`.
+- m1n1: **https://github.com/mertcanekiz/m1n1** (fork of AsahiLinux/m1n1). Branch `thunderbolt-dpin-trace`
+  (adds `proxyclient/hv/trace_dpin_bringup.py`).
+
+To recreate `sources/` from scratch:
+```sh
+git clone -b thunderbolt-7.1.13-dpin-v3 https://github.com/mertcanekiz/linux sources/linux-usb4-backport
+git clone -b thunderbolt-dpin-trace   https://github.com/mertcanekiz/m1n1  sources/m1n1-thunderbolt
+```
+
 ## The environment
 
 - Running kernel on the test boot: `7.1.13-usb4-gpu-test` (aarch64). `uname -r` must show this.
