@@ -1,0 +1,69 @@
+From 15bcac35ba045a9a459144901443210d8b1df7a3 Mon Sep 17 00:00:00 2001
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Date: Thu, 21 May 2026 12:40:03 +0200
+Subject: [PATCH] thunderbolt: Add some more descriptive probe error messages
+
+Currently there's a lot of silent error-return paths in various places
+where nhi_probe() can fail. Sprinkle some prints to make it clearer
+where the problem is.
+
+Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+---
+ drivers/thunderbolt/nhi.c | 4 ++--
+ drivers/thunderbolt/tb.c  | 7 ++++---
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index e9ba8ffbe349e1..0f795ea58756d6 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -1223,7 +1223,7 @@ int nhi_probe(struct tb_nhi *nhi)
+ 	if (nhi->ops->init) {
+ 		res = nhi->ops->init(nhi);
+ 		if (res)
+-			return res;
++			return dev_err_probe(dev, res, "NHI specific init failed\n");
+ 	}
+ 
+ 	tb = nhi_select_cm(nhi);
+@@ -1244,7 +1244,7 @@ int nhi_probe(struct tb_nhi *nhi)
+ 		tb_domain_put(tb);
+ 		wait_for_completion(&nhi->domain_released);
+ 		nhi_shutdown(nhi);
+-		return res;
++		return dev_err_probe(dev, res, "failed to add domain\n");
+ 	}
+ 	dev_set_drvdata(dev, tb);
+ 
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index d60c0b8eb3908e..76323255439a88 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -3000,7 +3000,8 @@ static int tb_start(struct tb *tb, bool reset)
+ 
+ 	tb->root_switch = tb_switch_alloc(tb, &tb->dev, 0);
+ 	if (IS_ERR(tb->root_switch))
+-		return PTR_ERR(tb->root_switch);
++		return dev_err_probe(tb->nhi->dev, PTR_ERR(tb->root_switch),
++				     "failed to allocate host router\n");
+ 
+ 	/*
+ 	 * ICM firmware upgrade needs running firmware and in native
+@@ -3017,14 +3018,14 @@ static int tb_start(struct tb *tb, bool reset)
+ 	ret = tb_switch_configure(tb->root_switch);
+ 	if (ret) {
+ 		tb_switch_put(tb->root_switch);
+-		return ret;
++		return dev_err_probe(tb->nhi->dev, ret, "failed to configure host router\n");
+ 	}
+ 
+ 	/* Announce the switch to the world */
+ 	ret = tb_switch_add(tb->root_switch);
+ 	if (ret) {
+ 		tb_switch_put(tb->root_switch);
+-		return ret;
++		return dev_err_probe(tb->nhi->dev, ret, "failed to add host router\n");
+ 	}
+ 
+ 	/*

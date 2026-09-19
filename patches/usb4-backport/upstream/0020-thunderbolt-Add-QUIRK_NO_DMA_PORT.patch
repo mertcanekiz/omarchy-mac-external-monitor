@@ -1,0 +1,96 @@
+From 49a05b4154d5ef0a4808ebd310983dcaa17de5cd Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:31 +0200
+Subject: [PATCH 20/23] thunderbolt: Add QUIRK_NO_DMA_PORT
+
+Apple Silicon machines load and update the host router firmware with a
+separate, proprietary mechanism and have no DMA port. Add a quirk to
+skip its initialization.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/nhi.h    |  1 +
+ drivers/thunderbolt/switch.c | 10 ++++++----
+ drivers/thunderbolt/tb.c     |  8 ++++++++
+ drivers/thunderbolt/tb.h     |  2 ++
+ 4 files changed, 17 insertions(+), 4 deletions(-)
+
+diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+index 670b48efee..c2d16ab699 100644
+--- a/drivers/thunderbolt/nhi.h
++++ b/drivers/thunderbolt/nhi.h
+@@ -168,6 +168,7 @@ struct tb_nhi_ops {
+ #define QUIRK_AUTO_CLEAR_INT				BIT(0)
+ #define QUIRK_E2E					BIT(1)
+ #define QUIRK_RESET_DMA_ON_TEARDOWN			BIT(2)
++#define QUIRK_NO_DMA_PORT				BIT(3)
+ 
+ /*
+  * Minimal number of vectors when we use MSI-X. Two for control channel
+diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
+index 840dc64ac5..039a56ae9d 100644
+--- a/drivers/thunderbolt/switch.c
++++ b/drivers/thunderbolt/switch.c
+@@ -3315,10 +3315,12 @@ int tb_switch_add(struct tb_switch *sw)
+ 	 * to the userspace. NVM can be accessed through DMA
+ 	 * configuration based mailbox.
+ 	 */
+-	ret = tb_switch_add_dma_port(sw);
+-	if (ret) {
+-		dev_err(&sw->dev, "failed to add DMA port\n");
+-		return ret;
++	if (!sw->no_dma_port) {
++		ret = tb_switch_add_dma_port(sw);
++		if (ret) {
++			dev_err(&sw->dev, "failed to add DMA port\n");
++			return ret;
++		}
+ 	}
+ 
+ 	ret = tb_switch_nvm_init(sw);
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 40a5a3ebb3..3b38c8e0c5 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -15,6 +15,7 @@
+ #include "tb.h"
+ #include "tb_regs.h"
+ #include "tunnel.h"
++#include "nhi.h"
+ 
+ #define TB_TIMEOUT		100	/* ms */
+ #define TB_RELEASE_BW_TIMEOUT	10000	/* ms */
+@@ -3027,6 +3028,13 @@ static int tb_start(struct tb *tb, bool reset)
+ 	/* All USB4 routers support runtime PM */
+ 	tb->root_switch->rpm = tb_switch_is_usb4(tb->root_switch);
+ 
++	/*
++	 * Apple Silicon machines have a separate, proprietary mechanism for
++	 * loading and updating firmware. Skip the DMA port initialization on
++	 * these machines.
++	 */
++	tb->root_switch->no_dma_port = tb->nhi->quirks & QUIRK_NO_DMA_PORT;
++
+ 	ret = tb_switch_configure(tb->root_switch);
+ 	if (ret) {
+ 		tb_switch_put(tb->root_switch);
+diff --git a/drivers/thunderbolt/tb.h b/drivers/thunderbolt/tb.h
+index ec9192b61b..d8c23709d5 100644
+--- a/drivers/thunderbolt/tb.h
++++ b/drivers/thunderbolt/tb.h
+@@ -139,6 +139,7 @@ struct tb_switch_tmu {
+  * @drom: DROM of the switch (%NULL if not found)
+  * @nvm: Pointer to the NVM if the switch has one (%NULL otherwise)
+  * @no_nvm_upgrade: Prevent NVM upgrade of this switch
++ * @no_dma_port: Prevent adding the DMA port of this switch
+  * @safe_mode: The switch is in safe-mode
+  * @boot: Whether the switch was already authorized on boot or not
+  * @rpm: The switch supports runtime PM
+@@ -194,6 +195,7 @@ struct tb_switch {
+ 	u8 *drom;
+ 	struct tb_nvm *nvm;
+ 	bool no_nvm_upgrade;
++	bool no_dma_port;
+ 	bool safe_mode;
+ 	bool boot;
+ 	bool rpm;

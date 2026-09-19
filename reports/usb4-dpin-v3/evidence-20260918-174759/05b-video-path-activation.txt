@@ -1,0 +1,12 @@
+AUX RX path activation complete
+0:6: DP IN available
+1:10: DP OUT in use
+deactivating Video path from 0:5 to 1:10
+0:5: DP IN available
+0:6: DP IN available
+0:5: DP IN available
+activating Video path from 0:5 to 1:10
+Video path activation complete
+AUX RX path activation complete
+0:6: DP IN available
+1:10: DP OUT in use

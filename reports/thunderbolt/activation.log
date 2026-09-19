@@ -1,0 +1,7 @@
+Active m1n1 SHA-256: af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201
+Kernel, initramfs, GRUB entry, candidate, and recovery images verified. No changes made.
+m1n1 bundle action completed: activate. No reboot performed.
+At the next boot, manually select: Omarchy - Asahi USB4 bring-up (manual)
+The USB4 device tree is shared by all GRUB entries until restored.
+Active m1n1 SHA-256: 9602d026b2960bf308e3cc7a9d14019abeed4b7ccaa387125241073660b7c297
+Kernel, initramfs, GRUB entry, candidate, and recovery images verified. No changes made.

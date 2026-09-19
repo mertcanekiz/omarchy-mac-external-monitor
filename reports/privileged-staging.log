@@ -1,0 +1,18 @@
+/boot/efi/m1n1/boot.bin: OK
+/boot/grub/grub.cfg: OK
+/boot/initramfs-linux-asahi.img: OK
+/boot/vmlinuz-linux-asahi: OK
+artifacts/tipd/tps6598x-core.ko: OK
+artifacts/tipd/tps6598x.ko: OK
+artifacts/dtb/t8103-j313.dtb: OK
+artifacts/boot.bin.display-test: OK
+artifacts/initramfs-display-test.img: OK
+boot-and-config.tar: OK
+grub.cfg: OK
+boot.bin.original: OK
+566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33  /boot/efi/m1n1/boot.bin
+566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33  /boot/efi/m1n1/boot.bin.before-display-test
+af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201  /boot/efi/m1n1/boot.bin.display-test
+85b41f507744b1e1861ec3ac06eeb8e6b32b73154f7007ed780761977edeca50  /boot/initramfs-display-test.img
+4e7282d85a64d3a0aa21e2eb1903d3e6c38df490e5e6bf1edcb82159c7177624  /boot/grub/custom.cfg
+Staged only. Active m1n1, stock initramfs, kernel, GRUB default and NVRAM selection unchanged.

@@ -1,0 +1,28 @@
+From a39d7ca02152532124462f91e8bb6012cf0190d7 Mon Sep 17 00:00:00 2001
+From: Janne Grunau <j@jannau.net>
+Date: Sun, 23 Aug 2026 20:35:44 +0200
+Subject: [PATCH] WIP: arm64: dts: apple: Add broken usb4 aliases m1n1 compat
+
+NOT FOR UPSTREAM, drop in 2027-09
+
+Signed-off-by: Janne Grunau <j@jannau.net>
+---
+ arch/arm64/boot/dts/apple/t8103-jxxx.dtsi | 5 +++++
+ 1 file changed, 5 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+index 7b968da193..a3dc78c24b 100644
+--- a/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+@@ -25,6 +25,11 @@ aliases {
+ 		usb4-0-nhi = &usb4_0_nhi;
+ 		usb4-1-acio = &usb4_1_acio;
+ 		usb4-1-nhi = &usb4_1_nhi;
++
++		usb4_0_rc = &usb4_0_acio;
++		usb4_0_nhi = &usb4_0_nhi;
++		usb4_1_rc = &usb4_1_acio;
++		usb4_1_nhi = &usb4_1_nhi;
+ 	};
+ 
+ 	chosen {

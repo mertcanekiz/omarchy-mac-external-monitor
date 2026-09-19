@@ -1,0 +1,120 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+  SYNC    include/config/auto.conf
+*
+* Restart config...
+*
+*
+* Compile-time checks and compiler options
+*
+Debug information
+  1. Disable debug information (DEBUG_INFO_NONE)
+  2. Rely on the toolchain's implicit default DWARF version (DEBUG_INFO_DWARF_TOOLCHAIN_DEFAULT)
+  3. Generate DWARF Version 4 debuginfo (DEBUG_INFO_DWARF4)
+> 4. Generate DWARF Version 5 debuginfo (DEBUG_INFO_DWARF5)
+choice[1-4?]: 4
+Reduce debugging information (DEBUG_INFO_REDUCED) [N/y/?] n
+Compressed Debug information
+> 1. Don't compress debug information (DEBUG_INFO_COMPRESSED_NONE)
+  2. Compress debugging information with zlib (DEBUG_INFO_COMPRESSED_ZLIB)
+  3. Compress debugging information with zstd (DEBUG_INFO_COMPRESSED_ZSTD)
+choice[1-3?]: 1
+Produce split debuginfo in .dwo files (DEBUG_INFO_SPLIT) [N/y/?] n
+Generate BTF type information (DEBUG_INFO_BTF) [N/y/?] (NEW) 
+Error in reading or end of file.
+
+Provide GDB scripts for kernel debugging (GDB_SCRIPTS) [N/y/?] n
+Warn for stack frames larger than (FRAME_WARN) [2048] 2048
+Strip assembler-generated symbols during link (STRIP_ASM_SYMS) [Y/n/?] y
+Generate readable assembler code (READABLE_ASM) [N/y/?] n
+Install uapi headers to usr/include (HEADERS_INSTALL) [N/y/?] n
+Enable full Section mismatch analysis (DEBUG_SECTION_MISMATCH) [N/y/?] n
+Make section mismatch errors non-fatal (SECTION_MISMATCH_WARN_ONLY) [Y/n/?] y
+Force all function address 64B aligned (DEBUG_FORCE_FUNCTION_ALIGN_64B) [N/y/?] n
+Compile the kernel with frame pointers (FRAME_POINTER) [Y/?] y
+Generate vmlinux.map file when linking (VMLINUX_MAP) [N/y/?] n
+Force weak per-cpu definitions (DEBUG_FORCE_WEAK_PER_CPU) [N/y/?] n
+  CC      arch/arm64/kernel/asm-offsets.s
+  CC      kernel/sched/rq-offsets.s
+  CALL    /home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/checksyscalls.sh 
+  LDS     arch/arm64/kernel/vdso/vdso.lds
+  CC      arch/arm64/kernel/vdso/vgettimeofday.o
+  AS      arch/arm64/kernel/vdso/note.o
+  AS      arch/arm64/kernel/vdso/sigreturn.o
+  AS      arch/arm64/kernel/vdso/vgetrandom-chacha.o
+  CC      arch/arm64/kernel/vdso/vgetrandom.o
+  LD      arch/arm64/kernel/vdso/vdso.so.dbg
+  VDSOSYM include/generated/vdso-offsets.h
+  OBJCOPY arch/arm64/kernel/vdso/vdso.so
+  RUSTC L rust/core.o
+  CC      rust/helpers/helpers.o
+  BINDGEN rust/bindings/bindings_generated.rs
+  BINDGEN rust/bindings/bindings_helpers_generated.rs
+  RUSTC PL rust/libproc_macro2.rlib
+  BINDGEN rust/uapi/uapi_generated.rs
+  RSCPP     rust/kernel/generated_arch_static_branch_asm.rs
+  RSCPP     rust/kernel/generated_arch_warn_asm.rs
+  RSCPP     rust/kernel/generated_arch_reachable_asm.rs
+  EXPORTS rust/exports_helpers_generated.h
+  RUSTC PL rust/libquote.rlib
+  RUSTC PL rust/libsyn.rlib
+  RUSTC P rust/libpin_init_internal.so
+  RUSTC P rust/libmacros.so
+  RUSTC P rust/libzerocopy_derive.so
+  EXPORTS rust/exports_core_generated.h
+  RUSTC L rust/compiler_builtins.o
+  RUSTC L rust/pin_init.o
+  RUSTC L rust/ffi.o
+  RUSTC L rust/build_error.o
+  RUSTC L rust/zerocopy.o
+  RUSTC L rust/bindings.o
+  RUSTC L rust/uapi.o
+  EXPORTS rust/exports_bindings_generated.h
+  RUSTC L rust/kernel.o
+warning: unused import: `alloc::flags::*`
+ --> /home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/rust/kernel/soc/apple/rtkit.rs:8:5
+  |
+8 |     alloc::flags::*,
+  |     ^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+
+  EXPORTS rust/exports_kernel_generated.h
+  CC [M]  drivers/gpu/drm/apple/apple_drv.o
+  CC [M]  drivers/gpu/drm/apple/afk.o
+  CC [M]  drivers/gpu/drm/apple/dcp.o
+  CC [M]  drivers/gpu/drm/apple/dcp_backlight.o
+  CC [M]  drivers/gpu/drm/apple/dptxep.o
+  CC [M]  drivers/gpu/drm/apple/iomfb.o
+  CC [M]  drivers/gpu/drm/apple/parser.o
+  CC [M]  drivers/gpu/drm/apple/systemep.o
+  CC [M]  drivers/gpu/drm/apple/audio.o
+  CC [M]  drivers/gpu/drm/apple/av.o
+  CC [M]  drivers/gpu/drm/apple/connector.o
+  CC [M]  drivers/gpu/drm/apple/ibootep.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v12_3.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v13_3.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v14_7.o
+  CC [M]  drivers/gpu/drm/apple/epic/dpavservep.o
+/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/drivers/gpu/drm/apple/connector.c: In function ‘tunnel_hpd_set’:
+/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/drivers/gpu/drm/apple/connector.c:101:24: error: implicit declaration of function ‘dcp_dptx_connect_oob’ [-Wimplicit-function-declaration]
+  101 |         return value ? dcp_dptx_connect_oob(con->dcp, 0) :
+      |                        ^~~~~~~~~~~~~~~~~~~~
+  CC [M]  drivers/gpu/drm/apple/plane.o
+/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/drivers/gpu/drm/apple/connector.c:102:24: error: implicit declaration of function ‘dcp_dptx_disconnect_oob’ [-Wimplicit-function-declaration]
+  102 |                        dcp_dptx_disconnect_oob(con->dcp, 0);
+      |                        ^~~~~~~~~~~~~~~~~~~~~~~
+make[8]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.build:289: drivers/gpu/drm/apple/connector.o] Error 1
+make[8]: *** Waiting for unfinished jobs....
+make[7]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.build:552: drivers/gpu/drm/apple] Error 2
+make[6]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.build:552: drivers/gpu/drm] Error 2
+make[5]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.build:552: drivers/gpu] Error 2
+make[4]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.build:552: drivers] Error 2
+make[3]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:2187: .] Error 2
+make[2]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:372: __build_one_by_one] Error 2
+make[1]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:248: __sub-make] Error 2
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+make: *** [Makefile:248: __sub-make] Error 2
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'

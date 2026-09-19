@@ -1,0 +1,18 @@
+== 0-0
+  device_name=iOS
+  vendor_name=Apple Inc.
+  authorized=1
+  generation=4
+  unique_id=61aa8afe-b70a-ac05-ffff-ffffffffffff
+== 0-0:1.1
+== 0-1
+  device_name=UltraFine 4K
+  vendor_name=LG Electronics
+  authorized=1
+  generation=3
+  rx_speed=10.0 Gb/s
+  tx_speed=10.0 Gb/s
+  rx_lanes=2
+  tx_lanes=2
+  unique_id=c5030000-0082-840e-038c-8b3a84c29000
+== domain0

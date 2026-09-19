@@ -1,0 +1,400 @@
+From 025ae4b0b2381435de05f67ab273872fbb2bc71d Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:20 +0200
+Subject: [PATCH] usb: typec: Add thunderbolt switch
+
+On Apple Silicon the USB4/Thunderbolt host router can only be brought
+up after the Type-C PHY has been configured and requires cable details
+known only to the Type-C port controller.
+
+The existing orientation switch only forwards the cable orientation.
+The mode switch also forwards most of the required details but
+represents devices which configure or route the Type-C signal path. The
+ACIO host router is a consumer of that path and has additional ordering
+requirements: it has to be started after the PHY has been configured
+and stopped again before the PHY is disabled.
+
+The mode switch code calls all handlers in the same order both when
+entering and leaving a mode and cannot express this reverse teardown
+order. Treating ACIO as another mode switch could therefore leave the
+NHI active after its PHY has been disabled, which can result in an
+asynchronous SError or a SoC watchdog reset.
+
+Add a separate Thunderbolt switch which Type-C port drivers can use to
+forward the negotiated Thunderbolt or USB4 cable details and explicitly
+order host router setup and teardown around the mode switch. This is
+similar to a USB role switch: each connection has exactly one host
+router and the callback controls the lifetime of that functional
+controller instead of configuring a signal mux.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/usb/typec/mux.c       | 201 ++++++++++++++++++++++++++++++++++
+ drivers/usb/typec/mux.h       |  12 ++
+ include/linux/usb/typec_mux.h | 114 +++++++++++++++++++
+ 3 files changed, 327 insertions(+)
+
+diff --git a/drivers/usb/typec/mux.c b/drivers/usb/typec/mux.c
+index 9b908c46bd7df9..8339846ba355e7 100644
+--- a/drivers/usb/typec/mux.c
++++ b/drivers/usb/typec/mux.c
+@@ -479,6 +479,207 @@ void *typec_mux_get_drvdata(struct typec_mux_dev *mux_dev)
+ }
+ EXPORT_SYMBOL_GPL(typec_mux_get_drvdata);
+ 
++/* ------------------------------------------------------------------------- */
++
++struct typec_thunderbolt_switch {
++	struct typec_thunderbolt_switch_dev *sw_dev;
++};
++
++static int thunderbolt_switch_fwnode_match(struct device *dev,
++					   const void *fwnode)
++{
++	if (!is_typec_thunderbolt_switch_dev(dev))
++		return 0;
++
++	return device_match_fwnode(dev, fwnode);
++}
++
++static void *typec_thunderbolt_switch_match(const struct fwnode_handle *fwnode,
++					    const char *id, void *data)
++{
++	struct device *dev;
++
++	if (id && !fwnode_property_present(fwnode, id))
++		return NULL;
++
++	dev = class_find_device(&typec_mux_class, NULL, fwnode,
++				thunderbolt_switch_fwnode_match);
++
++	return dev ? to_typec_thunderbolt_switch_dev(dev) :
++		     ERR_PTR(-EPROBE_DEFER);
++}
++
++/**
++ * fwnode_typec_thunderbolt_switch_get - Find USB4/Thunderbolt switch
++ * @fwnode: The caller device node
++ *
++ * Finds a USB4/Thunderbolt switch linked with @fwnode. Returns a
++ * reference to the switch on success, NULL if no matching connection
++ * was found, or ERR_PTR(-EPROBE_DEFER) when a connection was found but
++ * the switch has not been enumerated yet.
++ */
++struct typec_thunderbolt_switch *
++fwnode_typec_thunderbolt_switch_get(struct fwnode_handle *fwnode)
++{
++	struct typec_thunderbolt_switch_dev *sw_dev;
++	struct typec_thunderbolt_switch *sw;
++	void *match;
++
++	match = fwnode_connection_find_match(fwnode, "thunderbolt-switch", NULL,
++					     typec_thunderbolt_switch_match);
++	if (!match)
++		return NULL;
++	if (IS_ERR(match))
++		return ERR_CAST(match);
++	sw_dev = match;
++
++	sw = kzalloc_obj(*sw);
++	if (!sw) {
++		put_device(&sw_dev->dev);
++		return ERR_PTR(-ENOMEM);
++	}
++
++	sw->sw_dev = sw_dev;
++	WARN_ON(!try_module_get(sw_dev->dev.parent->driver->owner));
++
++	return sw;
++}
++EXPORT_SYMBOL_GPL(fwnode_typec_thunderbolt_switch_get);
++
++/**
++ * typec_thunderbolt_switch_put - Release handle to USB4/Thunderbolt switch
++ * @sw: USB4/Thunderbolt switch
++ *
++ * Decrements the reference count of @sw and releases the handle.
++ */
++void typec_thunderbolt_switch_put(struct typec_thunderbolt_switch *sw)
++{
++	if (IS_ERR_OR_NULL(sw))
++		return;
++
++	module_put(sw->sw_dev->dev.parent->driver->owner);
++	put_device(&sw->sw_dev->dev);
++	kfree(sw);
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_put);
++
++/**
++ * typec_thunderbolt_switch_set - Forward cable details to USB4/Thunderbolt switch
++ * @sw: USB4/Thunderbolt switch
++ * @data: Cable state and details
++ *
++ * Called by the Type-C port driver to forward the cable details
++ * out-of-band to the switch handler whenever a USB4/Thunderbolt
++ * connection comes up or goes away.
++ */
++int typec_thunderbolt_switch_set(struct typec_thunderbolt_switch *sw,
++				 const struct typec_thunderbolt_switch_data *data)
++{
++	if (IS_ERR_OR_NULL(sw))
++		return 0;
++
++	return sw->sw_dev->set(sw->sw_dev, data);
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_set);
++
++static void typec_thunderbolt_switch_release(struct device *dev)
++{
++	kfree(to_typec_thunderbolt_switch_dev(dev));
++}
++
++const struct device_type typec_thunderbolt_switch_dev_type = {
++	.name = "thunderbolt_switch",
++	.release = typec_thunderbolt_switch_release,
++};
++
++/**
++ * typec_thunderbolt_switch_register - Register USB4/Thunderbolt switch
++ * @parent: Parent device
++ * @desc: USB4/Thunderbolt switch description
++ *
++ * This function registers a handler for USB4/Thunderbolt mode switching
++ * which Type-C port drivers use to forward the cable details once a
++ * USB4/Thunderbolt connection comes up.
++ */
++struct typec_thunderbolt_switch_dev *
++typec_thunderbolt_switch_register(struct device *parent,
++				  const struct typec_thunderbolt_switch_desc *desc)
++{
++	struct typec_thunderbolt_switch_dev *sw_dev;
++	int ret;
++
++	if (!desc || !desc->set)
++		return ERR_PTR(-EINVAL);
++
++	sw_dev = kzalloc_obj(*sw_dev);
++	if (!sw_dev)
++		return ERR_PTR(-ENOMEM);
++
++	sw_dev->set = desc->set;
++
++	device_initialize(&sw_dev->dev);
++	sw_dev->dev.parent = parent;
++	sw_dev->dev.fwnode = desc->fwnode;
++	sw_dev->dev.class = &typec_mux_class;
++	sw_dev->dev.type = &typec_thunderbolt_switch_dev_type;
++	sw_dev->dev.driver_data = desc->drvdata;
++	ret = dev_set_name(&sw_dev->dev, "%s-thunderbolt-switch",
++			   desc->name ? desc->name : dev_name(parent));
++	if (ret) {
++		put_device(&sw_dev->dev);
++		return ERR_PTR(ret);
++	}
++
++	ret = device_add(&sw_dev->dev);
++	if (ret) {
++		dev_err(parent, "failed to register switch (%d)\n", ret);
++		put_device(&sw_dev->dev);
++		return ERR_PTR(ret);
++	}
++
++	return sw_dev;
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_register);
++
++/**
++ * typec_thunderbolt_switch_unregister - Unregister USB4/Thunderbolt switch
++ * @sw_dev: USB4/Thunderbolt switch
++ *
++ * Unregister switch that was registered with
++ * typec_thunderbolt_switch_register().
++ */
++void typec_thunderbolt_switch_unregister(struct typec_thunderbolt_switch_dev *sw_dev)
++{
++	if (!IS_ERR_OR_NULL(sw_dev))
++		device_unregister(&sw_dev->dev);
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_unregister);
++
++/**
++ * typec_thunderbolt_switch_set_drvdata - Assign private data to the switch
++ * @sw_dev: USB4/Thunderbolt switch
++ * @data: Private data
++ */
++void typec_thunderbolt_switch_set_drvdata(struct typec_thunderbolt_switch_dev *sw_dev,
++					  void *data)
++{
++	dev_set_drvdata(&sw_dev->dev, data);
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_set_drvdata);
++
++/**
++ * typec_thunderbolt_switch_get_drvdata - Get the private data from the switch
++ * @sw_dev: USB4/Thunderbolt switch
++ *
++ * Returns the private data previously assigned with
++ * typec_thunderbolt_switch_set_drvdata().
++ */
++void *typec_thunderbolt_switch_get_drvdata(struct typec_thunderbolt_switch_dev *sw_dev)
++{
++	return dev_get_drvdata(&sw_dev->dev);
++}
++EXPORT_SYMBOL_GPL(typec_thunderbolt_switch_get_drvdata);
++
+ const struct class typec_mux_class = {
+ 	.name = "typec_mux",
+ };
+diff --git a/drivers/usb/typec/mux.h b/drivers/usb/typec/mux.h
+index 58f0f28b6dc84d..a2c92cab12114a 100644
+--- a/drivers/usb/typec/mux.h
++++ b/drivers/usb/typec/mux.h
+@@ -23,5 +23,17 @@ extern const struct device_type typec_mux_dev_type;
+ 
+ #define is_typec_switch_dev(dev) ((dev)->type == &typec_switch_dev_type)
+ #define is_typec_mux_dev(dev) ((dev)->type == &typec_mux_dev_type)
++#define is_typec_thunderbolt_switch_dev(dev) \
++	((dev)->type == &typec_thunderbolt_switch_dev_type)
++
++struct typec_thunderbolt_switch_dev {
++	struct device dev;
++	typec_thunderbolt_switch_set_fn_t set;
++};
++
++#define to_typec_thunderbolt_switch_dev(_dev_) \
++	container_of(_dev_, struct typec_thunderbolt_switch_dev, dev)
++
++extern const struct device_type typec_thunderbolt_switch_dev_type;
+ 
+ #endif /* __USB_TYPEC_MUX__ */
+diff --git a/include/linux/usb/typec_mux.h b/include/linux/usb/typec_mux.h
+index aa9ebb7e2fe0bb..0726407bb6240e 100644
+--- a/include/linux/usb/typec_mux.h
++++ b/include/linux/usb/typec_mux.h
+@@ -6,6 +6,7 @@
+ #include <linux/err.h>
+ #include <linux/property.h>
+ #include <linux/usb/typec.h>
++#include <linux/usb/typec_tbt.h>
+ 
+ struct device;
+ struct typec_mux;
+@@ -141,4 +142,117 @@ static inline struct typec_mux *typec_mux_get(struct device *dev)
+ 	return fwnode_typec_mux_get(dev_fwnode(dev));
+ }
+ 
++struct typec_thunderbolt_switch;
++struct typec_thunderbolt_switch_dev;
++
++enum typec_thunderbolt_switch_state {
++	TYPEC_THUNDERBOLT_SWITCH_OFF,
++	TYPEC_THUNDERBOLT_SWITCH_TBT,
++	TYPEC_THUNDERBOLT_SWITCH_USB4,
++};
++
++/**
++ * struct typec_thunderbolt_switch_data - Type-C Thunderbolt/USB4 Switch Data
++ * @state: Switch state (TBT, USB4, or OFF)
++ * @orientation: Orientation of the connection
++ * @tbt: Thunderbolt 3 specific data, only valid in
++ *	 TYPEC_THUNDERBOLT_SWITCH_TBT
++ * @usb4: Enter_USB data, only valid in TYPEC_THUNDERBOLT_SWITCH_USB4
++ */
++struct typec_thunderbolt_switch_data {
++	enum typec_thunderbolt_switch_state state;
++	enum typec_orientation orientation;
++	union {
++		struct typec_thunderbolt_data tbt;
++		struct enter_usb_data usb4;
++	};
++};
++
++typedef int (*typec_thunderbolt_switch_set_fn_t)(struct typec_thunderbolt_switch_dev *sw,
++						 const struct typec_thunderbolt_switch_data *data);
++
++/**
++ * struct typec_thunderbolt_switch_desc - USB4/Thunderbolt switch description
++ * @fwnode: The fwnode the switch is associated with
++ * @set: Callback invoked with the cable details on connection changes
++ * @name: Optional switch name, the parent device name is used if not set
++ * @drvdata: Private data
++ */
++struct typec_thunderbolt_switch_desc {
++	struct fwnode_handle *fwnode;
++	typec_thunderbolt_switch_set_fn_t set;
++	const char *name;
++	void *drvdata;
++};
++
++#if IS_ENABLED(CONFIG_TYPEC)
++
++struct typec_thunderbolt_switch *
++fwnode_typec_thunderbolt_switch_get(struct fwnode_handle *fwnode);
++void typec_thunderbolt_switch_put(struct typec_thunderbolt_switch *sw);
++int typec_thunderbolt_switch_set(struct typec_thunderbolt_switch *sw,
++				 const struct typec_thunderbolt_switch_data *data);
++
++struct typec_thunderbolt_switch_dev *
++typec_thunderbolt_switch_register(struct device *parent,
++				  const struct typec_thunderbolt_switch_desc *desc);
++void typec_thunderbolt_switch_unregister(struct typec_thunderbolt_switch_dev *sw);
++
++void typec_thunderbolt_switch_set_drvdata(struct typec_thunderbolt_switch_dev *sw,
++					  void *data);
++void *
++typec_thunderbolt_switch_get_drvdata(struct typec_thunderbolt_switch_dev *sw);
++
++#else
++
++static inline struct typec_thunderbolt_switch *
++fwnode_typec_thunderbolt_switch_get(struct fwnode_handle *fwnode)
++{
++	return NULL;
++}
++
++static inline void
++typec_thunderbolt_switch_put(struct typec_thunderbolt_switch *sw)
++{
++}
++
++static inline int
++typec_thunderbolt_switch_set(struct typec_thunderbolt_switch *sw,
++			     const struct typec_thunderbolt_switch_data *data)
++{
++	return 0;
++}
++
++static inline struct typec_thunderbolt_switch_dev *
++typec_thunderbolt_switch_register(struct device *parent,
++				  const struct typec_thunderbolt_switch_desc *desc)
++{
++	return ERR_PTR(-EOPNOTSUPP);
++}
++
++static inline void
++typec_thunderbolt_switch_unregister(struct typec_thunderbolt_switch_dev *sw)
++{
++}
++
++static inline void
++typec_thunderbolt_switch_set_drvdata(struct typec_thunderbolt_switch_dev *sw,
++				     void *data)
++{
++}
++
++static inline void *
++typec_thunderbolt_switch_get_drvdata(struct typec_thunderbolt_switch_dev *sw)
++{
++	return NULL;
++}
++
++#endif /* CONFIG_TYPEC */
++
++static inline struct typec_thunderbolt_switch *
++typec_thunderbolt_switch_get(struct device *dev)
++{
++	return fwnode_typec_thunderbolt_switch_get(dev_fwnode(dev));
++}
++
+ #endif /* __USB_TYPEC_MUX */

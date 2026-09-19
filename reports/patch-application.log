@@ -1,0 +1,3 @@
+patching file arch/arm64/boot/dts/apple/t8103-jxxx.dtsi
+patching file drivers/usb/typec/tipd/core.c
+patching file drivers/usb/typec/tipd/tps6598x.h

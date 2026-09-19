@@ -1,0 +1,6 @@
+{
+  "control": "/sys/kernel/debug/dri/soc:display-subsystem/DP-1/tunnel_hpd",
+  "write_succeeded": false,
+  "note": "A successful write only means a firmware request, not display output.",
+  "write_error": "[Errno 110] Connection timed out"
+}

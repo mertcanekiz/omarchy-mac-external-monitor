@@ -1,0 +1,12 @@
+## card2-DP-1 status
+connected
+## modes
+3840x2160
+3840x2160
+3840x2160
+3360x1890
+2560x1440
+1920x1080
+640x480
+## edid bytes
+384

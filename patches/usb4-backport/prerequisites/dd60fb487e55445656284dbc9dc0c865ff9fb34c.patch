@@ -1,0 +1,162 @@
+From dd60fb487e55445656284dbc9dc0c865ff9fb34c Mon Sep 17 00:00:00 2001
+From: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Date: Thu, 21 May 2026 12:40:02 +0200
+Subject: [PATCH] thunderbolt: Require nhi->ops be valid
+
+Because of how fundamental ops->init_interrupts() is, it no longer
+makes sense to consider cases where nhi->ops is NULL.
+
+Drop some boilerplate around it and add a single sanity-check in
+nhi_probe() instead.
+
+Signed-off-by: Konrad Dybcio <konrad.dybcio@oss.qualcomm.com>
+Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+---
+ drivers/thunderbolt/nhi.c    | 32 ++++++++++++++++++--------------
+ drivers/thunderbolt/switch.c |  6 +++---
+ 2 files changed, 21 insertions(+), 17 deletions(-)
+
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index be00ffb04766ee..e9ba8ffbe349e1 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -568,7 +568,7 @@ static struct tb_ring *tb_ring_alloc(struct tb_nhi *nhi, u32 hop, int size,
+ 	if (!ring->descriptors)
+ 		goto err_free_ring;
+ 
+-	if (nhi->ops && nhi->ops->request_ring_irq) {
++	if (nhi->ops->request_ring_irq) {
+ 		if (nhi->ops->request_ring_irq(ring, flags & RING_FLAG_NO_SUSPEND))
+ 			goto err_free_descs;
+ 	}
+@@ -579,7 +579,7 @@ static struct tb_ring *tb_ring_alloc(struct tb_nhi *nhi, u32 hop, int size,
+ 	return ring;
+ 
+ err_release_msix:
+-	if (nhi->ops && nhi->ops->release_ring_irq)
++	if (nhi->ops->release_ring_irq)
+ 		nhi->ops->release_ring_irq(ring);
+ err_free_descs:
+ 	dma_free_coherent(ring->nhi->dev,
+@@ -813,7 +813,7 @@ void tb_ring_free(struct tb_ring *ring)
+ 	}
+ 	spin_unlock_irq(&ring->nhi->lock);
+ 
+-	if (nhi->ops && nhi->ops->release_ring_irq)
++	if (nhi->ops->release_ring_irq)
+ 		nhi->ops->release_ring_irq(ring);
+ 
+ 	dma_free_coherent(ring->nhi->dev,
+@@ -982,7 +982,7 @@ static int __nhi_suspend_noirq(struct device *dev, bool wakeup)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (nhi->ops && nhi->ops->suspend_noirq) {
++	if (nhi->ops->suspend_noirq) {
+ 		ret = nhi->ops->suspend_noirq(tb->nhi, wakeup);
+ 		if (ret)
+ 			return ret;
+@@ -1045,7 +1045,7 @@ static int nhi_resume_noirq(struct device *dev)
+ 	 */
+ 	if ((nhi->ops->is_present && !nhi->ops->is_present(nhi))) {
+ 		nhi->going_away = true;
+-	} else if (nhi->ops && nhi->ops->resume_noirq) {
++	} else if (nhi->ops->resume_noirq) {
+ 		ret = nhi->ops->resume_noirq(nhi);
+ 		if (ret)
+ 			return ret;
+@@ -1086,7 +1086,7 @@ static int nhi_runtime_suspend(struct device *dev)
+ 	if (ret)
+ 		return ret;
+ 
+-	if (nhi->ops && nhi->ops->runtime_suspend) {
++	if (nhi->ops->runtime_suspend) {
+ 		ret = nhi->ops->runtime_suspend(tb->nhi);
+ 		if (ret)
+ 			return ret;
+@@ -1100,7 +1100,7 @@ static int nhi_runtime_resume(struct device *dev)
+ 	struct tb_nhi *nhi = tb->nhi;
+ 	int ret;
+ 
+-	if (nhi->ops && nhi->ops->runtime_resume) {
++	if (nhi->ops->runtime_resume) {
+ 		ret = nhi->ops->runtime_resume(nhi);
+ 		if (ret)
+ 			return ret;
+@@ -1125,7 +1125,7 @@ void nhi_shutdown(struct tb_nhi *nhi)
+ 	}
+ 	nhi_disable_interrupts(nhi);
+ 
+-	if (nhi->ops && nhi->ops->shutdown)
++	if (nhi->ops->shutdown)
+ 		nhi->ops->shutdown(nhi);
+ }
+ 
+@@ -1189,6 +1189,12 @@ int nhi_probe(struct tb_nhi *nhi)
+ 	struct tb *tb;
+ 	int res;
+ 
++	if (!nhi->ops)
++		return dev_err_probe(dev, -EINVAL, "NHI ops not set\n");
++
++	if (!nhi->ops->init_interrupts)
++		return dev_err_probe(dev, -EINVAL, "missing required NHI ops\n");
++
+ 	nhi->hop_count = ioread32(nhi->iobase + REG_CAPS) & 0x3ff;
+ 	dev_dbg(dev, "total paths: %d\n", nhi->hop_count);
+ 
+@@ -1204,11 +1210,9 @@ int nhi_probe(struct tb_nhi *nhi)
+ 	/* In case someone left them on. */
+ 	nhi_disable_interrupts(nhi);
+ 
+-	if (nhi->ops && nhi->ops->init_interrupts) {
+-		res = nhi->ops->init_interrupts(nhi);
+-		if (res)
+-			return dev_err_probe(dev, res, "cannot enable interrupts, aborting\n");
+-	}
++	res = nhi->ops->init_interrupts(nhi);
++	if (res)
++		return dev_err_probe(dev, res, "cannot enable interrupts, aborting\n");
+ 
+ 	spin_lock_init(&nhi->lock);
+ 
+@@ -1216,7 +1220,7 @@ int nhi_probe(struct tb_nhi *nhi)
+ 	if (res)
+ 		return dev_err_probe(dev, res, "failed to set DMA mask\n");
+ 
+-	if (nhi->ops && nhi->ops->init) {
++	if (nhi->ops->init) {
+ 		res = nhi->ops->init(nhi);
+ 		if (res)
+ 			return res;
+diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
+index a29b9887cd6b69..a830c82bb90598 100644
+--- a/drivers/thunderbolt/switch.c
++++ b/drivers/thunderbolt/switch.c
+@@ -251,7 +251,7 @@ static int nvm_authenticate(struct tb_switch *sw, bool auth_only)
+ 
+ 	sw->nvm->authenticating = true;
+ 	if (!tb_route(sw)) {
+-		if (nhi->ops && nhi->ops->pre_nvm_auth)
++		if (nhi->ops->pre_nvm_auth)
+ 			nhi->ops->pre_nvm_auth(nhi);
+ 		ret = nvm_authenticate_host_dma_port(sw);
+ 	} else {
+@@ -2782,7 +2782,7 @@ static int tb_switch_add_dma_port(struct tb_switch *sw)
+ 	nvm_get_auth_status(sw, &status);
+ 	if (status) {
+ 		if (!tb_route(sw)) {
+-			if (nhi->ops && nhi->ops->post_nvm_auth)
++			if (nhi->ops->post_nvm_auth)
+ 				nhi->ops->post_nvm_auth(nhi);
+ 		}
+ 		return 0;
+@@ -2799,7 +2799,7 @@ static int tb_switch_add_dma_port(struct tb_switch *sw)
+ 
+ 	/* Now we can allow root port to suspend again */
+ 	if (!tb_route(sw)) {
+-		if (nhi->ops && nhi->ops->post_nvm_auth)
++		if (nhi->ops->post_nvm_auth)
+ 			nhi->ops->post_nvm_auth(nhi);
+ 	}
+ 

@@ -1,0 +1,115 @@
+{
+  "time": "2026-09-18T04:45:37.331585",
+  "kernel": "7.1.13-usb4-gpu-test",
+  "tainted": "4",
+  "params": {
+    "phy_clocks": "2",
+    "prime_rate": "5400",
+    "skip_mask": "0",
+    "dprx_timeout": "-1"
+  },
+  "tunnel_hpd": "1",
+  "tunnel_dpin": "0",
+  "tb_devices": [
+    "0-0",
+    "0-0:1.1",
+    "0-1",
+    "domain0"
+  ],
+  "adapters": {
+    "0-0/port5": {
+      "type": "DP IN",
+      "adapter_enabled": true,
+      "video_enabled": true,
+      "dprx_done": true,
+      "local": {
+        "raw": "0x26402214",
+        "rate_code": 2,
+        "lane_code": 2
+      },
+      "remote": {
+        "raw": "0x840a234",
+        "rate_code": 2,
+        "lane_code": 2
+      },
+      "common": {
+        "raw": "0xaa402214",
+        "rate_code": 2,
+        "lane_code": 2
+      }
+    },
+    "0-0/port6": {
+      "type": "DP IN",
+      "adapter_enabled": false,
+      "video_enabled": false,
+      "dprx_done": false,
+      "local": {
+        "raw": "0x5402334",
+        "rate_code": 3,
+        "lane_code": 2
+      },
+      "remote": {
+        "raw": "0x0",
+        "rate_code": 0,
+        "lane_code": 0
+      },
+      "common": {
+        "raw": "0x0",
+        "rate_code": 0,
+        "lane_code": 0
+      }
+    },
+    "0-1/port10": {
+      "type": "DP OUT",
+      "adapter_enabled": true,
+      "video_enabled": true,
+      "dprx_done": false,
+      "local": {
+        "raw": "0xc0a334",
+        "rate_code": 3,
+        "lane_code": 2
+      },
+      "remote": {
+        "raw": "0x5402334",
+        "rate_code": 3,
+        "lane_code": 2
+      },
+      "common": {
+        "raw": "0x402334",
+        "rate_code": 3,
+        "lane_code": 2
+      }
+    },
+    "0-1/port11": {
+      "type": "DP OUT",
+      "adapter_enabled": false,
+      "video_enabled": false,
+      "dprx_done": false,
+      "local": {
+        "raw": "0x0",
+        "rate_code": 0,
+        "lane_code": 0
+      },
+      "remote": {
+        "raw": "0x0",
+        "rate_code": 0,
+        "lane_code": 0
+      },
+      "common": {
+        "raw": "0x0",
+        "rate_code": 0,
+        "lane_code": 0
+      }
+    }
+  },
+  "drm": {
+    "card2-DP-1": [
+      "connected",
+      7
+    ],
+    "card2-eDP-1": [
+      "connected",
+      1
+    ]
+  }
+}

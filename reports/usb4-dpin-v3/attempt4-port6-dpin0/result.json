@@ -1,0 +1,11 @@
+{
+  "write_succeeded": false,
+  "settings": {
+    "phy_clocks": "2",
+    "prime_rate": "5400",
+    "skip_mask": "32",
+    "dprx_timeout": "-1"
+  },
+  "dpin": "0",
+  "write_error": "[Errno 110] Connection timed out"
+}

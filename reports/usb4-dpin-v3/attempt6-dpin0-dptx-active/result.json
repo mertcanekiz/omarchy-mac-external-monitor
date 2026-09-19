@@ -1,0 +1,10 @@
+{
+  "write_succeeded": true,
+  "settings": {
+    "phy_clocks": "2",
+    "prime_rate": "5400",
+    "skip_mask": "0",
+    "dprx_timeout": "-1"
+  },
+  "dpin": "0"
+}

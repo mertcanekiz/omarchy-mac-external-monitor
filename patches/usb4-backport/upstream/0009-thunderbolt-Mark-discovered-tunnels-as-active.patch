@@ -1,0 +1,46 @@
+From f8c74d0cffe05b3efcabb06bbde53e51254e1af1 Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sat, 29 Aug 2026 10:08:37 +0200
+Subject: [PATCH 09/23] thunderbolt: Mark discovered tunnels as active
+
+Discovered tunnels that have been activated by whatever was running
+before us stay in TB_TUNNEL_INACTIVE until hibernation restore such that
+anything depending on tb_tunnel_is_active() skips them. Mark them active
+during discovery instead. These now also emit TUNNEL_EVENT=activated
+uevents during discovery.
+
+Fixes: d6d458d42e1e ("thunderbolt: Handle DisplayPort tunnel activation asynchronously")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/tunnel.c | 3 +++
+ 1 file changed, 3 insertions(+)
+
+diff --git a/drivers/thunderbolt/tunnel.c b/drivers/thunderbolt/tunnel.c
+index 5f53663590..3785e29cf9 100644
+--- a/drivers/thunderbolt/tunnel.c
++++ b/drivers/thunderbolt/tunnel.c
+@@ -507,6 +507,7 @@ struct tb_tunnel *tb_tunnel_discover_pci(struct tb *tb, struct tb_port *down,
+ 		goto err_deactivate;
+ 	}
+ 
++	tb_tunnel_set_active(tunnel, true);
+ 	tb_tunnel_dbg(tunnel, "discovered\n");
+ 	return tunnel;
+ 
+@@ -1671,6 +1672,7 @@ struct tb_tunnel *tb_tunnel_discover_dp(struct tb *tb, struct tb_port *in,
+ 
+ 	tb_dp_dump(tunnel);
+ 
++	tb_tunnel_set_active(tunnel, true);
+ 	tb_tunnel_dbg(tunnel, "discovered\n");
+ 	return tunnel;
+ 
+@@ -2299,6 +2301,7 @@ struct tb_tunnel *tb_tunnel_discover_usb3(struct tb *tb, struct tb_port *down,
+ 			tb_usb3_reclaim_available_bandwidth;
+ 	}
+ 
++	tb_tunnel_set_active(tunnel, true);
+ 	tb_tunnel_dbg(tunnel, "discovered\n");
+ 	return tunnel;
+ 

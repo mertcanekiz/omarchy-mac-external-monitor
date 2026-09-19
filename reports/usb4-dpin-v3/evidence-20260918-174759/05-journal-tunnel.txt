@@ -1,0 +1,40 @@
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: activating AUX TX path from 0:5 to 1:10
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: Writing hop 1
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:  In HopID: 10 => Out port: 10 Out HopID: 8
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Weight: 1 Priority: 2 Credits: 1 Drop: 0 PM: 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: Writing hop 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:  In HopID: 8 => Out port: 1 Out HopID: 10
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Weight: 1 Priority: 2 Credits: 1 Drop: 0 PM: 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:    Counter enabled: 0 Counter index: 2047
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Flow Control (In/Eg): 1/1 Shared Buffer (In/Eg): 0/0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: AUX TX path activation complete
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: activating AUX RX path from 1:10 to 0:5
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: Writing hop 1
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:  In HopID: 9 => Out port: 5 Out HopID: 8
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Weight: 1 Priority: 2 Credits: 4 Drop: 0 PM: 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: Writing hop 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:  In HopID: 8 => Out port: 1 Out HopID: 9
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Weight: 1 Priority: 2 Credits: 1 Drop: 0 PM: 0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:    Counter enabled: 0 Counter index: 2047
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Flow Control (In/Eg): 1/1 Shared Buffer (In/Eg): 0/0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: AUX RX path activation complete
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:6: DP IN available
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: DP OUT in use
+Sep 18 17:23:21 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:6: no suitable DP OUT adapter available, not tunneling
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX capabilities read completed
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): consumed bandwidth 0/17280 Mb/s
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth consumption changed, re-calculating estimated bandwidth
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: re-calculating bandwidth estimation for group 1
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): re-calculated estimated bandwidth 18000 (+ 0 reserved) = 18000 Mb/s
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth estimation for group 1 done
+Sep 18 17:35:49 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth re-calculation done

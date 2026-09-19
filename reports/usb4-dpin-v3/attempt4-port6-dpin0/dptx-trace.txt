@@ -1,0 +1,19 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 7/7   #P:8
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+         python3-10758   [003] .....   399.747204: dptxport_validate_connection: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+         python3-10758   [003] .....   399.747580: dptxport_connect: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+   kworker/u32:0-12      [003] .....   399.748160: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 18 (get_supports_hpd) with len 32
+   kworker/u32:0-12      [003] .....   399.748271: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 10 (get_max_lane_count) with len 32
+   kworker/u32:0-12      [003] .....   399.748415: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 0 (activate) with len 16
+   kworker/u32:0-12      [003] .....   406.808192: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 22 (device_not_responding) with len 16
+   kworker/u32:0-12      [003] .....   406.808461: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 24 (device_not_started) with len 16

@@ -1,0 +1,62 @@
+--- a/drivers/gpu/drm/apple/dcp.c
++++ b/drivers/gpu/drm/apple/dcp.c
+@@ -379,13 +379,17 @@
+ 
+ 	reinit_completion(&dcp->dptxport[port].linkcfg_completion);
+ 	dcp->dptxport[port].atcphy = dcp->phy;
+-	dptxport_connect(dcp->dptxport[port].service, 0, dcp->dptx_phy, dcp->dptx_die);
+-	dptxport_request_display(dcp->dptxport[port].service);
++	ret = dptxport_connect(dcp->dptxport[port].service, 0, dcp->dptx_phy, dcp->dptx_die);
++	dev_info(dcp->dev, "display-diag: port %u connect returned %d\n", port, ret);
++	ret = dptxport_request_display(dcp->dptxport[port].service);
++	dev_info(dcp->dev, "display-diag: port %u request_display returned %d\n", port, ret);
+ 	dcp->dptxport[port].connected = true;
+ 
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 	ret = wait_for_completion_timeout(&dcp->dptxport[port].linkcfg_completion,
+ 				    DPTX_CONNECT_TIMEOUT);
++	dev_info(dcp->dev, "display-diag: port %u linkcfg completion %s (remaining jiffies %d)\n",
++		 port, ret > 0 ? "received" : "timed out", ret);
+ 	if (ret < 0)
+ 		dev_warn(dcp->dev, "dcp_dptx_connect: port %d link complete failed:%d\n",
+ 			 port, ret);
+@@ -395,8 +399,10 @@
+ 
+ 	usleep_range(5, 10);
+ 
+-	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort)
+-		dptxport_set_hpd(dcp->dptxport[port].service, true);
++	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort) {
++		ret = dptxport_set_hpd(dcp->dptxport[port].service, true);
++		dev_info(dcp->dev, "display-diag: port %u set_hpd returned %d\n", port, ret);
++	}
+ 
+ 	if (dcp->avep)
+ 		av_service_connect(dcp);
+--- a/drivers/gpu/drm/apple/dptxep.c
++++ b/drivers/gpu/drm/apple/dptxep.c
+@@ -258,6 +258,8 @@
+ 		return -EINVAL;
+ 
+ 	ret = phy_validate(dptx->atcphy, PHY_MODE_DP, 0, &phy_ops);
++	dev_info(dcp->dev, "display-diag: phy_validate returned %d, lanes %u\n",
++		 ret, ret < 0 ? 0 : phy_ops.dp.lanes);
+ 	if (ret < 0) {
+ 		dev_err(dcp->dev, "phy_validate failed: %d\n", ret);
+ 		reply->retcode = cpu_to_le32(1);
+@@ -297,6 +299,7 @@
+ 		return -1;
+ 
+ 	u64 lane_count = le64_to_cpu(request->lane_count);
++	dev_info(dcp->dev, "display-diag: requested active lanes %llu\n", lane_count);
+ 
+ 	if (dptx->lane_count < lane_count)
+ 		dev_err(dcp->dev, "set_active_lane_count: unexpected lane "
+@@ -390,6 +393,7 @@
+ 
+ 	link_rate = le32_to_cpu(request->link_rate);
+ 	trace_dptxport_call_set_link_rate(dptx, link_rate);
++	dev_info(service->ep->dcp->dev, "display-diag: requested link rate 0x%x\n", link_rate);
+ 
+ 	switch (link_rate) {
+ 	case LINK_RATE_RBR:

@@ -1,0 +1,350 @@
+diff --git a/arch/arm64/boot/dts/apple/t8103-j313.dts b/arch/arm64/boot/dts/apple/t8103-j313.dts
+index f5b7bb441..416d19eb8 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j313.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j313.dts
+@@ -20,6 +20,7 @@ / {
+ 
+ 	aliases {
+ 		sep = &sep;
++		dcpext = &dcpext;
+ 	};
+ 
+ 	led-controller {
+@@ -49,6 +50,35 @@ &framebuffer0 {
+ 	post-init-providers = <&panel>;
+ };
+ 
++/* Local bring-up experiment: front Type-C port, Thunderbolt DP-IN 0. */
++&display {
++	iommus = <&disp0_dart 0 0x0 0x0 0x0 0xfc000000>,
++		 <&dispext0_dart 0 0x0 0x0 0x0 0xfc000000>;
++};
++
++&dispext0_dart {
++	status = "okay";
++};
++
++&dcpext_dart {
++	status = "okay";
++};
++
++&dcpext_mbox {
++	status = "okay";
++};
++
++&dcpext {
++	status = "okay";
++	apple,connector-type = "DP";
++	apple,tbt-dpin-test;
++	apple,dptx-phy = <1>;
++	apple,dptx-core = <1>;
++	mux-controls = <&atcphy1_xbar 1>;
++	mux-control-names = "dp-xbar";
++	mux-index = <0>;
++};
++
+ &bluetooth0 {
+ 	brcm,board-type = "apple,shikoku";
+ };
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index ed7e833fe..631e5e970 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -1506,7 +1506,7 @@ dcpext: dcp@271c00000 {
+ 			#size-cells = <2>;
+ 
+ 			piodma {
+-				iommus = <&dispext0_dart 4 0x0 0x0 0xf 0xffff0000>;
++				iommus = <&dispext0_dart 4 0x0 0x0 0x0 0xfc000000>;
+ 			};
+ 
+ 			ports {
+diff --git a/drivers/gpu/drm/apple/connector.c b/drivers/gpu/drm/apple/connector.c
+index 15b3664d8..9894fc6f8 100644
+--- a/drivers/gpu/drm/apple/connector.c
++++ b/drivers/gpu/drm/apple/connector.c
+@@ -15,6 +15,7 @@
+ #include <drm/drm_managed.h>
+ 
+ #include "dcp-internal.h"
++#include "dcp.h"
+ 
+ enum dcp_chunk_type {
+ 	DCP_CHUNK_COLOR_ELEMENTS,
+@@ -79,6 +80,30 @@ CONNECTOR_DEBUGFS_ENTRY(timing, DCP_CHUNK_TIMING_ELELMENTS);
+ CONNECTOR_DEBUGFS_ENTRY(display_attribs, DCP_CHUNK_DISPLAY_ATTRIBUTES);
+ CONNECTOR_DEBUGFS_ENTRY(transport, DCP_CHUNK_TRANSPORT);
+ 
++/* Fixed-route bring-up only: a firmware request is not proof of a picture. */
++static int tunnel_hpd_get(void *data, u64 *value)
++{
++	struct apple_connector *con = data;
++	struct apple_dcp *dcp = platform_get_drvdata(con->dcp);
++
++	mutex_lock(&dcp->hpd_mutex);
++	*value = dcp->dptxport[0].connected;
++	mutex_unlock(&dcp->hpd_mutex);
++	return 0;
++}
++
++static int tunnel_hpd_set(void *data, u64 value)
++{
++	struct apple_connector *con = data;
++	struct apple_dcp *dcp = platform_get_drvdata(con->dcp);
++
++	if (!dcp->dp_tunnel || value > 1)
++		return -EINVAL;
++	return value ? dcp_dptx_connect_oob(con->dcp, 0) :
++		       dcp_dptx_disconnect_oob(con->dcp, 0);
++}
++DEFINE_DEBUGFS_ATTRIBUTE(tunnel_hpd_fops, tunnel_hpd_get, tunnel_hpd_set, "%llu\n");
++
+ static void dcp_afk_debugfs_root(struct platform_device *pdev, int ep, struct dentry *root)
+ {
+ #if IS_ENABLED(CONFIG_DRM_APPLE_DEBUG)
+@@ -101,6 +126,10 @@ static void dcp_afk_debugfs_root(struct platform_device *pdev, int ep, struct de
+ void apple_connector_debugfs_init(struct drm_connector *connector, struct dentry *root)
+ {
+ 	struct apple_connector *apple_con = to_apple_connector(connector);
++	struct apple_dcp *dcp = platform_get_drvdata(apple_con->dcp);
++
++	if (dcp->dp_tunnel)
++		debugfs_create_file("tunnel_hpd", 0600, root, apple_con, &tunnel_hpd_fops);
+ 
+         debugfs_create_file("ColorElements", 0444, root, apple_con,
+                             &chunk_color_fops);
+diff --git a/drivers/gpu/drm/apple/dcp-internal.h b/drivers/gpu/drm/apple/dcp-internal.h
+index a2e992b80..70d22b799 100644
+--- a/drivers/gpu/drm/apple/dcp-internal.h
++++ b/drivers/gpu/drm/apple/dcp-internal.h
+@@ -262,6 +262,11 @@ struct apple_dcp {
+ 
+ 	u32 dptx_phy;
+ 	u32 dptx_die;
++	/* Opt-in, fixed-route Thunderbolt DP-IN bring-up experiment. */
++	bool dp_tunnel;
++	bool tunnel_mux_selected;
++	u32 dptx_core;
++	u32 tunnel_mux_index;
+ 	int hdmi_hpd_irq;
+ };
+ 
+diff --git a/drivers/gpu/drm/apple/dcp.c b/drivers/gpu/drm/apple/dcp.c
+index 7629cf080..b30502b70 100644
+--- a/drivers/gpu/drm/apple/dcp.c
++++ b/drivers/gpu/drm/apple/dcp.c
+@@ -361,7 +361,7 @@ static int dcp_dptx_connect(struct apple_dcp *dcp, u32 port)
+ {
+ 	int ret = 0;
+ 
+-	if (!dcp->phy) {
++	if (!dcp->phy && !dcp->dp_tunnel) {
+ 		dev_warn(dcp->dev, "dcp_dptx_connect: missing phy\n");
+ 		return -ENODEV;
+ 	}
+@@ -377,32 +377,63 @@ static int dcp_dptx_connect(struct apple_dcp *dcp, u32 port)
+ 	if (dcp->dptxport[port].connected)
+ 		goto out_unlock;
+ 
++	if (dcp->dp_tunnel) {
++		ret = mux_control_select(dcp->xbar, dcp->tunnel_mux_index);
++		if (ret)
++			goto out_unlock;
++		dcp->tunnel_mux_selected = true;
++		ret = dptxport_validate_connection(dcp->dptxport[port].service,
++				dcp->dptx_core, dcp->dptx_phy, dcp->dptx_die);
++		dev_info(dcp->dev, "DP tunnel validate core=%u ATC=%u die=%u: %d\n",
++			 dcp->dptx_core, dcp->dptx_phy, dcp->dptx_die, ret);
++		if (ret)
++			goto out_mux;
++	}
++
+ 	reinit_completion(&dcp->dptxport[port].linkcfg_completion);
+ 	dcp->dptxport[port].atcphy = dcp->phy;
+-	dptxport_connect(dcp->dptxport[port].service, 0, dcp->dptx_phy, dcp->dptx_die);
+-	dptxport_request_display(dcp->dptxport[port].service);
++	ret = dptxport_connect(dcp->dptxport[port].service, dcp->dptx_core,
++			       dcp->dptx_phy, dcp->dptx_die);
++	if (ret) {
++		dev_err(dcp->dev, "DPTX connect failed: %d\n", ret);
++		goto out_mux;
++	}
++	ret = dptxport_request_display(dcp->dptxport[port].service);
++	if (ret) {
++		dev_err(dcp->dev, "DPTX display request failed: %d\n", ret);
++		goto out_mux;
++	}
+ 	dcp->dptxport[port].connected = true;
+ 
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 	ret = wait_for_completion_timeout(&dcp->dptxport[port].linkcfg_completion,
+ 				    DPTX_CONNECT_TIMEOUT);
+-	if (ret < 0)
+-		dev_warn(dcp->dev, "dcp_dptx_connect: port %d link complete failed:%d\n",
+-			 port, ret);
++	if (!ret)
++		dev_warn(dcp->dev, "dcp_dptx_connect: port %d link configuration timed out\n",
++			 port);
+ 	else
+ 		dev_dbg(dcp->dev, "dcp_dptx_connect: waited %d ms for link\n",
+ 			jiffies_to_msecs(DPTX_CONNECT_TIMEOUT - ret));
+ 
+ 	usleep_range(5, 10);
+ 
+-	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort)
+-		dptxport_set_hpd(dcp->dptxport[port].service, true);
++	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort) {
++		ret = dptxport_set_hpd(dcp->dptxport[port].service, true);
++		dev_info(dcp->dev, "DPTX HPD assert: %d\n", ret);
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (dcp->avep)
+ 		av_service_connect(dcp);
+ 
+ 	return 0;
+ 
++out_mux:
++	if (dcp->tunnel_mux_selected) {
++		mux_control_deselect(dcp->xbar);
++		dcp->tunnel_mux_selected = false;
++	}
+ out_unlock:
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 	return ret;
+@@ -418,16 +449,25 @@ static void disconnected_hpd_event(struct apple_connector *con)
+ 
+ static int dcp_dptx_disconnect(struct apple_dcp *dcp, u32 port)
+ {
++	int ret = 0;
++
+ 	dev_info(dcp->dev, "%s(port=%d)\n", __func__, port);
+ 
+ 	mutex_lock(&dcp->hpd_mutex);
+ 	if (dcp->dptxport[port].enabled && dcp->dptxport[port].connected) {
+-		dptxport_release_display(dcp->dptxport[port].service);
++		ret = dptxport_release_display(dcp->dptxport[port].service);
++		if (ret)
++			goto out_unlock;
+ 		dcp->dptxport[port].connected = false;
+ 	}
++	if (dcp->tunnel_mux_selected) {
++		ret = mux_control_deselect(dcp->xbar);
++		dcp->tunnel_mux_selected = false;
++	}
++out_unlock:
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 
+-	return 0;
++	return ret;
+ }
+ 
+ int dcp_dptx_connect_oob(struct platform_device *pdev, u32 port)
+@@ -519,7 +559,7 @@ int dcp_start(struct platform_device *pdev)
+ 				 ret);
+ 	}
+ 
+-	if (dcp->phy && dcp->fw_compat >= DCP_FIRMWARE_V_13_5) {
++	if ((dcp->phy || dcp->dp_tunnel) && dcp->fw_compat >= DCP_FIRMWARE_V_13_5) {
+ 		ret = ibootep_init(dcp);
+ 		if (ret)
+ 			dev_warn(dcp->dev, "Failed to start IBOOT endpoint: %d\n",
+@@ -553,7 +593,7 @@ int dcp_start(struct platform_device *pdev)
+ 				dcp_dptx_connect(dcp, 0);
+ #endif
+ 		}
+-	} else if (dcp->phy) {
++	} else if (dcp->phy || dcp->dp_tunnel) {
+ 		dev_warn(dcp->dev, "OS firmware incompatible with dptxport EP\n");
+ 	}
+ 	ret = iomfb_start_rtkit(dcp);
+@@ -757,8 +797,9 @@ static int dcp_create_piodma_iommu_dev(struct apple_dcp *dcp)
+ 	}
+ 
+ 	dcp->iommu_dom = iommu_get_domain_for_dev(&dcp->piodma->dev);
+-	if (IS_ERR(dcp->iommu_dom)) {
+-		ret = dev_err_probe(dcp->dev, PTR_ERR(dcp->iommu_dom),
++	if (IS_ERR_OR_NULL(dcp->iommu_dom)) {
++		ret = dev_err_probe(dcp->dev,
++				    dcp->iommu_dom ? PTR_ERR(dcp->iommu_dom) : -ENODEV,
+ 				    "Failed to get default iommu domain for "
+ 				    "piodma device\n");
+ 		dcp->iommu_dom = NULL;
+@@ -768,6 +809,7 @@ static int dcp_create_piodma_iommu_dev(struct apple_dcp *dcp)
+ 	return 0;
+ err_destroy_pdev:
+ 	of_platform_device_destroy(&dcp->piodma->dev, NULL);
++	dcp->piodma = NULL;
+ 	return ret;
+ }
+ 
+@@ -1056,9 +1098,9 @@ static int dcp_comp_bind(struct device *dev, struct device *main, void *data)
+ 		dcp->connector_type = DRM_MODE_CONNECTOR_Unknown;
+ 
+ 	ret = dcp_create_piodma_iommu_dev(dcp);
+-	if (ret || !dcp->iommu_dom)
++	if (ret)
+ 		return dev_err_probe(dev, ret,
+-				"Failed to created PIODMA iommu child device");
++				"Failed to create PIODMA iommu child device\n");
+ 
+ 	ret = dcp_get_disp_regs(dcp);
+ 	if (ret) {
+@@ -1194,11 +1236,30 @@ static int dcp_platform_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, dcp);
+ 
++	dcp->dp_tunnel = of_property_read_bool(dev->of_node, "apple,tbt-dpin-test");
++	if (dcp->dp_tunnel) {
++		int ret;
++
++		/* m1n1 dcpav.py: DPPHY=0, DPIN0=1, DPIN1=2. */
++		ret = of_property_read_u32(dev->of_node, "apple,dptx-core", &dcp->dptx_core);
++		if (ret || dcp->dptx_core < 1 || dcp->dptx_core > 2)
++			return -EINVAL;
++		ret = of_property_read_u32(dev->of_node, "mux-index", &dcp->tunnel_mux_index);
++		if (ret)
++			return ret;
++		dcp->xbar = devm_mux_control_get(dev, "dp-xbar");
++		if (IS_ERR(dcp->xbar))
++			return dev_err_probe(dev, PTR_ERR(dcp->xbar), "DP-IN crossbar unavailable\n");
++		dev_warn(dev, "Experimental DP-IN route; connect manually through tunnel_hpd debugfs\n");
++	}
++
+ 	dcp->phy = devm_phy_optional_get(dev, "dp-phy");
+ 	if (IS_ERR(dcp->phy)) {
+ 		dev_err(dev, "Failed to get dp-phy: %ld\n", PTR_ERR(dcp->phy));
+ 		return PTR_ERR(dcp->phy);
+ 	}
++	if (dcp->dp_tunnel && dcp->phy)
++		return dev_err_probe(dev, -EINVAL, "DP-IN must not configure the physical DP PHY\n");
+ 
+ 	bitmap_zero(dcp->iomfb_surfaces, DCP_MAX_PLANES);
+ 	if (!of_property_present(dev->of_node, "apple,iomfb-surfaces"))
+diff --git a/drivers/gpu/drm/apple/dptxep.c b/drivers/gpu/drm/apple/dptxep.c
+index 1ea00602d..a9a91ae32 100644
+--- a/drivers/gpu/drm/apple/dptxep.c
++++ b/drivers/gpu/drm/apple/dptxep.c
+@@ -251,12 +251,20 @@ static int dptxport_call_get_max_lane_count(struct apple_epic_service *service,
+ 	struct dptxport_apcall_lane_count *reply = reply_;
+ 	struct dptx_port *dptx = service->cookie;
+ 	struct apple_dcp *dcp = service->ep->dcp;
+-	union phy_configure_opts phy_ops;
++	union phy_configure_opts phy_ops = {};
+ 	int ret;
+ 
+ 	if (reply_size < sizeof(*reply))
+ 		return -EINVAL;
+ 
++	if (dcp->dp_tunnel) {
++		/* Virtual DP link into the router, not the Type-C PHY lanes. */
++		dptx->lane_count = 4;
++		reply->retcode = 0;
++		reply->lane_count = cpu_to_le64(dptx->lane_count);
++		return 0;
++	}
++
+ 	ret = phy_validate(dptx->atcphy, PHY_MODE_DP, 0, &phy_ops);
+ 	if (ret < 0) {
+ 		dev_err(dcp->dev, "phy_validate failed: %d\n", ret);

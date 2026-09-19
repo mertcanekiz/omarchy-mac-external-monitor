@@ -1,0 +1,14 @@
+{
+  "tps6598x-core": {
+    "state": "experimental",
+    "loaded": "85bc314e26512de6f1a8f2216d312a52a5ef1fad",
+    "experimental": "85bc314e26512de6f1a8f2216d312a52a5ef1fad",
+    "stock": "780833044531290fe390d2b99513dde0066ffb43"
+  },
+  "tps6598x": {
+    "state": "experimental",
+    "loaded": "4e5ad2401aa673f0abb12be2ba040bfeb70d9fd9",
+    "experimental": "4e5ad2401aa673f0abb12be2ba040bfeb70d9fd9",
+    "stock": "2160f94c2e86238af789de2da4d466d560896728"
+  }
+}

@@ -1,0 +1,30 @@
+From 4d0f8594e48cb3a97d7c9dd5908ee0bee3432fdd Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:19 +0200
+Subject: [PATCH 12/23] dt-bindings: usb: Add thunderbolt-switch property
+
+The USB4/Thunderbolt host routers on Apple Silicon SoCs require cable
+and mode details to be provided out-of-band by the Type-C port controller.
+Add a thunderbolt-switch property next to the existing orientation and mode
+switches which marks a node as handler of these notifications.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ Documentation/devicetree/bindings/usb/usb-switch.yaml | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/Documentation/devicetree/bindings/usb/usb-switch.yaml b/Documentation/devicetree/bindings/usb/usb-switch.yaml
+index f77731493d..5d125fbb25 100644
+--- a/Documentation/devicetree/bindings/usb/usb-switch.yaml
++++ b/Documentation/devicetree/bindings/usb/usb-switch.yaml
+@@ -25,4 +25,10 @@ properties:
+     description: Possible handler of SuperSpeed signals retiming
+     type: boolean
+ 
++  thunderbolt-switch:
++    description:
++      Possible handler of USB4/Thunderbolt host router activation and cable
++      information updates
++    type: boolean
++
+ additionalProperties: true

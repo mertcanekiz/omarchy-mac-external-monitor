@@ -1,0 +1,5 @@
+a4805274d58d2f3dafca8aab8f821d89d891235467346dbd70f2301ea2d47c16  artifacts/tipd/tps6598x-core.ko
+8d52b20fc694e48845bfaef5782d5631e8f9d8aa8ad52c80f776317c826de6b5  artifacts/tipd/tps6598x.ko
+886b59b534e3f9b9e762a0f5d8bf6c9c6db6e7d7cf7f1d6f05305459ca013fe8  artifacts/dtb/t8103-j313.dtb
+af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201  artifacts/boot.bin.display-test
+85b41f507744b1e1861ec3ac06eeb8e6b32b73154f7007ed780761977edeca50  artifacts/initramfs-display-test.img

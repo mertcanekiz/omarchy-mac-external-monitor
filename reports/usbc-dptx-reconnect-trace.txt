@@ -1,0 +1,55 @@
+CACHED: /sys/kernel/debug/dri/2/DP-1/ColorElements: 0 bytes
+CACHED: /sys/kernel/debug/dri/2/DP-1/DisplayAttributes: 0 bytes
+CACHED: /sys/kernel/debug/dri/2/DP-1/TimingElements: 0 bytes
+CACHED: /sys/kernel/debug/dri/2/DP-1/Transport: 0 bytes
+CACHED: /sys/kernel/debug/dri/soc:display-subsystem/DP-1/ColorElements: 0 bytes
+CACHED: /sys/kernel/debug/dri/soc:display-subsystem/DP-1/DisplayAttributes: 0 bytes
+CACHED: /sys/kernel/debug/dri/soc:display-subsystem/DP-1/TimingElements: 0 bytes
+CACHED: /sys/kernel/debug/dri/soc:display-subsystem/DP-1/Transport: 0 bytes
+READY: Type-C trace enabled for 120 seconds. Reconnect the monitor cable once now.
+  irq/109-0-003f-739     [005] .....   145.505857: cd321x_irq: event=PLUG_EVENT|POWER_STATUS_UPDATE|DATA_STATUS_UPDATE
+  irq/109-0-0038-737     [004] .....   145.506934: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   145.508616: tps6598x_status: conn: no-conn, pp_5v0: off, pp_hv: off, pp_ext: off, pp_cable: off, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: HIGH_VOLTAGE_WARNING|0x40000000
+  irq/109-0-003f-739     [005] .....   145.509169: tps6598x_power_status: conn: 0, pwr-role: source, typec: usb, bc: sdp
+  irq/109-0-003f-739     [005] .....   145.509889: cd321x_data_status: 
+   kworker/u32:2-1874    [001] .....   146.023120: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+   kworker/u32:2-1874    [001] .....   146.023579: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 1 (deactivate) with len 16
+  irq/109-0-003f-739     [005] .....   152.006830: cd321x_irq: event=PLUG_EVENT|POWER_STATUS_UPDATE|DATA_STATUS_UPDATE
+  irq/109-0-0038-737     [004] .....   152.007899: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   152.009643: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: off, pp_cable: off, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|PORTROLE|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   152.010203: tps6598x_power_status: conn: 1, pwr-role: source, typec: usb, bc: sdp
+  irq/109-0-003f-739     [005] .....   152.010927: cd321x_data_status: DATA_CONNECTION|USB2_CONNECTION|USB3_CONNECTION|USB3_GEN2
+  irq/109-0-0038-737     [004] .....   152.176304: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   152.177532: cd321x_irq: event=POWER_STATUS_UPDATE
+  irq/109-0-003f-739     [005] .....   152.179508: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: off, pp_cable: out, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|PORTROLE|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING|0x20000
+  irq/109-0-003f-739     [005] .....   152.180068: tps6598x_power_status: conn: 1, pwr-role: source, typec: pd, bc: sdp
+  irq/109-0-0038-737     [004] .....   152.233472: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   152.235562: cd321x_irq: event=POWER_STATUS_UPDATE
+  irq/109-0-003f-739     [005] .....   152.237210: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: out, pp_cable: fault, pwr-src: unknown, vbus: vSafe0V, usb-host: no-pd, legacy: no, flags: PLUG_PRESENT|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   152.237758: tps6598x_power_status: conn: 1, pwr-role: sink, typec: 3.0A, bc: sdp
+  irq/109-0-0038-737     [004] .....   152.339366: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   152.340386: cd321x_irq: event=POWER_STATUS_UPDATE
+  irq/109-0-003f-739     [005] .....   152.342245: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: unknown, vbus: vSafe0V, usb-host: no-pd, legacy: no, flags: PLUG_PRESENT|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   152.342794: tps6598x_power_status: conn: 1, pwr-role: sink, typec: pd, bc: sdp
+   kworker/u32:0-12      [001] .....   152.852050: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+  irq/109-0-0038-737     [004] .....   153.385712: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   153.386801: cd321x_irq: event=DATA_STATUS_UPDATE
+  irq/109-0-003f-739     [005] .....   153.388476: tps6598x_status: conn: conn-no-Ra, pp_5v0: out, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: vbus, vbus: vSafe0V, usb-host: no-pd, legacy: no, flags: PLUG_PRESENT|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   153.389205: cd321x_data_status: DATA_CONNECTION|USB2_CONNECTION
+  irq/109-0-003f-739     [005] .....   153.410416: cd321x_irq: event=DATA_STATUS_UPDATE
+  irq/109-0-0038-737     [004] .....   153.411477: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   153.413157: tps6598x_status: conn: conn-no-Ra, pp_5v0: out, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: vbus, vbus: vSafe0V, usb-host: no-pd, legacy: no, flags: PLUG_PRESENT|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   153.413896: cd321x_data_status: DATA_CONNECTION|USB2_CONNECTION|DP_CONNECTION, DP pinout C
+   kworker/u32:0-12      [001] .....   153.917467: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+  irq/109-0-0038-737     [004] .....   153.988948: cd321x_irq: event=
+  irq/109-0-003f-739     [005] .....   153.990011: cd321x_irq: event=DATA_STATUS_UPDATE
+  irq/109-0-003f-739     [005] .....   153.991693: tps6598x_status: conn: conn-no-Ra, pp_5v0: out, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: vbus, vbus: vSafe0V, usb-host: no-pd, legacy: no, flags: PLUG_PRESENT|DATAROLE|VCONN|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-739     [005] .....   153.992422: cd321x_data_status: DATA_CONNECTION|USB2_CONNECTION|DP_CONNECTION|HPD_LEVEL, DP pinout C
+   kworker/u32:0-12      [000] .....   154.502183: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+     kworker/0:3-118     [000] .....   154.502552: dptxport_connect: 271c00000.dcp: dptx0: core 0, atc 1, die 0
+   kworker/u32:0-12      [000] .....   154.504364: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 18 (get_supports_hpd) with len 32
+   kworker/u32:0-12      [000] .....   154.504536: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 10 (get_max_lane_count) with len 32
+   kworker/u32:0-12      [000] .....   154.504760: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 0 (activate) with len 16
+   kworker/u32:0-12      [002] .....   161.564866: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 23 (device_busy_timeout) with len 16
+   kworker/u32:0-12      [002] .....   161.565170: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 24 (device_not_started) with len 16
+Trace disabled; private tracing instance removed.

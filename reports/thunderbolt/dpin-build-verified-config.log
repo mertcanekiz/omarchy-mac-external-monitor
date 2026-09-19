@@ -1,0 +1,85 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+  SYNC    include/config/auto.conf
+  DESCEND bpf/resolve_btfids
+  CC      scripts/mod/empty.o
+  CC      scripts/mod/devicetable-offsets.s
+  MKELF   scripts/mod/elfconfig.h
+  HOSTCC  scripts/mod/modpost.o
+  HOSTCC  scripts/mod/symsearch.o
+  HOSTCC  scripts/mod/sumversion.o
+  HOSTCC  scripts/mod/file2alias.o
+  INSTALL libsubcmd_headers
+  HOSTLD  scripts/mod/modpost
+  CC      kernel/bounds.s
+  CC      arch/arm64/kernel/asm-offsets.s
+  CC      kernel/sched/rq-offsets.s
+  CALL    /home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/checksyscalls.sh 
+  LDS     arch/arm64/kernel/vdso/vdso.lds
+  CC      arch/arm64/kernel/vdso/vgettimeofday.o
+  AS      arch/arm64/kernel/vdso/note.o
+  AS      arch/arm64/kernel/vdso/sigreturn.o
+  CC      arch/arm64/kernel/vdso/vgetrandom.o
+  AS      arch/arm64/kernel/vdso/vgetrandom-chacha.o
+  LD      arch/arm64/kernel/vdso/vdso.so.dbg
+  VDSOSYM include/generated/vdso-offsets.h
+  OBJCOPY arch/arm64/kernel/vdso/vdso.so
+  CC      rust/helpers/helpers.o
+  BINDGEN rust/bindings/bindings_generated.rs
+  BINDGEN rust/bindings/bindings_helpers_generated.rs
+  BINDGEN rust/uapi/uapi_generated.rs
+  RSCPP     rust/kernel/generated_arch_warn_asm.rs
+  RSCPP     rust/kernel/generated_arch_static_branch_asm.rs
+  RSCPP     rust/kernel/generated_arch_reachable_asm.rs
+  EXPORTS rust/exports_helpers_generated.h
+  RUSTC L rust/uapi.o
+  RUSTC L rust/bindings.o
+  EXPORTS rust/exports_bindings_generated.h
+  RUSTC L rust/kernel.o
+warning: unused import: `alloc::flags::*`
+ --> /home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/rust/kernel/soc/apple/rtkit.rs:8:5
+  |
+8 |     alloc::flags::*,
+  |     ^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: 1 warning emitted
+
+  EXPORTS rust/exports_kernel_generated.h
+  CC [M]  drivers/gpu/drm/apple/apple_drv.o
+  CC [M]  drivers/gpu/drm/apple/afk.o
+  CC [M]  drivers/gpu/drm/apple/dcp.o
+  CC [M]  drivers/gpu/drm/apple/dcp_backlight.o
+  CC [M]  drivers/gpu/drm/apple/dptxep.o
+  CC [M]  drivers/gpu/drm/apple/iomfb.o
+  CC [M]  drivers/gpu/drm/apple/parser.o
+  CC [M]  drivers/gpu/drm/apple/systemep.o
+  CC [M]  drivers/gpu/drm/apple/audio.o
+  CC [M]  drivers/gpu/drm/apple/av.o
+  CC [M]  drivers/gpu/drm/apple/connector.o
+  CC [M]  drivers/gpu/drm/apple/ibootep.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v12_3.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v13_3.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v14_7.o
+  CC [M]  drivers/gpu/drm/apple/epic/dpavservep.o
+  CC [M]  drivers/gpu/drm/apple/plane.o
+make[8]: 'drivers/gpu/drm/apple/appledrm.mod' is up to date.
+  CC [M]  drivers/gpu/drm/apple/trace.o
+  LD [M]  drivers/gpu/drm/apple/appledrm.o
+  MODPOST Module.symvers
+ERROR: modpost: "drm_fb_dma_get_scanout_buffer" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "typec_mux_put" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "drm_gem_dma_dumb_create_internal" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "drm_fb_dma_get_gem_obj" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "fwnode_typec_mux_get" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "drm_fbdev_dma_driver_fbdev_probe" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "typec_mux_set" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+ERROR: modpost: "drm_gem_dma_prime_import_sg_table" [drivers/gpu/drm/apple/appledrm.ko] undefined!
+make[4]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/scripts/Makefile.modpost:147: Module.symvers] Error 1
+make[3]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:2167: single_modules] Error 2
+make[2]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:372: __build_one_by_one] Error 2
+make[1]: *** [/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt/Makefile:248: __sub-make] Error 2
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+make: *** [Makefile:248: __sub-make] Error 2
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'

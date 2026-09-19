@@ -1,0 +1,17 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/headers/usr/lib/modules/7.1.13-3-1-ARCH/build'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/tipd'
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 131
+  You are using:             132
+  CC [M]  trace.o
+  CC [M]  core.o
+  CC [M]  i2c.o
+  LD [M]  tps6598x.o
+  LD [M]  tps6598x-core.o
+  MODPOST Module.symvers
+  LD [M]  tps6598x.ko
+  LD [M]  tps6598x-core.ko
+  BTF [M] tps6598x.ko
+  BTF [M] tps6598x-core.ko
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/tipd'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/headers/usr/lib/modules/7.1.13-3-1-ARCH/build'

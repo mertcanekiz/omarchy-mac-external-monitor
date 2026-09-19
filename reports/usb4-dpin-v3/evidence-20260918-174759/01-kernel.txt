@@ -1,0 +1,5 @@
+## uname -a
+Linux omarchy 7.1.13-usb4-gpu-test #1 SMP PREEMPT_DYNAMIC Fri Sep 18 00:00:00 UTC 2026 aarch64 GNU/Linux
+
+## cmdline
+BOOT_IMAGE=/@/boot/vmlinuz-usb4-gpu-test root=UUID=725346d2-f127-47bc-b464-9dd46155e8d6 rw rootflags=subvol=@ loglevel=7 thunderbolt.dprx_timeout=-1 thunderbolt.dyndbg=+p

@@ -1,0 +1,23 @@
+{
+  "changed": [
+    "config",
+    "usr/lib/modules/7.2.2-thunderbolt-test+/kernel/drivers/gpu/drm/apple/appledrm.ko"
+  ],
+  "added": [
+    "early_cpio"
+  ],
+  "removed": [],
+  "identical_entries": 984,
+  "only_module_changed": "usr/lib/modules/7.2.2-thunderbolt-test+/kernel/drivers/gpu/drm/apple/appledrm.ko",
+  "runtime_config_before": "MODULES=\"btrfs btrfs appledrm phy_apple_atc tps6598x_core tps6598x thunderbolt thunderbolt_apple\"\nEARLYHOOKS=\"asahi udev\"\nHOOKS=\"udev plymouth keymap encrypt\"\nLATEHOOKS=\"asahi plymouth\"\nCLEANUPHOOKS=\"udev\"\nEMERGENCYHOOKS=\"plymouth\"\n",
+  "runtime_config_after": "MODULES=\"btrfs hid_apple hid_magicmouse thunderbolt btrfs appledrm phy_apple_atc tps6598x_core tps6598x thunderbolt thunderbolt_apple\"\nEARLYHOOKS=\"asahi udev\"\nHOOKS=\"udev plymouth keymap encrypt\"\nLATEHOOKS=\"asahi plymouth\"\nCLEANUPHOOKS=\"udev\"\nEMERGENCYHOOKS=\"plymouth\"\n",
+  "hook_order_matches": true,
+  "additional_early_loads_of_unchanged_modules": [
+    "hid_apple",
+    "hid_magicmouse"
+  ],
+  "dt_checks": "external DCP enabled; ATC1/core1; crossbar DPIN0/dispext0; correct 5-cell IOMMU specifiers; no physical DP PHY",
+  "vermagic": "7.2.2-thunderbolt-test+ SMP preempt mod_unload aarch64"
+}
+DP-IN bundle activated for the next boot. Choose the DP-IN experiment entry.
+No reboot performed. The module override exists only in the new initramfs.

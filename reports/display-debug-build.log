@@ -1,0 +1,34 @@
+patching file drivers/gpu/drm/apple/dcp.c
+patching file drivers/gpu/drm/apple/dptxep.c
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/headers/usr/lib/modules/7.1.13-3-1-ARCH/build'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/display-debug/drivers/gpu/drm/apple'
+warning: pahole version differs from the one used to build the kernel
+  The kernel was built with: 131
+  You are using:             132
+  CC [M]  dcp.o
+  CC [M]  apple_drv.o
+  CC [M]  afk.o
+  CC [M]  dcp_backlight.o
+  CC [M]  dptxep.o
+  CC [M]  iomfb.o
+  CC [M]  parser.o
+  CC [M]  systemep.o
+  CC [M]  audio.o
+  CC [M]  connector.o
+  CC [M]  av.o
+  CC [M]  ibootep.o
+  CC [M]  iomfb_v12_3.o
+  CC [M]  iomfb_v13_3.o
+  CC [M]  epic/dpavservep.o
+  CC [M]  plane.o
+  CC [M]  trace.o
+  LD [M]  appledrm.o
+  MODPOST Module.symvers
+  CC [M]  appledrm.mod.o
+  CC [M]  .module-common.o
+  LD [M]  appledrm.ko
+  BTF [M] appledrm.ko
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/display-debug/drivers/gpu/drm/apple'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/headers/usr/lib/modules/7.1.13-3-1-ARCH/build'
+6ef6b0bf2c6faa1973068eebeb8c9cbe45718681efc6146ba5220057c1c22d34  /home/mert/Work/omarchy-mac-external-monitor/artifacts/display-debug/drivers/gpu/drm/apple/appledrm.ko
+Diagnostic module built only; running drivers and boot files unchanged.

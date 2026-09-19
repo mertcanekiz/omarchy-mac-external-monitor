@@ -1,0 +1,114 @@
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: kauditd_printk_skb: 40 callbacks suppressed
+Sep 18 04:21:06 omarchy kernel: audit: type=1101 audit(1789694466.576:268): pid=7560 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="mert" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 04:21:06 omarchy kernel: audit: type=1110 audit(1789694466.576:269): pid=7560 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:setcred grantors=pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 04:21:06 omarchy kernel: audit: type=1105 audit(1789694466.576:270): pid=7560 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:session_open grantors=pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_systemd acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 04:21:06 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN route selected: dpin0 (dptx core 1)
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect(port=0)
+Sep 18 04:21:06 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to dispext0,0
+Sep 18 04:21:06 omarchy kernel: apple-dcp 271c00000.dcp: DP tunnel validate core=1 ATC=1 die=0: 0
+Sep 18 04:21:06 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x885238
+Sep 18 04:21:06 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_clocks=2
+Sep 18 04:21:06 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN clocks: dpin_clocks=2 TX_DP_CTRL0=0x0000e49d PCLK_STAT=0x00000000
+Sep 18 04:21:06 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN activate: primed PHY DP clocks at 5400 Mb/s: 0
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:06 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:07 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect: port 0 link configuration timed out
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDP13Service.cpp:60: [AFK]version: 12
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDPService.cpp:76: [AFK]version: 12
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 1
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 3
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: DPTX HPD assert: 0
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX capabilities read completed
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): consumed bandwidth 0/17280 Mb/s
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth consumption changed, re-calculating estimated bandwidth
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: re-calculating bandwidth estimation for group 1
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): re-calculated estimated bandwidth 18000 (+ 0 reserved) = 18000 Mb/s
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth estimation for group 1 done
+Sep 18 04:21:08 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth re-calculation done
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: DPTXPort: acking unhandled call 21
+Sep 18 04:21:08 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_clocks=2
+Sep 18 04:21:08 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN clocks: dpin_clocks=2 TX_DP_CTRL0=0x0000e49c PCLK_STAT=0x0000000f
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:14:0:0:0:0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:135: IOMFB: IOAVVideoInterface published
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:714: IOMFBStatus VideoInterfaceIOAV::plug_gated(IOAVVideoInterface *, bool): display HPD asserted
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: cb_hotplug() connected:1, valid_mode:0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: dcp_hotplug() connected:1 valid_mode:0 nr_modes:7
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: dcp_poweron() starting
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: FramebufferDCP.cpp:5931: IOMFBParameter_adaptive_sync Req minRR = 0x0, mediaTargetRate = 0x0, Fractional Rate = 0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:1356: set_device_enabled_gated: current state: 0, requested state: 1
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 0 -> 1
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 1 -> 2
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: dcp_set_power_state_req returned, 9998 ms remaining
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: set_digital_out_mode(color:45 timing:38) "3840x2160": 60 533280 3840 3888 3920 4000 2160 2214 2217 2222 0x48 0x0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: set_digital_out_mode() color mode depth:10 format:0 colorimetry:16 eotf:0 range:0 vrr:0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:7462: set_digital_out_mode: Modeset requested for colorID: 45, timingID: 38
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:18011: Dual pipe disabled offset 0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 2 -> 1
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 1 -> 0
+Sep 18 04:21:08 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:1356: set_device_enabled_gated: current state: 1, requested state: 0
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:7700: set_mode: timingID: 38 colorID: 45
+Sep 18 04:21:09 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_clocks=2
+Sep 18 04:21:09 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN clocks: dpin_clocks=2 TX_DP_CTRL0=0x0000e49c PCLK_STAT=0x0000000f
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:30:0:0:0:0
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:34:0:0:0:0
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:36:0:0:0:0
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:11092: IOMFB updateFrequencies: minimum-frequency property not found, using getClockFrequency(0) instead.
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:11109: IOMFB updateFrequencies EDT ERROR: getClockFrequency(0) (0) < videoClock 266640000! Giving up on frequencies.
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:7356: IOMFBStatus UnifiedPipeline::mode_set_gated(uint32_t, uint32_t): 3840x2160@60 Hz link: 1
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: nifiedPipeline.cpp:1356: set_device_enabled_gated: current state: 0, requested state: 1
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 0 -> 1
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10468: set_run_mode_safe: no need to defer: 1 -> 2
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:12351: IOMFB: Ext XPan M3 pixel_clock 533280000, htot 4000 vtot 2222
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:12353: IOMFB: Ext XPan M3 SFM lines 2222, piodma_duration_lines 133, TSQ 2078
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:12355: IOMFB: Ext XPan M3 SFM dur 399999, DisplayLead 26281
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: oTimingElement.cpp:1349: [AFK]SPLIT is 0
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10490: set_run_mode_safe: deferring: 2 -> 4
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:10395: virtual IOMFBStatus IOMFB::UPPipeDCP_H13P::ready_for_run_mode_change(IOMFB::AppleRegisterStream *): initiating deferred run mod
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load APT M3 IMem : size 0x7948
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: M3Hal_v1.cpp:197: IOMFB: load APT M3 DMem : size 0x6f60
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: CAHandler.cpp:188: IOMFB load_ca_data: Unrecognized data version 0 (expected 1 or 2)
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: UPPipe.cpp:3767: IOMFB read_pmu_data_sync: pmu ram read error (e00002d8)
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:14085: IOMFB Ext RTBandwidth: program_M3_rt_config: Using Legacy, scratch 23b738018
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: PPipeDCP_H13P.cpp:14105: IOMFB Ext RTBandwidth: using legacy. Doorbell 23bc3c000, bit 2
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: UPTSQManager.cpp:133: IOMFB: clearing M3 reset
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: UPTSQ_Hal_v1.cpp:349: IOMFB: timebase_offset = 4
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: UPTSQManager.cpp:105: IOMFB: switch to normal mode succeeded
+Sep 18 04:21:09 omarchy kernel: apple-dcp 271c00000.dcp: set_digital_out_mode finished:8191

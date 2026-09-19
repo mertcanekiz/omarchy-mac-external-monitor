@@ -1,0 +1,13 @@
+{
+  "built": true,
+  "installed": false,
+  "loaded": false,
+  "purpose": "Diagnostic logging only; not a proposed display fix",
+  "source_commit": "94fb23346d522edf53722357c426a3e58030beea",
+  "patch": "patches/display-startup-diagnostics.patch",
+  "module": "artifacts/display-debug/drivers/gpu/drm/apple/appledrm.ko",
+  "sha256": "6ef6b0bf2c6faa1973068eebeb8c9cbe45718681efc6146ba5220057c1c22d34",
+  "vermagic": "7.1.13-3-1-ARCH SMP preempt mod_unload aarch64",
+  "readelf_notes": "\nDisplaying notes found in: .note.gnu.property\n  Owner                Data size \tDescription\n  GNU                  0x00000010\tNT_GNU_PROPERTY_TYPE_0\n      Properties: AArch64 feature: PAC\n\nDisplaying notes found in: .note.gnu.build-id\n  Owner                Data size \tDescription\n  GNU                  0x00000014\tNT_GNU_BUILD_ID (unique build ID bitstring)\n    Build ID: e13348d5038f54d3950d1ccaee5075c454a3e468\n\nDisplaying notes found in: .note.Linux\n  Owner                Data size \tDescription\n  Linux                0x00000004\tfunc\n   description data: 00 00 00 00 \n  Linux                0x00000001\tOPEN\n   description data: 00 \n",
+  "validation": "Module compilation, MODPOST, linking, BTF and vermagic check succeeded. Not boot-tested."
+}

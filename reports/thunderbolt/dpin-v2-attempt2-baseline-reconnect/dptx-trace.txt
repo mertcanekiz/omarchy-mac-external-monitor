@@ -1,0 +1,21 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 9/9   #P:8
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+   kworker/u32:3-16537   [002] .....  1941.162397: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+   kworker/u32:2-27638   [000] .....  1941.166484: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 1 (deactivate) with len 16
+         python3-48779   [006] .....  1945.170620: dptxport_validate_connection: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+         python3-48779   [006] .....  1945.175080: dptxport_connect: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+   kworker/u32:3-16537   [000] .....  1945.175853: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 18 (get_supports_hpd) with len 32
+   kworker/u32:3-16537   [000] .....  1945.176009: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 10 (get_max_lane_count) with len 32
+   kworker/u32:3-16537   [000] .....  1945.176209: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 0 (activate) with len 16
+   kworker/u32:2-27638   [000] .....  1952.234016: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 22 (device_not_responding) with len 16
+   kworker/u32:2-27638   [000] .....  1952.234265: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 24 (device_not_started) with len 16

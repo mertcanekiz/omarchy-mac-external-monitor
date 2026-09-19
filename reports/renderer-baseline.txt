@@ -1,0 +1,3 @@
+Renderer: Apple M1 (G13G B1)
+Vendor: Mesa
+Version: OpenGL ES 3.2 Mesa 26.1.8

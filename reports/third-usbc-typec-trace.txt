@@ -1,0 +1,31 @@
+READY: Type-C trace enabled for 120 seconds. Reconnect the monitor cable once now.
+  irq/109-0-0038-723     [004] .....   694.195271: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   694.203194: cd321x_irq: event=PLUG_EVENT|DATA_STATUS_UPDATE|STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   694.204985: tps6598x_status: conn: no-conn, pp_5v0: off, pp_hv: off, pp_ext: off, pp_cable: off, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: HIGH_VOLTAGE_WARNING|0x40000000
+  irq/109-0-003f-725     [007] .....   694.205698: cd321x_data_status: 
+  irq/109-0-0038-723     [004] .....   699.425813: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   699.429187: cd321x_irq: event=PLUG_EVENT|STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   699.430857: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: out, pp_cable: fault, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   699.468048: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   699.469118: cd321x_irq: event=DATA_STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   699.470786: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: out, pp_cable: fault, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-003f-725     [007] .....   699.471521: cd321x_data_status: DATA_CONNECTION|USB2_CONNECTION|USB3_CONNECTION|USB3_GEN2|USB_DATA_ROLE
+  irq/109-0-0038-723     [004] .....   699.528731: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   699.530096: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   699.531754: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: fault, pwr-src: vbus, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   699.548525: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   699.549584: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   699.551248: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: fault, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   699.584420: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   699.585474: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   699.587145: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   700.135359: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   700.136413: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   700.138085: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: in, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   700.158201: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   700.159258: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   700.160914: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: unknown, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+  irq/109-0-0038-723     [004] .....   700.356670: cd321x_irq: event=
+  irq/109-0-003f-725     [007] .....   700.357728: cd321x_irq: event=STATUS_UPDATE
+  irq/109-0-003f-725     [007] .....   700.359399: tps6598x_status: conn: conn-no-Ra, pp_5v0: off, pp_hv: off, pp_ext: in, pp_cable: out, pwr-src: vbus, vbus: vSafe0V, usb-host: no, legacy: no, flags: PLUG_PRESENT|HIGH_VOLTAGE_WARNING
+Trace disabled; private tracing instance removed.

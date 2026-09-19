@@ -1,0 +1,7 @@
+/boot/vmlinuz-linux-asahi: OK
+/boot/initramfs-linux-asahi.img: OK
+/boot/initramfs-display-test.img: OK
+/boot/grub/custom.cfg: OK
+/boot/grub/grub.cfg: OK
+Active m1n1 SHA-256: 566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33
+Staged files and recovery copy verified. No changes made.

@@ -1,0 +1,819 @@
++-o IOThunderboltSwitchType5  <class IOThunderboltSwitchType5, id 0x1000006e6, registered, matched, active, busy 0 (46 ms), retain 18>
+  | {
+  |   "Device Vendor ID" = 1
+  |   "Device Vendor Name" = "Apple Inc."
+  |   "Device Model Name" = "iOS"
+  |   "IOPowerManagement" = {"DesiredPowerState"=2,"CurrentPowerState"=0,"CapabilityFlags"=0,"MaxPowerState"=2,"DriverPowerState"=2}
+  |   "UID" = 408713451549665888
+  |   "Upstream Port Number" = 7
+  |   "Max Port Number" = 7
+  |   "DROM" = <3960aa8afeb70aac05a5437a3a013d0001000f0001000881800280000000088290018000000003832002840585090100058609010002870d014170706c6520496e632e000602694f53000000>
+  |   "Thunderbolt Version" = 32
+  |   "ROM Version" = 0
+  |   "Device ID" = 8192
+  |   "Revision ID" = 0
+  |   "Route String" = 0
+  |   "Device Model ID" = 15
+  |   "Device Model Revision" = 1
+  |   "EEPROM Revision" = 0
+  |   "Router ID" = 0
+  |   "Vendor ID" = 1452
+  |   "Depth" = 0
+  | }
+  | 
+  +-o IOThunderboltPort@1  <class IOThunderboltPort, id 0x1000006e8, registered, matched, active, busy 0 (34 ms), retain 8>
+  |   {
+  |     "Max In Hop ID" = 22
+  |     "Supported Link Width" = 2
+  |     "Max Credits" = 174
+  |     "Target Link Width" = 1
+  |     "Current Link Width" = 1
+  |     "Required Bandwidth Allocated" = 0
+  |     "Lane" = 1
+  |     "TRM Identification Restricted" = 0
+  |     "Max Out Hop ID" = 22
+  |     "Revision ID" = 0
+  |     "Maximum Bandwidth Allocated" = 0
+  |     "TRM Transport Restricted" = 0
+  |     "TRM Hash Set" = No
+  |     "Port Number" = 1
+  |     "TRM Transport Active 0" = No
+  |     "Thunderbolt Version" = 32
+  |     "TRM Transport Active 1" = No
+  |     "Socket ID" = "1"
+  |     "Target Link Speed" = 12
+  |     "Link Bandwidth" = 100
+  |     "Dual-Link Port" = 2
+  |     "Supported Link Speed" = 12
+  |     "Description" = "Thunderbolt Port"
+  |     "CLx State" = 0
+  |     "Adapter Type" = 1
+  |     "Hop Table" = ()
+  |     "Dual-Link Port RID" = 0
+  |     "Vendor ID" = 1452
+  |     "Device ID" = 8192
+  |     "TRM Policy" = "Root"
+  |     "Current Link Speed" = 8
+  |   }
+  |   
+  +-o IOThunderboltPort@2  <class IOThunderboltPort, id 0x10000074d, registered, matched, active, busy 0 (3 ms), retain 7>
+  |   {
+  |     "Max In Hop ID" = 22
+  |     "Supported Link Width" = 2
+  |     "Max Credits" = 174
+  |     "Target Link Width" = 1
+  |     "Current Link Width" = 1
+  |     "Required Bandwidth Allocated" = 0
+  |     "Lane" = 2
+  |     "Socket ID" = "1"
+  |     "Max Out Hop ID" = 22
+  |     "Revision ID" = 0
+  |     "Maximum Bandwidth Allocated" = 0
+  |     "Port Number" = 2
+  |     "Target Link Speed" = 12
+  |     "Thunderbolt Version" = 32
+  |     "Link Bandwidth" = 100
+  |     "Dual-Link Port" = 1
+  |     "Supported Link Speed" = 12
+  |     "Description" = "Thunderbolt Port"
+  |     "CLx State" = 0
+  |     "Adapter Type" = 1
+  |     "Hop Table" = ()
+  |     "Dual-Link Port RID" = 0
+  |     "Vendor ID" = 1452
+  |     "Device ID" = 8192
+  |     "Current Link Speed" = 8
+  |   }
+  |   
+  +-o IOThunderboltPort@3  <class IOThunderboltPort, id 0x10000074f, registered, matched, active, busy 0 (24 ms), retain 9>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "PCIe Adapter"
+  | |   "Port Affinity" = (1)
+  | |   "Port Number" = 3
+  | |   "Max In Hop ID" = 8
+  | |   "Hop Table" = ()
+  | |   "Thunderbolt Version" = 32
+  | |   "Maximum Bandwidth Allocated" = 0
+  | |   "Required Bandwidth Allocated" = 0
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 8
+  | |   "PCI Path" = "IOService:/AppleARMPE/arm-io@10F00000/AppleT810xIO/apciec0@B0000000/AppleT8103PCIeC/pcic0-bridge@0"
+  | |   "PCI Entry ID" = 4294969195
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 1048833
+  | | }
+  | | 
+  | +-o AppleThunderboltPCIDownAdapterType5  <class AppleThunderboltPCIDownAdapterType5, id 0x100000762, registered, matched, active, busy 0 (11 ms), retain 6>
+  |     {
+  |       "IOProbeScore" = 8192
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltPCIDownAdapterType5"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "Adapter Type" = 1048833
+  |       "Device ID" = "0x00002000&0x0000ff00"
+  |       "Vendor ID" = 1452
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@4  <class IOThunderboltPort, id 0x100000753, registered, matched, active, busy 0 (10 ms), retain 9>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "USB Adapter"
+  | |   "Port Affinity" = (1)
+  | |   "Port Number" = 4
+  | |   "Max In Hop ID" = 8
+  | |   "Hop Table" = ()
+  | |   "Thunderbolt Version" = 32
+  | |   "Maximum Bandwidth Allocated" = 0
+  | |   "Required Bandwidth Allocated" = 0
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 8
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 2097409
+  | | }
+  | | 
+  | +-o AppleThunderboltUSBDownAdapter  <class AppleThunderboltUSBDownAdapter, id 0x10000075c, registered, matched, active, busy 0 (8 ms), retain 6>
+  |     {
+  |       "IOProbeScore" = 4096
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltUSBDownAdapter"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "Adapter Type" = 2097409
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@5  <class IOThunderboltPort, id 0x100000754, registered, matched, active, busy 0 (20 ms), retain 10>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "DP or HDMI Adapter"
+  | |   "Port Number" = 5
+  | |   "Max In Hop ID" = 9
+  | |   "Hop Table" = ()
+  | |   "Thunderbolt Version" = 32
+  | |   "Maximum Bandwidth Allocated" = 0
+  | |   "Required Bandwidth Allocated" = 0
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 9
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 917761
+  | | }
+  | | 
+  | +-o AppleThunderboltDPInAdapter  <class AppleThunderboltDPInAdapter, id 0x100000767, registered, matched, active, busy 0 (13 ms), retain 7>
+  |     {
+  |       "IOProbeScore" = 9
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltDPInAdapter"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "Adapter Type" = 917761
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@6  <class IOThunderboltPort, id 0x100000757, registered, matched, active, busy 0 (13 ms), retain 10>
+    | {
+    |   "Max Credits" = 174
+    |   "Description" = "DP or HDMI Adapter"
+    |   "Port Number" = 6
+    |   "Max In Hop ID" = 9
+    |   "Hop Table" = ()
+    |   "Thunderbolt Version" = 32
+    |   "Maximum Bandwidth Allocated" = 0
+    |   "Required Bandwidth Allocated" = 0
+    |   "Device ID" = 8192
+    |   "Revision ID" = 0
+    |   "Max Out Hop ID" = 9
+    |   "Vendor ID" = 1452
+    |   "Adapter Type" = 917761
+    | }
+    | 
+    +-o AppleThunderboltDPInAdapter  <class AppleThunderboltDPInAdapter, id 0x100000760, registered, matched, active, busy 0 (2 ms), retain 7>
+        {
+          "IOProbeScore" = 9
+          "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "IOProviderClass" = "IOThunderboltPort"
+          "IOClass" = "AppleThunderboltDPInAdapter"
+          "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "Adapter Type" = 917761
+          "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "IOMatchedAtBoot" = Yes
+          "IOMatchCategory" = "IODefaultMatchCategory"
+        }
+        
+
++-o IOThunderboltSwitchType5  <class IOThunderboltSwitchType5, id 0x1000006f1, registered, matched, active, busy 0 (700 ms), retain 21>
+  | {
+  |   "Depth" = 0
+  |   "FW Counters" = <01000100010001000100040003000400030000000000000000000100010000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000006f012e0017000200be120000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000002000200000000000000000000000000000000000000000000000000000000000000000000000000000000000000000091009200a701a7010000>
+  |   "Firmware Version" = "AppleCIOFirmware-384~1232__2023-12-20-16:25:45-PST__t8103"
+  |   "IOPowerManagement" = {"ChildrenPowerState"=2,"CurrentPowerState"=2,"CapabilityFlags"=2,"MaxPowerState"=2,"DriverPowerState"=2}
+  |   "Revision ID" = 0
+  |   "Max Port Number" = 7
+  |   "DROM" = <2a61aa8afeb70aac05533bb8e9013d0001000f0001000881810281000000088291018100000003832002840585090100058609010002870d014170706c6520496e632e000602694f53000000>
+  |   "Device Model Name" = "iOS"
+  |   "Self-Reset Count" = 0
+  |   "Buffer Allocation Request" = {"Max USB3"=7,"Min DP Main"=15,"Max PCIe"=70,"Max HI"=52,"Min DP Aux"=4}
+  |   "Thunderbolt Version" = 32
+  |   "UID" = 408713451549665889
+  |   "ROM Version" = 0
+  |   "Min Required TMU Mode" = 0
+  |   "Device Vendor ID" = 1
+  |   "Router ID" = 1
+  |   "Route String" = 0
+  |   "Device Vendor Name" = "Apple Inc."
+  |   "EEPROM Revision" = 0
+  |   "Vendor ID" = 1452
+  |   "Device ID" = 8192
+  |   "Device Model Revision" = 1
+  |   "Device Model ID" = 15
+  |   "Upstream Port Number" = 7
+  | }
+  | 
+  +-o IOThunderboltPort@1  <class IOThunderboltPort, id 0x1000006f4, registered, matched, active, busy 0 (657 ms), retain 19>
+  | | {
+  | |   "Max In Hop ID" = 22
+  | |   "Supported Link Width" = 2
+  | |   "Max Credits" = 174
+  | |   "Target Link Width" = 3
+  | |   "Current Link Width" = 2
+  | |   "Required Bandwidth Allocated" = 2
+  | |   "Lane" = 1
+  | |   "TRM Identification Restricted" = 0
+  | |   "Max Out Hop ID" = 22
+  | |   "Revision ID" = 0
+  | |   "Maximum Bandwidth Allocated" = 101
+  | |   "TRM Transport Restricted" = 0
+  | |   "TRM Hash Set" = Yes
+  | |   "Port Number" = 1
+  | |   "TRM Transport Active 0" = Yes
+  | |   "Thunderbolt Version" = 32
+  | |   "TRM Transport Active 1" = Yes
+  | |   "Socket ID" = "2"
+  | |   "Target Link Speed" = 12
+  | |   "Link Bandwidth" = 200
+  | |   "Dual-Link Port" = 2
+  | |   "Supported Link Speed" = 12
+  | |   "Description" = "Thunderbolt Port"
+  | |   "CLx State" = 0
+  | |   "Adapter Type" = 1
+  | |   "Hop Table" = ({"Path"="B2C36B18-5594-4AE0-B3C3-5AEFFB4B7CD2","Dst Hop ID"=8,"Dst Port"=3,"Hop ID"=8,"Counter"=0},{"Path"="D8A7C83C-69A4-4046-A480-422598C83900","Dst Hop ID"=8,"Dst Port"=5,"Hop ID"=9,"Counter"=1})
+  | |   "Dual-Link Port RID" = 1
+  | |   "TRM Transport ID" = 4294970652
+  | |   "Vendor ID" = 1452
+  | |   "Device ID" = 8192
+  | |   "TRM Policy" = "Root"
+  | |   "Current Link Speed" = 8
+  | | }
+  | | 
+  | +-o IOThunderboltPort@1  <class IOThunderboltPort, id 0x100000d23, registered, matched, active, busy 0 (646 ms), retain 18>
+  |   | {
+  |   |   "Max In Hop ID" = 19
+  |   |   "Micro Type" = 4
+  |   |   "Supported Link Width" = 2
+  |   |   "Max Credits" = 60
+  |   |   "Micro Route String" = 1
+  |   |   "Target Link Width" = 3
+  |   |   "Required Bandwidth Allocated" = 161
+  |   |   "Lane" = 1
+  |   |   "Current Link Width" = 2
+  |   |   "Max Out Hop ID" = 19
+  |   |   "Revision ID" = 6
+  |   |   "Maximum Bandwidth Allocated" = 260
+  |   |   "HPM Type" = 5
+  |   |   "Port Number" = 1
+  |   |   "Target Link Speed" = 12
+  |   |   "Thunderbolt Version" = 16
+  |   |   "Link Bandwidth" = 200
+  |   |   "Dual-Link Port" = 2
+  |   |   "Micro Address" = 0
+  |   |   "Supported Link Speed" = 12
+  |   |   "Description" = "Thunderbolt Port"
+  |   |   "CLx State" = 0
+  |   |   "Adapter Type" = 1
+  |   |   "Hop Table" = ({"Path"="C4AF1D3F-47E8-4AE6-8639-D4E19944DB9C","Dst Hop ID"=8,"Dst Port"=8,"Hop ID"=8,"Counter"=0},{"Path"="1B986303-2CB8-412F-B341-A1BEABDB8136","Dst Hop ID"=9,"Dst Port"=10,"Hop ID"=9,"Counter"=1},{"Path"="435E94E1-34A0-4EB4-A2C0-58CCBB88A892","Dst Hop ID"=8,"Dst Port"=10,"Hop ID"=10,"Counter"=2})
+  |   |   "Dual-Link Port RID" = 0
+  |   |   "HPM Address" = 0
+  |   |   "Vendor ID" = 32902
+  |   |   "Micro Version" = 69888
+  |   |   "Device ID" = 5615
+  |   |   "Bus Power" = 0
+  |   |   "Current Link Speed" = 8
+  |   | }
+  |   | 
+  |   +-o IOThunderboltSwitchType3  <class IOThunderboltSwitchType3, id 0x100000d24, registered, matched, active, busy 0 (308 ms), retain 30>
+  |     | {
+  |     |   "Depth" = 1
+  |     |   "IOPowerManagement" = {"ChildrenPowerState"=2,"CurrentPowerState"=2,"CapabilityFlags"=2,"MaxPowerState"=2,"DriverPowerState"=2}
+  |     |   "Revision ID" = 6
+  |     |   "DPP Crossed" = No
+  |     |   "Max Port Number" = 13
+  |     |   "DROM" = <ac004261c0b8a81e0054cb6015016a001e0015110101088180028000000008829001800000000883800480010000088490038001000002c502c602c70b88200100640000000000038980058a504000058b50400011014c4720456c656374726f6e696373000f02556c74726146696e6520344b00030808>
+  |     |   "Device Model Name" = "UltraFine 4K"
+  |     |   "Firmware Mode" = 1
+  |     |   "Thunderbolt Version" = 16
+  |     |   "UID" = 8629760756367872
+  |     |   "ROM Version" = 57
+  |     |   "Min Required TMU Mode" = 3
+  |     |   "Device Vendor ID" = 30
+  |     |   "Route String" = 1
+  |     |   "Device Vendor Name" = "LG Electronics"
+  |     |   "EEPROM Revision" = 1
+  |     |   "Vendor ID" = 32902
+  |     |   "Device ID" = 5615
+  |     |   "Upstream Port Number" = 1
+  |     |   "Device Model ID" = 4373
+  |     |   "Device Model Revision" = 1
+  |     | }
+  |     | 
+  |     +-o IOThunderboltIECSNub  <class IOThunderboltIECSNub, id 0x100000d26, registered, matched, active, busy 0 (4 ms), retain 9>
+  |     | | {
+  |     | | }
+  |     | | 
+  |     | +-o AppleHPMIECS  <class AppleHPMIECS, id 0x100000d30, registered, matched, active, busy 0 (2 ms), retain 11>
+  |     |   | {
+  |     |   |   "IOClass" = "AppleHPMIECS"
+  |     |   |   "CFBundleIdentifier" = "com.apple.driver.AppleHPM"
+  |     |   |   "IOProviderClass" = "IOThunderboltIECSNub"
+  |     |   |   "IOCFPlugInTypes" = {"12A1DCCF-CF7A-4775-BEE5-9C4319F4CD2B"="AppleHPM.kext/Contents/PlugIns/AppleHPMLib.plugin"}
+  |     |   |   "IOPowerManagement" = {"CurrentPowerState"=0,"CapabilityFlags"=0,"MaxPowerState"=1,"DriverPowerState"=0}
+  |     |   |   "IOUserClientClass" = "AppleHPMUserClient"
+  |     |   |   "IOProbeScore" = 0
+  |     |   |   "IOMatchedAtBoot" = Yes
+  |     |   |   "RID" = 1
+  |     |   |   "IOMatchCategory" = "IODefaultMatchCategory"
+  |     |   |   "IOPersonalityPublisher" = "com.apple.driver.AppleHPM"
+  |     |   |   "Route String" = 1
+  |     |   |   "CFBundleIdentifierKernel" = "com.apple.driver.AppleHPM"
+  |     |   | }
+  |     |   | 
+  |     |   +-o AppleHPMDevice@0  <class AppleHPMDevice, id 0x100000d32, registered, matched, active, busy 0 (2 ms), retain 7>
+  |     |   |   {
+  |     |   |     "Version" = 416000
+  |     |   |     "Revision ID" = 48
+  |     |   |     "RID" = 1
+  |     |   |     "Vendor ID" = 40
+  |     |   |     "Address" = 0
+  |     |   |     "Device ID" = 826622785
+  |     |   |     "UUID" = "7DC3A014-A0C5-3794-8549-848DCCA3829D"
+  |     |   |     "Revision" = 0
+  |     |   |     "Route String" = 1
+  |     |   |   }
+  |     |   |   
+  |     |   +-o AppleHPMDevice@1  <class AppleHPMDevice, id 0x100000d39, registered, matched, active, busy 0 (1 ms), retain 6>
+  |     |       {
+  |     |         "Version" = 416000
+  |     |         "Revision ID" = 48
+  |     |         "RID" = 1
+  |     |         "Vendor ID" = 40
+  |     |         "Address" = 1
+  |     |         "Device ID" = 826622785
+  |     |         "UUID" = "01BAA014-738C-30B4-E744-0DDBA5569999"
+  |     |         "Revision" = 0
+  |     |         "Route String" = 1
+  |     |       }
+  |     |       
+  |     +-o IOThunderboltPort@2  <class IOThunderboltPort, id 0x100000d27, registered, matched, active, busy 0 (298 ms), retain 8>
+  |     |   {
+  |     |     "Max In Hop ID" = 19
+  |     |     "Micro Type" = 4
+  |     |     "Supported Link Width" = 2
+  |     |     "Max Credits" = 60
+  |     |     "Micro Route String" = 1
+  |     |     "Target Link Width" = 3
+  |     |     "Required Bandwidth Allocated" = 0
+  |     |     "Lane" = 2
+  |     |     "Current Link Width" = 2
+  |     |     "Max Out Hop ID" = 19
+  |     |     "Revision ID" = 6
+  |     |     "Maximum Bandwidth Allocated" = 0
+  |     |     "HPM Type" = 5
+  |     |     "Port Number" = 2
+  |     |     "Target Link Speed" = 12
+  |     |     "Thunderbolt Version" = 16
+  |     |     "Link Bandwidth" = 0
+  |     |     "Dual-Link Port" = 1
+  |     |     "Micro Address" = 0
+  |     |     "Supported Link Speed" = 12
+  |     |     "Description" = "Thunderbolt Port"
+  |     |     "CLx State" = 0
+  |     |     "Adapter Type" = 1
+  |     |     "Hop Table" = ()
+  |     |     "Dual-Link Port RID" = 0
+  |     |     "HPM Address" = 0
+  |     |     "Vendor ID" = 32902
+  |     |     "Micro Version" = 69888
+  |     |     "Device ID" = 5615
+  |     |     "Bus Power" = 0
+  |     |     "Current Link Speed" = 8
+  |     |   }
+  |     |   
+  |     +-o IOThunderboltPort@3  <class IOThunderboltPort, id 0x100000d28, registered, matched, active, busy 0 (302 ms), retain 8>
+  |     |   {
+  |     |     "Max In Hop ID" = 19
+  |     |     "Micro Type" = 4
+  |     |     "Supported Link Width" = 2
+  |     |     "Max Credits" = 60
+  |     |     "Micro Route String" = 1
+  |     |     "Target Link Width" = 1
+  |     |     "Required Bandwidth Allocated" = 0
+  |     |     "Lane" = 1
+  |     |     "Current Link Width" = 1
+  |     |     "Max Out Hop ID" = 19
+  |     |     "Revision ID" = 6
+  |     |     "Maximum Bandwidth Allocated" = 0
+  |     |     "HPM Type" = 5
+  |     |     "Port Number" = 3
+  |     |     "Target Link Speed" = 12
+  |     |     "Thunderbolt Version" = 16
+  |     |     "Link Bandwidth" = 100
+  |     |     "Dual-Link Port" = 4
+  |     |     "Micro Address" = 1
+  |     |     "Supported Link Speed" = 12
+  |     |     "Description" = "Thunderbolt Port"
+  |     |     "CLx State" = 0
+  |     |     "Adapter Type" = 1
+  |     |     "Hop Table" = ()
+  |     |     "Dual-Link Port RID" = 0
+  |     |     "HPM Address" = 1
+  |     |     "Vendor ID" = 32902
+  |     |     "Micro Version" = 69888
+  |     |     "Device ID" = 5615
+  |     |     "Bus Power" = 0
+  |     |     "Current Link Speed" = 8
+  |     |   }
+  |     |   
+  |     +-o IOThunderboltPort@4  <class IOThunderboltPort, id 0x100000d29, registered, matched, active, busy 0 (303 ms), retain 8>
+  |     |   {
+  |     |     "Max In Hop ID" = 19
+  |     |     "Micro Type" = 4
+  |     |     "Supported Link Width" = 2
+  |     |     "Max Credits" = 60
+  |     |     "Micro Route String" = 1
+  |     |     "Target Link Width" = 1
+  |     |     "Required Bandwidth Allocated" = 0
+  |     |     "Lane" = 2
+  |     |     "Current Link Width" = 1
+  |     |     "Max Out Hop ID" = 19
+  |     |     "Revision ID" = 6
+  |     |     "Maximum Bandwidth Allocated" = 0
+  |     |     "HPM Type" = 5
+  |     |     "Port Number" = 4
+  |     |     "Target Link Speed" = 12
+  |     |     "Thunderbolt Version" = 16
+  |     |     "Link Bandwidth" = 100
+  |     |     "Dual-Link Port" = 3
+  |     |     "Micro Address" = 1
+  |     |     "Supported Link Speed" = 12
+  |     |     "Description" = "Thunderbolt Port"
+  |     |     "CLx State" = 0
+  |     |     "Adapter Type" = 1
+  |     |     "Hop Table" = ()
+  |     |     "Dual-Link Port RID" = 0
+  |     |     "HPM Address" = 1
+  |     |     "Vendor ID" = 32902
+  |     |     "Micro Version" = 69888
+  |     |     "Device ID" = 5615
+  |     |     "Bus Power" = 0
+  |     |     "Current Link Speed" = 8
+  |     |   }
+  |     |   
+  |     +-o IOThunderboltPort@8  <class IOThunderboltPort, id 0x100000d2a, registered, matched, active, busy 0 (302 ms), retain 17>
+  |     | | {
+  |     | |   "Max Credits" = 8
+  |     | |   "Description" = "PCIe Adapter"
+  |     | |   "Port Number" = 8
+  |     | |   "Max In Hop ID" = 8
+  |     | |   "Hop Table" = ({"Path"="B2C36B18-5594-4AE0-B3C3-5AEFFB4B7CD2","Dst Hop ID"=8,"Dst Port"=1,"Hop ID"=8,"Counter"=0})
+  |     | |   "Thunderbolt Version" = 16
+  |     | |   "PCI Device" = 1
+  |     | |   "Maximum Bandwidth Allocated" = 100
+  |     | |   "Required Bandwidth Allocated" = 1
+  |     | |   "Device ID" = 5615
+  |     | |   "Revision ID" = 6
+  |     | |   "Max Out Hop ID" = 8
+  |     | |   "PCI Function" = 0
+  |     | |   "PCI Path" = "IOService:/AppleARMPE/arm-io@10F00000/AppleT810xIO/apciec1@30000000/AppleT8103PCIeC/pcic1-bridge@0/IOPP/pci-bridge@0"
+  |     | |   "PCI Entry ID" = 4294970727
+  |     | |   "Vendor ID" = 32902
+  |     | |   "Adapter Type" = 1048834
+  |     | | }
+  |     | | 
+  |     | +-o AppleThunderboltPCIUpAdapter  <class AppleThunderboltPCIUpAdapter, id 0x100000d41, registered, matched, active, busy 0 (2 ms), retain 6>
+  |     |     {
+  |     |       "IOProbeScore" = 4096
+  |     |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltPCIUpAdapter"
+  |     |       "IOProviderClass" = "IOThunderboltPort"
+  |     |       "IOClass" = "AppleThunderboltPCIUpAdapter"
+  |     |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltPCIUpAdapter"
+  |     |       "Adapter Type" = 1048834
+  |     |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltPCIUpAdapter"
+  |     |       "IOMatchedAtBoot" = Yes
+  |     |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     |       "IOPowerManagement" = {"CurrentPowerState"=2,"CapabilityFlags"=2,"MaxPowerState"=2,"DriverPowerState"=2}
+  |     |       "State" = 8
+  |     |     }
+  |     |     
+  |     +-o IOThunderboltPort@9  <class IOThunderboltPort, id 0x100000d2b, registered, matched, active, busy 0 (301 ms), retain 9>
+  |     | | {
+  |     | |   "Max Credits" = 8
+  |     | |   "Description" = "PCIe Adapter"
+  |     | |   "Port Number" = 9
+  |     | |   "Max In Hop ID" = 8
+  |     | |   "Hop Table" = ()
+  |     | |   "Thunderbolt Version" = 16
+  |     | |   "PCI Device" = 4
+  |     | |   "Maximum Bandwidth Allocated" = 0
+  |     | |   "Required Bandwidth Allocated" = 0
+  |     | |   "Device ID" = 5615
+  |     | |   "Revision ID" = 6
+  |     | |   "Max Out Hop ID" = 8
+  |     | |   "PCI Function" = 0
+  |     | |   "PCI Path" = "IOService:/AppleARMPE/arm-io@10F00000/AppleT810xIO/apciec1@30000000/AppleT8103PCIeC/pcic1-bridge@0/IOPP/pci-bridge@0/IOPP/pci-bridge@4"
+  |     | |   "PCI Entry ID" = 4294970729
+  |     | |   "Vendor ID" = 32902
+  |     | |   "Adapter Type" = 1048833
+  |     | | }
+  |     | | 
+  |     | +-o AppleThunderboltPCIDownAdapter  <class AppleThunderboltPCIDownAdapter, id 0x100000d47, registered, matched, active, busy 0 (0 ms), retain 5>
+  |     |     {
+  |     |       "IOProbeScore" = 4096
+  |     |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |     |       "IOProviderClass" = "IOThunderboltPort"
+  |     |       "IOClass" = "AppleThunderboltPCIDownAdapter"
+  |     |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |     |       "Adapter Type" = 1048833
+  |     |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |     |       "IOMatchedAtBoot" = Yes
+  |     |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     |     }
+  |     |     
+  |     +-o IOThunderboltPort@A  <class IOThunderboltPort, id 0x100000d2c, registered, matched, active, busy 0 (302 ms), retain 22>
+  |     | | {
+  |     | |   "Max Credits" = 8
+  |     | |   "Description" = "DP or HDMI Adapter"
+  |     | |   "Port Number" = 10
+  |     | |   "Max In Hop ID" = 9
+  |     | |   "Hop Table" = ({"Path"="D8A7C83C-69A4-4046-A480-422598C83900","Dst Hop ID"=9,"Dst Port"=1,"Hop ID"=8,"Counter"=0})
+  |     | |   "Thunderbolt Version" = 16
+  |     | |   "Maximum Bandwidth Allocated" = 1
+  |     | |   "Required Bandwidth Allocated" = 1
+  |     | |   "Device ID" = 5615
+  |     | |   "Revision ID" = 6
+  |     | |   "Max Out Hop ID" = 9
+  |     | |   "Min Required TMU Mode" = 3
+  |     | |   "Vendor ID" = 32902
+  |     | |   "Adapter Type" = 917762
+  |     | | }
+  |     | | 
+  |     | +-o AppleThunderboltDPOutAdapter  <class AppleThunderboltDPOutAdapter, id 0x100000d4a, registered, matched, active, busy 0 (0 ms), retain 8>
+  |     |     {
+  |     |       "IOClass" = "AppleThunderboltDPOutAdapter"
+  |     |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "IOProviderClass" = "IOThunderboltPort"
+  |     |       "DP State" = 2
+  |     |       "IOPowerManagement" = {"CurrentPowerState"=2,"CapabilityFlags"=2,"MaxPowerState"=2,"DriverPowerState"=2}
+  |     |       "IOUserClientClass" = "AppleThunderboltDPOutAdapterUserClient"
+  |     |       "IOProbeScore" = 9
+  |     |       "IOMatchedAtBoot" = Yes
+  |     |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "Adapter Type" = 917762
+  |     |     }
+  |     |     
+  |     +-o IOThunderboltPort@B  <class IOThunderboltPort, id 0x100000d2d, registered, matched, active, busy 0 (302 ms), retain 10>
+  |     | | {
+  |     | |   "Max Credits" = 8
+  |     | |   "Description" = "DP or HDMI Adapter"
+  |     | |   "Port Number" = 11
+  |     | |   "Max In Hop ID" = 9
+  |     | |   "Hop Table" = ()
+  |     | |   "Thunderbolt Version" = 16
+  |     | |   "Maximum Bandwidth Allocated" = 0
+  |     | |   "Required Bandwidth Allocated" = 0
+  |     | |   "Device ID" = 5615
+  |     | |   "Revision ID" = 6
+  |     | |   "Max Out Hop ID" = 9
+  |     | |   "Vendor ID" = 32902
+  |     | |   "Adapter Type" = 917762
+  |     | | }
+  |     | | 
+  |     | +-o AppleThunderboltDPOutAdapter  <class AppleThunderboltDPOutAdapter, id 0x100000d45, registered, matched, active, busy 0 (0 ms), retain 7>
+  |     |     {
+  |     |       "IOClass" = "AppleThunderboltDPOutAdapter"
+  |     |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "IOProviderClass" = "IOThunderboltPort"
+  |     |       "DP State" = 0
+  |     |       "IOPowerManagement" = {"CurrentPowerState"=2,"CapabilityFlags"=2,"MaxPowerState"=2,"DriverPowerState"=2}
+  |     |       "IOUserClientClass" = "AppleThunderboltDPOutAdapterUserClient"
+  |     |       "IOProbeScore" = 9
+  |     |       "IOMatchedAtBoot" = Yes
+  |     |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPOutAdapter"
+  |     |       "Adapter Type" = 917762
+  |     |     }
+  |     |     
+  |     +-o IOThunderboltPort@C  <class IOThunderboltPort, id 0x100000d2e, registered, matched, active, busy 0 (300 ms), retain 7>
+  |     |   {
+  |     |     "Max Credits" = 8
+  |     |     "Description" = "Port is inactive"
+  |     |     "Port Number" = 12
+  |     |     "Max In Hop ID" = 8
+  |     |     "Hop Table" = ()
+  |     |     "Thunderbolt Version" = 16
+  |     |     "Maximum Bandwidth Allocated" = 0
+  |     |     "Required Bandwidth Allocated" = 0
+  |     |     "Device ID" = 5615
+  |     |     "Revision ID" = 6
+  |     |     "Max Out Hop ID" = 8
+  |     |     "Vendor ID" = 32902
+  |     |     "Adapter Type" = 0
+  |     |   }
+  |     |   
+  |     +-o IOThunderboltPort@D  <class IOThunderboltPort, id 0x100000d2f, registered, matched, active, busy 0 (299 ms), retain 7>
+  |         {
+  |           "Max Credits" = 8
+  |           "Description" = "Port is inactive"
+  |           "Port Number" = 13
+  |           "Max In Hop ID" = 8
+  |           "Hop Table" = ()
+  |           "Thunderbolt Version" = 16
+  |           "Maximum Bandwidth Allocated" = 0
+  |           "Required Bandwidth Allocated" = 0
+  |           "Device ID" = 5615
+  |           "Revision ID" = 6
+  |           "Max Out Hop ID" = 8
+  |           "Vendor ID" = 32902
+  |           "Adapter Type" = 0
+  |         }
+  |         
+  +-o IOThunderboltPort@2  <class IOThunderboltPort, id 0x1000006f5, registered, matched, active, busy 0 (3 ms), retain 7>
+  |   {
+  |     "Max In Hop ID" = 22
+  |     "Supported Link Width" = 2
+  |     "Max Credits" = 174
+  |     "Target Link Width" = 3
+  |     "Current Link Width" = 2
+  |     "Required Bandwidth Allocated" = 0
+  |     "Lane" = 2
+  |     "Socket ID" = "2"
+  |     "Max Out Hop ID" = 22
+  |     "Revision ID" = 0
+  |     "Maximum Bandwidth Allocated" = 0
+  |     "Port Number" = 2
+  |     "Target Link Speed" = 12
+  |     "Thunderbolt Version" = 32
+  |     "Link Bandwidth" = 0
+  |     "Dual-Link Port" = 1
+  |     "Supported Link Speed" = 12
+  |     "Description" = "Thunderbolt Port"
+  |     "CLx State" = 0
+  |     "Adapter Type" = 1
+  |     "Hop Table" = ()
+  |     "Dual-Link Port RID" = 1
+  |     "Vendor ID" = 1452
+  |     "Device ID" = 8192
+  |     "Current Link Speed" = 8
+  |   }
+  |   
+  +-o IOThunderboltPort@3  <class IOThunderboltPort, id 0x1000006f6, registered, matched, active, busy 0 (53 ms), retain 18>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "PCIe Adapter"
+  | |   "Port Affinity" = (1)
+  | |   "Port Number" = 3
+  | |   "Max In Hop ID" = 8
+  | |   "Hop Table" = ({"Path"="C4AF1D3F-47E8-4AE6-8639-D4E19944DB9C","Dst Hop ID"=8,"Dst Port"=1,"Hop ID"=8,"Counter"=0})
+  | |   "Thunderbolt Version" = 32
+  | |   "PCI Device" = 0
+  | |   "Maximum Bandwidth Allocated" = 100
+  | |   "Required Bandwidth Allocated" = 1
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 8
+  | |   "PCI Path" = "IOService:/AppleARMPE/arm-io@10F00000/AppleT810xIO/apciec1@30000000/AppleT8103PCIeC/pcic1-bridge@0"
+  | |   "PCI Entry ID" = 4294969203
+  | |   "PCI Function" = 0
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 1048833
+  | | }
+  | | 
+  | +-o AppleThunderboltPCIDownAdapterType5  <class AppleThunderboltPCIDownAdapterType5, id 0x100000703, registered, matched, active, busy 0 (7 ms), retain 7>
+  |     {
+  |       "IOProbeScore" = 8192
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltPCIDownAdapterType5"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "Adapter Type" = 1048833
+  |       "Device ID" = "0x00002000&0x0000ff00"
+  |       "Vendor ID" = 1452
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltPCIDownAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@4  <class IOThunderboltPort, id 0x1000006f7, registered, matched, active, busy 0 (19 ms), retain 9>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "USB Adapter"
+  | |   "Port Affinity" = (1)
+  | |   "Port Number" = 4
+  | |   "Max In Hop ID" = 8
+  | |   "Hop Table" = ()
+  | |   "Thunderbolt Version" = 32
+  | |   "Maximum Bandwidth Allocated" = 0
+  | |   "Required Bandwidth Allocated" = 0
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 8
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 2097409
+  | | }
+  | | 
+  | +-o AppleThunderboltUSBDownAdapter  <class AppleThunderboltUSBDownAdapter, id 0x10000073a, registered, matched, active, busy 0 (2 ms), retain 6>
+  |     {
+  |       "IOProbeScore" = 4096
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltUSBDownAdapter"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "Adapter Type" = 2097409
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltUSBDownAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@5  <class IOThunderboltPort, id 0x1000006f8, registered, matched, active, busy 0 (15 ms), retain 24>
+  | | {
+  | |   "Max Credits" = 174
+  | |   "Description" = "DP or HDMI Adapter"
+  | |   "Port Number" = 5
+  | |   "Max In Hop ID" = 9
+  | |   "Hop Table" = ({"Path"="435E94E1-34A0-4EB4-A2C0-58CCBB88A892","Dst Hop ID"=10,"Dst Port"=1,"Hop ID"=8,"Counter"=1},{"Path"="1B986303-2CB8-412F-B341-A1BEABDB8136","Dst Hop ID"=9,"Dst Port"=1,"Hop ID"=9,"Counter"=0})
+  | |   "Thunderbolt Version" = 32
+  | |   "Maximum Bandwidth Allocated" = 160
+  | |   "Required Bandwidth Allocated" = 160
+  | |   "Device ID" = 8192
+  | |   "Revision ID" = 0
+  | |   "Max Out Hop ID" = 9
+  | |   "Vendor ID" = 1452
+  | |   "Adapter Type" = 917761
+  | | }
+  | | 
+  | +-o AppleThunderboltDPInAdapter  <class AppleThunderboltDPInAdapter, id 0x10000071a, registered, matched, active, busy 0 (2 ms), retain 10>
+  |     {
+  |       "IOProbeScore" = 9
+  |       "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "IOProviderClass" = "IOThunderboltPort"
+  |       "IOClass" = "AppleThunderboltDPInAdapter"
+  |       "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "Adapter Type" = 917761
+  |       "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPInAdapter"
+  |       "IOMatchedAtBoot" = Yes
+  |       "IOMatchCategory" = "IODefaultMatchCategory"
+  |     }
+  |     
+  +-o IOThunderboltPort@6  <class IOThunderboltPort, id 0x1000006f9, registered, matched, active, busy 0 (10 ms), retain 12>
+    | {
+    |   "Max Credits" = 174
+    |   "Description" = "DP or HDMI Adapter"
+    |   "Port Number" = 6
+    |   "Max In Hop ID" = 9
+    |   "Hop Table" = ()
+    |   "Thunderbolt Version" = 32
+    |   "Maximum Bandwidth Allocated" = 0
+    |   "Required Bandwidth Allocated" = 0
+    |   "Device ID" = 8192
+    |   "Revision ID" = 0
+    |   "Max Out Hop ID" = 9
+    |   "Vendor ID" = 1452
+    |   "Adapter Type" = 917761
+    | }
+    | 
+    +-o AppleThunderboltDPInAdapter  <class AppleThunderboltDPInAdapter, id 0x100000711, registered, matched, active, busy 0 (0 ms), retain 9>
+        {
+          "IOProbeScore" = 9
+          "CFBundleIdentifier" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "IOProviderClass" = "IOThunderboltPort"
+          "IOClass" = "AppleThunderboltDPInAdapter"
+          "IOPersonalityPublisher" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "Adapter Type" = 917761
+          "CFBundleIdentifierKernel" = "com.apple.driver.AppleThunderboltDPInAdapter"
+          "IOMatchedAtBoot" = Yes
+          "IOMatchCategory" = "IODefaultMatchCategory"
+        }
+        
+

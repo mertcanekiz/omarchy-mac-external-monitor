@@ -1,0 +1,35 @@
+# tracer: nop
+#
+# entries-in-buffer/entries-written: 23/23   #P:8
+#
+#                                _-----=> irqs-off/BH-disabled
+#                               / _----=> need-resched
+#                              | / _---=> hardirq/softirq
+#                              || / _--=> preempt-depth
+#                              ||| / _-=> migrate-disable
+#                              |||| /     delay
+#           TASK-PID     CPU#  |||||  TIMESTAMP  FUNCTION
+#              | |         |   |||||     |         |
+         python3-2582227 [004] ..... 47921.492689: dptxport_validate_connection: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+         python3-2582227 [004] ..... 47921.493030: dptxport_connect: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+   kworker/u32:0-2561871 [001] ..... 47921.494263: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 18 (get_supports_hpd) with len 32
+   kworker/u32:0-2561871 [001] ..... 47921.494420: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 10 (get_max_lane_count) with len 32
+   kworker/u32:0-2561871 [001] ..... 47921.494580: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 0 (activate) with len 16
+   kworker/u32:0-2561871 [002] ..... 47923.616891: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 21 (set_tiled_display_hints) with len 144
+   kworker/u32:0-2561871 [002] ..... 47923.618543: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 7 (get_max_link_rate) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.619499: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 13 (get_supports_downspread) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.619665: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 7 (get_max_link_rate) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.620180: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 15 (set_downspread) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.620594: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 5 (will_change_link_config) with len 16
+   kworker/u32:0-2561871 [002] ..... 47923.620752: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 12 (set_active_lane_count) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.620907: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 9 (set_link_rate) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.620911: dptxport_call_set_link_rate: 271c00000.dcp: dptx0: link rate 0x14
+   kworker/u32:0-2561871 [002] ..... 47923.621226: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 6 (did_change_link_config) with len 16
+   kworker/u32:0-2561871 [002] ..... 47923.632749: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 13 (get_supports_downspread) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.633471: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 12 (set_active_lane_count) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.633661: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 3 (set_drive_settings) with len 64
+   kworker/u32:0-2561871 [002] ..... 47923.633843: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 2 (get_max_drive_settings) with len 32
+   kworker/u32:0-2561871 [002] ..... 47923.650998: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 3 (set_drive_settings) with len 64
+   kworker/u32:0-2561871 [002] ..... 47923.651189: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 2 (get_max_drive_settings) with len 32
+   kworker/u32:4-2540699 [001] ..... 47923.668286: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 3 (set_drive_settings) with len 64
+   kworker/u32:4-2540699 [001] ..... 47923.668477: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 2 (get_max_drive_settings) with len 32

@@ -1,0 +1,909 @@
+{
+  "output": "/home/mert/Work/omarchy-mac-external-monitor/artifacts/boot.bin.thunderbolt-test",
+  "sha256": "9602d026b2960bf308e3cc7a9d14019abeed4b7ccaa387125241073660b7c297",
+  "bytes": 6216073,
+  "m1n1_source_commit": "b4654b32941d51afdb77579d63e7cb1aa6c03ecc",
+  "kernel_source_commit": "236788cd2602a24c703fe7bdaddaf73ef77d2027",
+  "kernel_release": "7.2.2-thunderbolt-test+",
+  "model_dtb": "t8103-j313.dtb",
+  "components": [
+    {
+      "name": "m1n1.bin",
+      "kind": "loader",
+      "source": "/home/mert/Work/omarchy-mac-external-monitor/sources/m1n1-thunderbolt/build/m1n1.bin",
+      "offset": 0,
+      "bytes": 1114112,
+      "sha256": "da4712bf1661f74f08a70acbcbc1202bdcce49ca01ce7bd56fb64766397164c5"
+    },
+    {
+      "name": "s5l8960x-j71.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j71.dtb",
+      "offset": 1114112,
+      "bytes": 18423,
+      "sha256": "93521ad590e8fb59a1eae6a0619bf788678ea08b80698843621ae8d3a7b16f68"
+    },
+    {
+      "name": "s5l8960x-j72.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j72.dtb",
+      "offset": 1132535,
+      "bytes": 18427,
+      "sha256": "6cd6eeca8ecbbb0ea41fb929cfc2e0c38830abe14f9cf170bba71b6e4cf7d19b"
+    },
+    {
+      "name": "s5l8960x-j73.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j73.dtb",
+      "offset": 1150962,
+      "bytes": 18435,
+      "sha256": "8883bd40262cc58e7855defce1d61492292070a18ff597499e4ce94c873d7952"
+    },
+    {
+      "name": "s5l8960x-j85.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j85.dtb",
+      "offset": 1169397,
+      "bytes": 18427,
+      "sha256": "3ab6ff3ea3413e700ec060ad502840e00782b1b1e8c224297420226ba7cae341"
+    },
+    {
+      "name": "s5l8960x-j85m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j85m.dtb",
+      "offset": 1187824,
+      "bytes": 18431,
+      "sha256": "edf268ea271348632b6fe55d2458cdc5e0a8ddba5e5026f408ffeeea726f995d"
+    },
+    {
+      "name": "s5l8960x-j86.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j86.dtb",
+      "offset": 1206255,
+      "bytes": 18431,
+      "sha256": "75ef752d01c41973762e88bc63c2182aedcbac5aacb174a881c3cf26f921e83d"
+    },
+    {
+      "name": "s5l8960x-j86m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j86m.dtb",
+      "offset": 1224686,
+      "bytes": 18435,
+      "sha256": "4a4dc6d15dd18a08ed1a93740b17302fb568c456d5f42981dc537a4a27a64908"
+    },
+    {
+      "name": "s5l8960x-j87.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j87.dtb",
+      "offset": 1243121,
+      "bytes": 18435,
+      "sha256": "d8751a9614028245ceb9748db2a770bfcdb762449007f235d80cac9e28c9d712"
+    },
+    {
+      "name": "s5l8960x-j87m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-j87m.dtb",
+      "offset": 1261556,
+      "bytes": 18439,
+      "sha256": "0e3388967d5e83e698630e8084d5eb28f408e70e6e994bbe88f0098220bba02c"
+    },
+    {
+      "name": "s5l8960x-n51.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-n51.dtb",
+      "offset": 1279995,
+      "bytes": 18419,
+      "sha256": "742a0bef9ce7b0aed67a72b38939a7148b622181f751d294b0cbb5b4fab31263"
+    },
+    {
+      "name": "s5l8960x-n53.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s5l8960x-n53.dtb",
+      "offset": 1298414,
+      "bytes": 18419,
+      "sha256": "34a81e27b346448c4b867c9cdd73f88e46b7f441068c316c8be17a4b2114e643"
+    },
+    {
+      "name": "s8000-j71s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8000-j71s.dtb",
+      "offset": 1316833,
+      "bytes": 21407,
+      "sha256": "1e28151b07cd948a779499371c6868b75e790db55a06d89f3c625ab5ce969495"
+    },
+    {
+      "name": "s8000-j72s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8000-j72s.dtb",
+      "offset": 1338240,
+      "bytes": 21411,
+      "sha256": "8501067ccbeb028f97fbc57e727eeac1e9796e65a55704540546f781f0c2a102"
+    },
+    {
+      "name": "s8000-n66.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8000-n66.dtb",
+      "offset": 1359651,
+      "bytes": 21491,
+      "sha256": "78d78432fd65ddcd415977cd093889cab1d034515adfe456ff9a10b67e228bf6"
+    },
+    {
+      "name": "s8000-n69u.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8000-n69u.dtb",
+      "offset": 1381142,
+      "bytes": 21487,
+      "sha256": "49e52bf4ed1fcf3c50ca7306e5d30790c5d0e6ac2c7ce1f3e8e3dda22530f5f8"
+    },
+    {
+      "name": "s8000-n71.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8000-n71.dtb",
+      "offset": 1402629,
+      "bytes": 21487,
+      "sha256": "9c4c2420f00fec9c97d9bfbccef3ab7e52b26f38a52d981d3b884f1b47e2ceea"
+    },
+    {
+      "name": "s8001-j127.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8001-j127.dtb",
+      "offset": 1424116,
+      "bytes": 23047,
+      "sha256": "fc6e86a8587a2ee1583db5c16ade9d0033a4ff63edefd8e5bc56102cd5ab6df5"
+    },
+    {
+      "name": "s8001-j128.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8001-j128.dtb",
+      "offset": 1447163,
+      "bytes": 23051,
+      "sha256": "450fe9853ed66d89da32a5c2684be15219a5f72afd2637467adc3d8cf36f92a1"
+    },
+    {
+      "name": "s8001-j98a.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8001-j98a.dtb",
+      "offset": 1470214,
+      "bytes": 23091,
+      "sha256": "be4e68c0a2d1859b34f4f6f1216fcebe2772b45e6876fcb649ac53e18b6beaf8"
+    },
+    {
+      "name": "s8001-j99a.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8001-j99a.dtb",
+      "offset": 1493305,
+      "bytes": 23095,
+      "sha256": "af547d39e1a3e6928f69cc45868d5d3e23ab8935a293c3ed0120c86cc7f0fc54"
+    },
+    {
+      "name": "s8003-j71t.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8003-j71t.dtb",
+      "offset": 1516400,
+      "bytes": 21403,
+      "sha256": "b24bce8c51e6ac86aaa2447fcc782e8c63b7f60e1ec9938493e4ca8e5d2a1874"
+    },
+    {
+      "name": "s8003-j72t.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8003-j72t.dtb",
+      "offset": 1537803,
+      "bytes": 21407,
+      "sha256": "68d0aaa28971d03734a896bfd0469c764801d4f63e99574a5daaf0d9f23e7552"
+    },
+    {
+      "name": "s8003-n66m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8003-n66m.dtb",
+      "offset": 1559210,
+      "bytes": 21487,
+      "sha256": "0ddc14d84d8c6d3be17d417149637a239c7850f9f27c7fbdde25d509c2dce849"
+    },
+    {
+      "name": "s8003-n69.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8003-n69.dtb",
+      "offset": 1580697,
+      "bytes": 21483,
+      "sha256": "756c64b66cf6ed0801778983cc90eee5ff51b97679bfae9fd20eb11e3925d579"
+    },
+    {
+      "name": "s8003-n71m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/s8003-n71m.dtb",
+      "offset": 1602180,
+      "bytes": 21483,
+      "sha256": "26ec038c347f8a87eacd97b53d1d884bb36081f3eb18519f3bc138816ea63115"
+    },
+    {
+      "name": "t6000-j314s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6000-j314s.dtb",
+      "offset": 1623663,
+      "bytes": 86349,
+      "sha256": "1737a97cc7c9b4e3da717a3227e0336731f5b6b66f209129811cb5d660acef2f"
+    },
+    {
+      "name": "t6000-j316s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6000-j316s.dtb",
+      "offset": 1710012,
+      "bytes": 86357,
+      "sha256": "0536a61d77fb91230c28bd132dd061f570f441567a6c2dddedb6cb566da21abf"
+    },
+    {
+      "name": "t6001-j314c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6001-j314c.dtb",
+      "offset": 1796369,
+      "bytes": 95113,
+      "sha256": "6467c77fecbcbcb4a8d728ac0eb7de1637bb2f403ee6d5a6b033095bee6bf146"
+    },
+    {
+      "name": "t6001-j316c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6001-j316c.dtb",
+      "offset": 1891482,
+      "bytes": 95121,
+      "sha256": "cd33a6774ac917584722417c464256dabb7c75998a79a8ffc3ac626213d285e6"
+    },
+    {
+      "name": "t6001-j375c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6001-j375c.dtb",
+      "offset": 1986603,
+      "bytes": 92095,
+      "sha256": "bf4024412c3562fdb2da1056cd42acf30062862f2f4d753266ba6a4775f43357"
+    },
+    {
+      "name": "t6002-j375d.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6002-j375d.dtb",
+      "offset": 2078698,
+      "bytes": 149779,
+      "sha256": "f8ce8525e4ff186ddb453366b34cebfb428e9efb3894308c2eba4ea100f4e1df"
+    },
+    {
+      "name": "t6020-j414s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6020-j414s.dtb",
+      "offset": 2228477,
+      "bytes": 98119,
+      "sha256": "6514cc4320d600c59dd1545a9722c72e6512c3ae81a1e3ae7ff5a6478e7a1442"
+    },
+    {
+      "name": "t6020-j416s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6020-j416s.dtb",
+      "offset": 2326596,
+      "bytes": 98111,
+      "sha256": "9e9284c33a7b2c4a4c1dac73b05ce2e571058248050ade357bd69c790fc8f862"
+    },
+    {
+      "name": "t6020-j474s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6020-j474s.dtb",
+      "offset": 2424707,
+      "bytes": 94963,
+      "sha256": "b0922c8b3258fcd7c104bebe4acf8736e8a74d0f3a975d8454a7257ac633fde2"
+    },
+    {
+      "name": "t6021-j414c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6021-j414c.dtb",
+      "offset": 2519670,
+      "bytes": 108179,
+      "sha256": "ea6c9a8a347bc4813719717455442a1635339113e57fc677acbd430b3b257667"
+    },
+    {
+      "name": "t6021-j416c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6021-j416c.dtb",
+      "offset": 2627849,
+      "bytes": 108171,
+      "sha256": "946fa93eee647c00afe1f6131216de0da578952d8f0723278f44bac7818c032d"
+    },
+    {
+      "name": "t6021-j475c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6021-j475c.dtb",
+      "offset": 2736020,
+      "bytes": 105499,
+      "sha256": "e11a4b08fd59f66e4169261d72d4e619882386333c89ea66e7c621ad3e59dd6b"
+    },
+    {
+      "name": "t6022-j180d.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6022-j180d.dtb",
+      "offset": 2841519,
+      "bytes": 178311,
+      "sha256": "95d129338ae9508131e6362cfbc1c625a21c220c9500c000363df2aac0bbf10c"
+    },
+    {
+      "name": "t6022-j475d.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6022-j475d.dtb",
+      "offset": 3019830,
+      "bytes": 168350,
+      "sha256": "fcbf9aa08f8b53a1093588150edf95175d4232abf44abc1a2787ed10741e3a29"
+    },
+    {
+      "name": "t6030-j514s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6030-j514s.dtb",
+      "offset": 3188180,
+      "bytes": 67379,
+      "sha256": "dae0f9b961f49b0f3d9c4dcc30be458efbe1a3377607231f7b0dba8d54c41547"
+    },
+    {
+      "name": "t6030-j516s.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6030-j516s.dtb",
+      "offset": 3255559,
+      "bytes": 67379,
+      "sha256": "e5a3b7faeed8b055412726803af364bc2820c4dac0f7fe7a73474d133ef57759"
+    },
+    {
+      "name": "t6031-j514c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6031-j514c.dtb",
+      "offset": 3322938,
+      "bytes": 88128,
+      "sha256": "ac87f3d64699c4a5bc9f9a18a86bca4a62dc84d94edc13cf3c12c69c877feb4f"
+    },
+    {
+      "name": "t6031-j516c.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6031-j516c.dtb",
+      "offset": 3411066,
+      "bytes": 88128,
+      "sha256": "3c190d0dd0bec3f6d3f5a8339e12f8b8c2df749feff3e022ac020f0d9f9b6949"
+    },
+    {
+      "name": "t6032-j575d.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6032-j575d.dtb",
+      "offset": 3499194,
+      "bytes": 134764,
+      "sha256": "e66c6c5e21bafd678747a22ba96e556df2607f4e4d7fc39c85acdd04d46ca1ff"
+    },
+    {
+      "name": "t6034-j514m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6034-j514m.dtb",
+      "offset": 3633958,
+      "bytes": 88368,
+      "sha256": "5225ffb8ee2b2a9860bd7658a2cddba720f0bd2a0a58a6e15967b2d2a88ed3bf"
+    },
+    {
+      "name": "t6034-j516m.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t6034-j516m.dtb",
+      "offset": 3722326,
+      "bytes": 88368,
+      "sha256": "5943b43dbb14602c24703affdb89ec013d63a5f01d349abf821a22bf676bf56a"
+    },
+    {
+      "name": "t7000-j42d.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-j42d.dtb",
+      "offset": 3810694,
+      "bytes": 18644,
+      "sha256": "1018f21cacd2e9c45455662d6c087f3126a4120332e74096abe9824cd18b62a5"
+    },
+    {
+      "name": "t7000-j96.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-j96.dtb",
+      "offset": 3829338,
+      "bytes": 19183,
+      "sha256": "c7597f16005a80563c6d601750502fde04dd9fa5979787efdbc3822467e828d1"
+    },
+    {
+      "name": "t7000-j97.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-j97.dtb",
+      "offset": 3848521,
+      "bytes": 19187,
+      "sha256": "eb3152cc33d3c4453475ed43b089b7a7ffa3ecc37ce2a9b7da0c4fe84c7d9ba1"
+    },
+    {
+      "name": "t7000-n102.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-n102.dtb",
+      "offset": 3867708,
+      "bytes": 19099,
+      "sha256": "4ae8ffd6b831ea7c2c89dfde8331c8feabd6c4148474870d747a49740974f003"
+    },
+    {
+      "name": "t7000-n56.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-n56.dtb",
+      "offset": 3886807,
+      "bytes": 19179,
+      "sha256": "a5813718cdb436186e7fdeb818027051daed62020ef5f3e097ce06b79b2242f8"
+    },
+    {
+      "name": "t7000-n61.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7000-n61.dtb",
+      "offset": 3905986,
+      "bytes": 19175,
+      "sha256": "9d0c1336e452986498d0ee7e357a30e48a1d9bbd8bc7265d3bf3caca05f62f53"
+    },
+    {
+      "name": "t7001-j81.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7001-j81.dtb",
+      "offset": 3925161,
+      "bytes": 18999,
+      "sha256": "094e108f3bd2509a1b0d299be87e11c83fe319fc94372b00c00625e36cd42dc0"
+    },
+    {
+      "name": "t7001-j82.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t7001-j82.dtb",
+      "offset": 3944160,
+      "bytes": 18999,
+      "sha256": "40e35d1ffc025e992e927e2943f2135a0a4daef8d8a503eb0ca028596349501d"
+    },
+    {
+      "name": "t8010-d10.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-d10.dtb",
+      "offset": 3963159,
+      "bytes": 22275,
+      "sha256": "0c30defa626cf34a803d484cd55c4b9306023c9be709ca81904090b33196730d"
+    },
+    {
+      "name": "t8010-d101.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-d101.dtb",
+      "offset": 3985434,
+      "bytes": 22271,
+      "sha256": "7aa05c80a26643bbef7b1d4894b58cd8e5dd890d512938ee27bf084fa8681adc"
+    },
+    {
+      "name": "t8010-d11.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-d11.dtb",
+      "offset": 4007705,
+      "bytes": 22279,
+      "sha256": "8fe99bcb472ea794e428e9221c1ca5f1c70c171f740f8577364321fcd274e047"
+    },
+    {
+      "name": "t8010-d111.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-d111.dtb",
+      "offset": 4029984,
+      "bytes": 22275,
+      "sha256": "e05c21ff48ad8c6d3ad6f953766540b3b191f0f41f7151c9df8845d2cee0068f"
+    },
+    {
+      "name": "t8010-j171.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-j171.dtb",
+      "offset": 4052259,
+      "bytes": 22283,
+      "sha256": "2acab074300d4bd47c7d958241fad056b62f64691654dee66e0782cb0b46f660"
+    },
+    {
+      "name": "t8010-j172.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-j172.dtb",
+      "offset": 4074542,
+      "bytes": 22283,
+      "sha256": "d99b8ebc24c4cb08d50a9d31df72443da620a9929297275a91318c260eafb468"
+    },
+    {
+      "name": "t8010-j71b.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-j71b.dtb",
+      "offset": 4096825,
+      "bytes": 22283,
+      "sha256": "631818b763646db8af88e197a199209d5a733ba2dc4e10cc3929827999bcb839"
+    },
+    {
+      "name": "t8010-j72b.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-j72b.dtb",
+      "offset": 4119108,
+      "bytes": 22283,
+      "sha256": "1307be8c63480fce362c890c2754564ded54cd264fff6c28fd0ee34aacf1062e"
+    },
+    {
+      "name": "t8010-n112.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8010-n112.dtb",
+      "offset": 4141391,
+      "bytes": 22287,
+      "sha256": "2f0987698b8c62e35ee44b8aee47cc20ffd760ace0749ab35902ad43677ea479"
+    },
+    {
+      "name": "t8011-j105a.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8011-j105a.dtb",
+      "offset": 4163678,
+      "bytes": 22420,
+      "sha256": "66b049d795de85ba3cf2ad157074c032e65fd4a12a6a04f40167c9872add6896"
+    },
+    {
+      "name": "t8011-j120.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8011-j120.dtb",
+      "offset": 4186098,
+      "bytes": 22899,
+      "sha256": "1558fecb9399c210a9dd2a634438ee8b61648703492a99f5da0eefff45107c65"
+    },
+    {
+      "name": "t8011-j121.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8011-j121.dtb",
+      "offset": 4208997,
+      "bytes": 22899,
+      "sha256": "8eaf9d8bfaaad29e603f6c905f9feb89b1076777e7f02a6fad05c3d2a7308943"
+    },
+    {
+      "name": "t8011-j207.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8011-j207.dtb",
+      "offset": 4231896,
+      "bytes": 22899,
+      "sha256": "172f4bdcfa3a7d58cf4135aad054c6a7995c2aabd09edf64eefb67b4fb942ae2"
+    },
+    {
+      "name": "t8011-j208.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8011-j208.dtb",
+      "offset": 4254795,
+      "bytes": 22899,
+      "sha256": "876e3c0f50605b6a779565e77ad07eda639d6d65f6210dae0758012ff3ad884e"
+    },
+    {
+      "name": "t8012-j132.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j132.dtb",
+      "offset": 4277694,
+      "bytes": 22409,
+      "sha256": "ae27d539a93116ed42b93fe5b1b347e03c2ee74eb988de6d759cd54eb01551af"
+    },
+    {
+      "name": "t8012-j137.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j137.dtb",
+      "offset": 4300103,
+      "bytes": 22233,
+      "sha256": "d3fdcd5d48f43f1265d1c463ddb9134c172e0c8985735ba240c3cfd68db6737f"
+    },
+    {
+      "name": "t8012-j140a.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j140a.dtb",
+      "offset": 4322336,
+      "bytes": 22237,
+      "sha256": "893a9afebdf6fa0a7ab214e91bb26f30687e8c34c93bf8d5f4e8bb2b207aa4c7"
+    },
+    {
+      "name": "t8012-j140k.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j140k.dtb",
+      "offset": 4344573,
+      "bytes": 22237,
+      "sha256": "cfbfc20c0f417844f781b91845ef4fa3f7b18c39f97102690a194b1277c921e1"
+    },
+    {
+      "name": "t8012-j152f.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j152f.dtb",
+      "offset": 4366810,
+      "bytes": 22409,
+      "sha256": "f2972733f2c7e604e1731bac2388419f19bb6eae997374efbd6ca36dd8cd314e"
+    },
+    {
+      "name": "t8012-j160.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j160.dtb",
+      "offset": 4389219,
+      "bytes": 22233,
+      "sha256": "0a67b60b99294523c3487c67e8c2aada6fa909b7a657bd868fe9bfc356548fcd"
+    },
+    {
+      "name": "t8012-j174.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j174.dtb",
+      "offset": 4411452,
+      "bytes": 22233,
+      "sha256": "ae9d08d12e03e4840459d5ca1244c45a4a379411222372daf64c1462dcee051c"
+    },
+    {
+      "name": "t8012-j185.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j185.dtb",
+      "offset": 4433685,
+      "bytes": 22233,
+      "sha256": "123fd2718fa152b76260f2217f64e9bd59d9090588c19bd34e5cb6c391dae194"
+    },
+    {
+      "name": "t8012-j185f.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j185f.dtb",
+      "offset": 4455918,
+      "bytes": 22233,
+      "sha256": "9f89fccfe69ee6e5bfbc12cca93744f2a85376d98d5517cbcde3f19f8d0fa621"
+    },
+    {
+      "name": "t8012-j213.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j213.dtb",
+      "offset": 4478151,
+      "bytes": 22409,
+      "sha256": "0341b70626f489bc18687c148e4e51dc6905a8d56a160e92213efb3e4f8127ba"
+    },
+    {
+      "name": "t8012-j214k.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j214k.dtb",
+      "offset": 4500560,
+      "bytes": 22409,
+      "sha256": "239094ac927f1862ea4417151739b83ce798eee73a9c599cfa7f197373a0fd20"
+    },
+    {
+      "name": "t8012-j215.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j215.dtb",
+      "offset": 4522969,
+      "bytes": 22409,
+      "sha256": "b37b15b360e1326f413d09548383f318e7b98e018a86ecc608a21075c165cda3"
+    },
+    {
+      "name": "t8012-j223.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j223.dtb",
+      "offset": 4545378,
+      "bytes": 22409,
+      "sha256": "24b1fa8fb4a1b218902e2f87cbc19626ccda11a598e2cf30ca97a88dc9b73736"
+    },
+    {
+      "name": "t8012-j230k.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j230k.dtb",
+      "offset": 4567787,
+      "bytes": 22237,
+      "sha256": "1448e6b6d82da3bb6771479845cad1e6601e3e3e7f0c2f0fdb4dc5a1b31d2e95"
+    },
+    {
+      "name": "t8012-j680.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j680.dtb",
+      "offset": 4590024,
+      "bytes": 22409,
+      "sha256": "17c73b60a4423cc5ca101c6c5d79130b44968abf8bcf399be3de05a95c7d5c08"
+    },
+    {
+      "name": "t8012-j780.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8012-j780.dtb",
+      "offset": 4612433,
+      "bytes": 22409,
+      "sha256": "58e7d28ace2e905f08b7ef9da4157b4415450cb12e54ec830ad34f116a4216b9"
+    },
+    {
+      "name": "t8015-d20.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d20.dtb",
+      "offset": 4634842,
+      "bytes": 28469,
+      "sha256": "183cea09f69d03a83b09e19cb9e71535c0e8e40da66e3174da14d71a34b6dcdb"
+    },
+    {
+      "name": "t8015-d201.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d201.dtb",
+      "offset": 4663311,
+      "bytes": 28469,
+      "sha256": "6754135c0aa79f3b594a4e30a0aa61bfb2c3997ddcb2805b8cd6783bb05729ec"
+    },
+    {
+      "name": "t8015-d21.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d21.dtb",
+      "offset": 4691780,
+      "bytes": 28477,
+      "sha256": "932a25d20f7ecc95a464319e22d812ac099b9116156dc94e5d1b9ebb8ac5d13c"
+    },
+    {
+      "name": "t8015-d211.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d211.dtb",
+      "offset": 4720257,
+      "bytes": 28473,
+      "sha256": "3cc7632a66c418d37b97a1f12b1f36c2cb7a70f9562513eb213de214fbe8b34f"
+    },
+    {
+      "name": "t8015-d22.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d22.dtb",
+      "offset": 4748730,
+      "bytes": 28473,
+      "sha256": "c6f8be522624ad06a8577811f664ee9c7734c71902d0280803775ef5387c5f90"
+    },
+    {
+      "name": "t8015-d221.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8015-d221.dtb",
+      "offset": 4777203,
+      "bytes": 28473,
+      "sha256": "42b57282eeaff572346aaaa42c181f2ffe0f43dde8704e9703297027b7eadf31"
+    },
+    {
+      "name": "t8103-j274.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8103-j274.dtb",
+      "offset": 4805676,
+      "bytes": 63492,
+      "sha256": "e4f2be9e5297a75f6a257e7619fb68fe7c35e8af13025b1f72753ddbbeaf6983"
+    },
+    {
+      "name": "t8103-j293.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8103-j293.dtb",
+      "offset": 4869168,
+      "bytes": 66832,
+      "sha256": "ea32173df3b0f782bf610f38fb390f90a777c16d4a4b2822c58b924bc6088328"
+    },
+    {
+      "name": "t8103-j313.dtb",
+      "kind": "custom-dtb",
+      "source": "/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build/arch/arm64/boot/dts/apple/t8103-j313.dtb",
+      "offset": 4936000,
+      "bytes": 69411,
+      "sha256": "40a3d938672b8965f08a956993f0090b47cdfbadc3e8896f769aca7e8ce5b11c"
+    },
+    {
+      "name": "t8103-j456.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8103-j456.dtb",
+      "offset": 5005411,
+      "bytes": 64834,
+      "sha256": "332fc8d595a4cc8c081b6a7d18e40058c348b388cad7cfba1ca0a80ba8b0e6e9"
+    },
+    {
+      "name": "t8103-j457.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8103-j457.dtb",
+      "offset": 5070245,
+      "bytes": 64414,
+      "sha256": "773d91c5caf326030769c98bf37eb4d8b972896ff48e49a517949f9f052c56d8"
+    },
+    {
+      "name": "t8112-j413.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8112-j413.dtb",
+      "offset": 5134659,
+      "bytes": 71795,
+      "sha256": "8e6c9d4ac982d3ce3d229c1b1f680c9a801f81e980a6dad83008f8cfe6e42804"
+    },
+    {
+      "name": "t8112-j415.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8112-j415.dtb",
+      "offset": 5206454,
+      "bytes": 72223,
+      "sha256": "8afa377f189405043bcfa064671b09d27d6e17406a6a0e0ebd20884ab6a2db26"
+    },
+    {
+      "name": "t8112-j473.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8112-j473.dtb",
+      "offset": 5278677,
+      "bytes": 69001,
+      "sha256": "a18edba743711d7e37a3151ca71fef6602afcaa4dc47c49a781782a83098d1fb"
+    },
+    {
+      "name": "t8112-j493.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8112-j493.dtb",
+      "offset": 5347678,
+      "bytes": 72130,
+      "sha256": "5000f81c5a05d83668bb41aa7e3b38cc4f89a1005d8e2d84a108ab1d791ea81a"
+    },
+    {
+      "name": "t8122-j433.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8122-j433.dtb",
+      "offset": 5419808,
+      "bytes": 56915,
+      "sha256": "11cbcd67fde9bdde552e911a9eca48ed34afbf9c276d0d107ab2f26798ae7b7f"
+    },
+    {
+      "name": "t8122-j434.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8122-j434.dtb",
+      "offset": 5476723,
+      "bytes": 56877,
+      "sha256": "7e2acf581490e13abc3635d9768ab9aa93d9436e38847231538ac1e7d5027d6e"
+    },
+    {
+      "name": "t8122-j504.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8122-j504.dtb",
+      "offset": 5533600,
+      "bytes": 59785,
+      "sha256": "bc6dc90fa43c63f9b6ec8f19a74709a54c4f2b788be537118d5be45b32a05df1"
+    },
+    {
+      "name": "t8122-j613.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8122-j613.dtb",
+      "offset": 5593385,
+      "bytes": 59053,
+      "sha256": "b0f6b725a8c2b62f073034249b2baabe2fff0480cad0927e552fc92c9e8a7e34"
+    },
+    {
+      "name": "t8122-j615.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8122-j615.dtb",
+      "offset": 5652438,
+      "bytes": 59481,
+      "sha256": "c0c0d77b777517dad5d2121f311173553c8d7cf4fcfaff8c30fcbb5f525b63d7"
+    },
+    {
+      "name": "t8132-j604.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j604.dtb",
+      "offset": 5711919,
+      "bytes": 32179,
+      "sha256": "dcb8fa7036aaae83379209e2318562f35758ddbebeb369d26c9738cd19de0bee"
+    },
+    {
+      "name": "t8132-j623.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j623.dtb",
+      "offset": 5744098,
+      "bytes": 31926,
+      "sha256": "3a72b32eaea70e4d48a8fec4788dd3283fc34fa3b1789603c0009c750819c8e4"
+    },
+    {
+      "name": "t8132-j624.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j624.dtb",
+      "offset": 5776024,
+      "bytes": 31926,
+      "sha256": "05432ec12e99a8d8ec648cc6f1b16a64f1283984f092a1fb0667a18da7cb72d6"
+    },
+    {
+      "name": "t8132-j713.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j713.dtb",
+      "offset": 5807950,
+      "bytes": 32179,
+      "sha256": "9f6ab3cfa738216e25f81eb258750cddd354e0f6a315c3419df8f1f3792722b5"
+    },
+    {
+      "name": "t8132-j715.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j715.dtb",
+      "offset": 5840129,
+      "bytes": 32179,
+      "sha256": "7ef23b4595d63967b1c44939f6e51053357c25d50b55a99d23b8f83d4d398ab7"
+    },
+    {
+      "name": "t8132-j773g.dtb",
+      "kind": "installed-dtb",
+      "source": "/usr/lib/modules/7.1.13-3-1-ARCH/dtbs/t8132-j773g.dtb",
+      "offset": 5872308,
+      "bytes": 31910,
+      "sha256": "8b96b53d116f99066f3d6c51e7402cd3984a71953e799830df5ddf9634c9f292"
+    },
+    {
+      "name": "u-boot-nodtb.bin.gz",
+      "kind": "uboot",
+      "source": "/usr/lib/asahi-boot/u-boot-nodtb.bin",
+      "offset": 5904218,
+      "bytes": 311855,
+      "sha256": "f4f0de690a97cb13186f72dcd90bccb270b5d9c1ec28bc2f1324b07d7398be06"
+    }
+  ],
+  "installed": false,
+  "boot_tested": false
+}

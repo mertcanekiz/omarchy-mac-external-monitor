@@ -1,0 +1,175 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/m1n1-thunderbolt'
+  IMG   build/bootlogo_48.bin
+  IMG   build/bootlogo_256.bin
+  IMG   build/bootlogo_128.bin
+  AS    build/chainload_asm.o
+  CP    build/font.bin
+  AS    build/exception_asm.o
+  CP    build/font_retina.bin
+  CFG   build/build_cfg.h
+  AS    build/hv_asm.o
+  AS    build/gxf_asm.o
+  AS    build/memory_asm.o
+  AS    build/start.o
+  AS    build/utils_asm.o
+  CC FP build/kboot_gpu.o
+  TAG   build/build_tag.h
+  CC FP build/math/expf.o
+  CC FP build/math/exp2f_data.o
+  CC FP build/math/powf.o
+  CC FP build/math/powf_data.o
+  CC    build/adt.o
+  RS    build/librust.a
+  CC    build/afk.o
+  CC    build/aic.o
+  CC    build/asc.o
+  BIN   build/bootlogo_48.o
+  BIN   build/bootlogo_128.o
+  BIN   build/bootlogo_256.o
+  CC    build/chainload.o
+  CC    build/chickens.o
+  CC    build/clk.o
+  CC    build/cpufreq.o
+  CC    build/dapf.o
+  CC    build/dart.o
+  CC    build/dcp.o
+  CC    build/dcp_iboot.o
+  CC    build/devicetree.o
+    Updating git repository `https://github.com/rafalh/rust-fatfs`
+  CC    build/display.o
+  CC    build/dockchannel_uart.o
+  CC    build/exception.o
+  CC    build/fb.o
+  BIN   build/font.o
+  BIN   build/font_retina.o
+  CC    build/firmware.o
+  CC    build/gxf.o
+  CC    build/heapblock.o
+  CC    build/hv.o
+  CC    build/hv_vm.o
+  CC    build/hv_exc.o
+  CC    build/hv_vuart.o
+  CC    build/hv_wdt.o
+  CC    build/hv_aic.o
+  CC    build/hv_virtio.o
+  CC    build/i2c.o
+  CC    build/iova.o
+  CC    build/iodev.o
+  CC    build/isp.o
+  CC    build/kboot.o
+  CC    build/kboot_atc.o
+  CC    build/kboot_t6020_compat.o
+  CC    build/main.o
+  CC    build/mitigations.o
+  CC    build/mcc.o
+  CC    build/memory.o
+  CC    build/nvme.o
+  CC    build/payload.o
+  CC    build/pcie.o
+  CC    build/pmgr.o
+  CC    build/proxy.o
+  CC    build/ringbuffer.o
+  CC    build/rtkit.o
+  CC    build/sart.o
+  CC    build/sep.o
+  CC    build/sio.o
+  CC    build/smc.o
+  CC    build/smp.o
+  CC    build/spmi.o
+  CC    build/startup.o
+  CC    build/tunables.o
+  CC    build/string.o
+  CC    build/tunables_static.o
+  CC    build/uart.o
+  CC    build/tps6598x.o
+  CC    build/uartproxy.o
+  CC    build/usb.o
+  CC    build/usb_dwc3.o
+  CC    build/utils.o
+  CC    build/vsprintf.o
+  CC    build/wdt.o
+  CC    build/chickens/avalanche.o
+  CC    build/chickens/blizzard.o
+  CC    build/chickens/cyclone_typhoon.o
+  CC    build/chickens/everest.o
+  CC    build/chickens/hurricane_zephyr.o
+  CC    build/chickens/firestorm.o
+  CC    build/chickens/icestorm.o
+  CC    build/chickens/monsoon_mistral.o
+  CC    build/chickens/sawtooth.o
+  CC    build/chickens/twister.o
+  CC    build/dcp/dpav_ep.o
+  CC    build/dcp/dptx_phy.o
+  CC    build/dcp/parser.o
+  CC    build/dcp/dptx_port_ep.o
+  CC    build/dcp/system_ep.o
+  CC    build/minilzlib/dictbuf.o
+  CC    build/minilzlib/inputbuf.o
+  CC    build/minilzlib/lzma2dec.o
+  CC    build/minilzlib/lzmadec.o
+  CC    build/minilzlib/rangedec.o
+  CC    build/minilzlib/xzstream.o
+  CC    build/tinf/adler32.o
+  CC    build/tinf/crc32.o
+  CC    build/tinf/tinfgzip.o
+  CC    build/tinf/tinflate.o
+  CC    build/tinf/tinfzlib.o
+  CC    build/dlmalloc/malloc.o
+  CC    build/libfdt/fdt_addresses.o
+  CC    build/libfdt/fdt_empty_tree.o
+  CC    build/libfdt/fdt_ro.o
+  CC    build/libfdt/fdt_rw.o
+  CC    build/libfdt/fdt_strerror.o
+  CC    build/libfdt/fdt_sw.o
+  CC    build/libfdt/fdt_wip.o
+  CC    build/libfdt/fdt.o
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded sha1_smol v1.0.1
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded cfg-if v1.0.4
+  Downloaded addr2line v0.25.1
+  Downloaded adler2 v2.0.1
+  Downloaded rustc-literal-escaper v0.0.8
+  Downloaded foldhash v0.2.0
+  Downloaded getopts v0.2.24
+  Downloaded memchr v2.7.6
+  Downloaded rustc-demangle v0.1.27
+  Downloaded miniz_oxide v0.8.9
+  Downloaded hashbrown v0.17.1
+  Downloaded gimli v0.32.3
+  Downloaded object v0.37.3
+  Downloaded libc v0.2.185
+   Compiling compiler_builtins v0.1.160 (/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-toolchain/root/usr/lib/rustlib/src/rust/library/compiler-builtins/compiler-builtins)
+   Compiling core v0.0.0 (/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-toolchain/root/usr/lib/rustlib/src/rust/library/core)
+   Compiling versions v0.1.0 (/home/mert/Work/omarchy-mac-external-monitor/sources/m1n1-thunderbolt/rust/versions)
+   Compiling alloc v0.0.0 (/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-toolchain/root/usr/lib/rustlib/src/rust/library/alloc)
+   Compiling sha1_smol v1.0.1
+   Compiling rust v0.1.0 (/home/mert/Work/omarchy-mac-external-monitor/sources/m1n1-thunderbolt/rust)
+warning: unused import: `crate::println`
+ --> src/usb4.rs:4:5
+  |
+4 | use crate::println;
+  |     ^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: feature `stmt_expr_attributes` is declared but not used
+ --> src/lib.rs:7:12
+  |
+7 | #![feature(stmt_expr_attributes)]
+  |            ^^^^^^^^^^^^^^^^^^^^
+  |
+  = note: `#[warn(unused_features)]` (part of `#[warn(unused)]`) on by default
+
+warning: `rust` (lib) generated 2 warnings (run `cargo fix --lib -p rust` to apply 1 suggestion)
+    Finished `release` profile [optimized] target(s) in 16.96s
+warning: the following packages contain code that will be rejected by a future version of Rust: core v0.0.0 (/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-toolchain/root/usr/lib/rustlib/src/rust/library/core)
+note: to see what the problems were, use the option `--future-incompat-report`, or run `cargo report future-incompatibilities --id 1`
+  LD    build/m1n1.elf
+  LDRAW build/m1n1-raw.elf
+  RAW   build/m1n1.bin
+  MACHO build/m1n1.macho
+rm build/bootlogo_48.bin build/bootlogo_256.bin build/bootlogo_128.bin build/font_retina.bin build/font.bin
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/m1n1-thunderbolt'

@@ -1,0 +1,9 @@
+/boot/efi/m1n1/boot.bin: OK
+/boot/vmlinuz-linux-asahi: OK
+boot-and-config.tar: OK
+grub.cfg: OK
+boot.bin.original: OK
+
+Backup and review files: /home/mert/Work/omarchy-mac-external-monitor/snapshots/boot-review-ywfOl6EC
+No active boot files, installed modules, or GRUB entries changed.
+Next: review grub.cfg and confirm EFI recovery before staging the experiment.

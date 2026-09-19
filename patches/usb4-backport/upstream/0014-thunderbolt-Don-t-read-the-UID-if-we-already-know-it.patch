@@ -1,0 +1,38 @@
+From 09871e5aa8603f6b31fe723f9e32939905218e67 Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:25 +0200
+Subject: [PATCH 14/23] thunderbolt: Don't read the UID if we already know it
+
+On Apple Silicon the host router's UID comes from the DROM provided by
+the device tree and is already known by the time tb_switch_set_uuid()
+runs. Skip reading it from the config space again in that case.
+
+For other USB4 hosts this only drops a duplicate read because
+tb_drom_host_read() has already filled in the UID from ROUTER_CS_7
+before tb_switch_set_uuid() runs. Device routers keep reading it
+unconditionally.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/switch.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
+index 217e18f8a7..840dc64ac5 100644
+--- a/drivers/thunderbolt/switch.c
++++ b/drivers/thunderbolt/switch.c
+@@ -2690,9 +2690,11 @@ static int tb_switch_set_uuid(struct tb_switch *sw)
+ 		return 0;
+ 
+ 	if (tb_switch_is_usb4(sw)) {
+-		ret = usb4_switch_read_uid(sw, &sw->uid);
+-		if (ret)
+-			return ret;
++		if (tb_route(sw) || !sw->uid) {
++			ret = usb4_switch_read_uid(sw, &sw->uid);
++			if (ret)
++				return ret;
++		}
+ 		uid = true;
+ 	} else {
+ 		/*

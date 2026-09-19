@@ -1,0 +1,15 @@
+{
+  "release": "7.2.2-thunderbolt-test+",
+  "baseline_bundle_sha256": "9602d026b2960bf308e3cc7a9d14019abeed4b7ccaa387125241073660b7c297",
+  "kernel_sha256": "fde2572e039cba1fb360ac6c72773a5df6abb73d025b4030a57e4aa89a290f29",
+  "files": {
+    "artifacts/thunderbolt-dpin/initramfs-thunderbolt-dpin.img": "d0096779a575bb2c99bb2b84680408579b66deb6dafb140602e635da31f972f1",
+    "artifacts/thunderbolt-dpin/boot.bin.thunderbolt-dpin": "6c22c07bd01d04bb532afe3a62e0aee54abbcd46996ec05b06d6663b15e9fa6e",
+    "artifacts/thunderbolt-dpin/appledrm.ko": "1340874c09d466ba911b5fcc172392958c98b3de32457ba3a0677fce00032657",
+    "artifacts/thunderbolt-dpin/t8103-j313.dtb": "216053ddb1226be9ccde4038f270acfd2a645ea1a90f4cc4891e9762b0f66755",
+    "patches/thunderbolt-dpin-experiment.patch": "39473288e2b379a0b62194ad84633bc86035121ef2aac8b531c06420d0b6affe"
+  },
+  "boot_tested": false,
+  "display_working": false,
+  "scope": "J313, front port, DPIN0; manual connection; no hotplug/suspend support"
+}

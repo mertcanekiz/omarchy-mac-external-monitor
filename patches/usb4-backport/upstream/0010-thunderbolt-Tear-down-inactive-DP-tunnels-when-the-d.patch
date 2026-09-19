@@ -1,0 +1,49 @@
+From 790cf84b17b8b1c0eb7ba4e876eaf4703e9c5193 Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sat, 29 Aug 2026 10:08:38 +0200
+Subject: [PATCH 10/23] thunderbolt: Tear down inactive DP tunnels when the
+ domain is stopped
+
+tb_stop only tears down DMA tunnels so a DP tunnel that is still
+waiting for dprx_work to complete keeps that work queued while the
+routers are removed and the control channel is stopped. The work only
+stops once the DPRX timeout has passed and because it requeues itself
+until then the flush_workqueue in tb_domain_remove won't wait for its
+final run. The callback then runs against a domain that is already torn
+down. A reference to that domain is kept so the completion waiting for
+that domain to disappear in unbind will block until the timeout is
+eventually reached.
+
+Tear down DP tunnels that are not active yet as well which also cancels
+that work. Tunnels for displays that are already alive are untouched and
+keep working.
+
+Fixes: d6d458d42e1e ("thunderbolt: Handle DisplayPort tunnel activation asynchronously")
+Cc: stable@vger.kernel.org
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/tb.c | 8 +++++---
+ 1 file changed, 5 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 088323cd87..921adba354 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -2958,12 +2958,14 @@ static void tb_stop(struct tb *tb)
+ 	/* tunnels are only present after everything has been initialized */
+ 	list_for_each_entry_safe(tunnel, n, &tcm->tunnel_list, list) {
+ 		/*
+-		 * DMA tunnels require the driver to be functional so we
+-		 * tear them down. Other protocol tunnels can be left
+-		 * intact.
++		 * DMA tunnels and DP tunnels which are not yet active require
++		 * the driver to be functional so we tear them down.
++		 * Other protocol tunnels can be left intact.
+ 		 */
+ 		if (tb_tunnel_is_dma(tunnel))
+ 			tb_tunnel_deactivate(tunnel);
++		else if (tb_tunnel_is_dp(tunnel) && !tb_tunnel_is_active(tunnel))
++			tb_tunnel_deactivate(tunnel);
+ 		tb_tunnel_put(tunnel);
+ 	}
+ 	tb_switch_remove(tb->root_switch);

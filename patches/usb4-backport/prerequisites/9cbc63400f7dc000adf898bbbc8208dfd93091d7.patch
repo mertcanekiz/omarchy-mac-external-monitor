@@ -1,0 +1,61 @@
+From 9cbc63400f7dc000adf898bbbc8208dfd93091d7 Mon Sep 17 00:00:00 2001
+From: Mika Westerberg <mika.westerberg@linux.intel.com>
+Date: Tue, 28 Jul 2026 09:15:39 +0300
+Subject: [PATCH] thunderbolt: Initialize ->domain_released completion before
+ it is being used
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+Both Woody and Marek reported following crash:
+
+ BUG: unable to handle page fault for address: fffffffffffffff8
+ Call Trace:
+  <TASK>
+  device_release+0x43/0x90
+  kobject_cleanup+0x3c/0x180
+  icm_probe+0x19c/0x550 [thunderbolt]
+  nhi_probe+0x1a4/0x370 [thunderbolt]
+  local_pci_probe+0x41/0x90
+  pci_call_probe+0x5b/0x1a0
+  ...
+
+This only triggers on the error path when icm_probe() fails and the
+domain structure is released, it tries to complete() uninitialized
+completion.
+
+Fix this by initializing the completion earlier.
+
+Reported-by: Marek Marczykowski-Górecki <marmarek@invisiblethingslab.com>
+Closes: https://lore.kernel.org/linux-usb/amdezCBiW4fd_DuB@mail-itl/
+Reported-by: Woody Suwalski <terraluna977@gmail.com>
+Tested_by: Woody Suwalski <terraluna977@gmail.com>
+Closes: https://lore.kernel.org/linux-usb/62caf7f8-b403-d0dd-15bc-b31b56f71c28@gmail.com/
+Fixes: f5cc545f5969 ("thunderbolt: Wait for tb_domain_release() to complete when driver is removed")
+Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+---
+ drivers/thunderbolt/nhi.c | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index 0f795ea58756d6..35e3c119d5ee84 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -1226,6 +1226,8 @@ int nhi_probe(struct tb_nhi *nhi)
+ 			return dev_err_probe(dev, res, "NHI specific init failed\n");
+ 	}
+ 
++	init_completion(&nhi->domain_released);
++
+ 	tb = nhi_select_cm(nhi);
+ 	if (!tb)
+ 		return dev_err_probe(dev, -ENODEV,
+@@ -1233,8 +1235,6 @@ int nhi_probe(struct tb_nhi *nhi)
+ 
+ 	dev_dbg(dev, "NHI initialized, starting thunderbolt\n");
+ 
+-	init_completion(&nhi->domain_released);
+-
+ 	res = tb_domain_add(tb, host_reset);
+ 	if (res) {
+ 		/*

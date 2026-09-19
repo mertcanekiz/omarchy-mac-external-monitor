@@ -1,0 +1,81 @@
+Thunderbolt/USB4:
+
+    Thunderbolt/USB4 Bus 1:
+
+      Vendor Name: Apple Inc.
+      Device Name: MacBook Air
+      UID: 0x05AC0AB7FE8AAA61
+      Route String: 0
+      Domain UUID: FB203AEF-33CB-4AC9-ACC1-3AA0774C28E5
+      Port:
+          Status: Device connected
+          Link Status: 0x2
+          Speed: Up to 20 Gb/s x1
+          Current Link Width: 0x2
+          Receptacle: 2
+
+        UltraFine 4K:
+
+          Vendor Name: LG Electronics
+          Device Name: UltraFine 4K
+          Mode: Thunderbolt 3
+          Device ID: 0x1115
+          Vendor ID: 0x1E
+          Device Revision: 0x1
+          UID: 0x001EA8B8C0614200
+          Route String: 1
+          Firmware Version: 39.1
+          Port (Upstream):
+              Status: Device connected
+              Link Status: 0x2
+              Speed: Up to 20 Gb/s x1
+              Current Link Width: 0x2
+              Link Controller Firmware Version: 1.11.0
+          Port:
+              Status: No device connected
+              Link Status: 0x7
+              Speed: Up to 40 Gb/s x1
+              Current Link Width: 0x1
+              Link Controller Firmware Version: 1.11.0
+
+    Thunderbolt/USB4 Bus 0:
+
+      Vendor Name: Apple Inc.
+      Device Name: MacBook Air
+      UID: 0x05AC0AB7FE8AAA60
+      Route String: 0
+      Domain UUID: 5FF6C7F3-3649-4377-AD06-169CB4C833A0
+      Port:
+          Status: No device connected
+          Link Status: 0x100
+          Speed: Up to 40 Gb/s x1
+          Current Link Width: 0x1
+          Receptacle: 1
+
+Graphics/Displays:
+
+    Apple M1:
+
+      Chipset Model: Apple M1
+      Type: GPU
+      Bus: Built-In
+      Total Number of Cores: 8
+      Vendor: Apple (0x106b)
+      Metal Support: Metal 3
+      Displays:
+        Color LCD:
+          Display Type: Built-In Retina LCD
+          Resolution: 2560 x 1600 Retina
+          Main Display: Yes
+          Mirror: Off
+          Online: Yes
+          Automatically Adjust Brightness: Yes
+          Connection Type: Internal
+        LG UltraFine:
+          Resolution: 5120 x 2880 (5K/UHD+ - Ultra High Definition Plus)
+          UI Looks like: 2560 x 1440 @ 60.00Hz
+          Mirror: Off
+          Online: Yes
+          Rotation: Supported
+          Automatically Adjust Brightness: Yes
+

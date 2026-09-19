@@ -1,0 +1,12 @@
+NAME        FSTYPE LABEL       PARTLABEL            PARTUUID                             MOUNTPOINTS
+zram0       swap   zram0                                                                 [SWAP]
+nvme0n1                                                                                  
+├─nvme0n1p1 apfs               iBootSystemContainer 9314de5a-504e-472b-af0a-ba818d4fdc7d 
+├─nvme0n1p2 apfs               Container            78fb5cab-ef83-4982-88b4-3a1be4d6ea32 
+├─nvme0n1p3 apfs                                    f5d5c03b-6718-424e-9c50-bc41eb87116a 
+├─nvme0n1p4 vfat   EFI - OMARC                      bf0b62f5-e52c-4ba5-afa8-e77cd9364cf5 /boot/efi
+├─nvme0n1p5 btrfs  asahi-root                       9186bd8e-cab5-46a8-9f5b-998376589c36 /home
+│                                                                                        /
+└─nvme0n1p6 apfs               RecoveryOSContainer  dac9f4e5-cdf3-4b27-a371-54f19bb21345 
+nvme0n2                                                                                  
+nvme0n3                                                                                  

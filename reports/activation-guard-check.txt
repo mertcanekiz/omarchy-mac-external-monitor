@@ -1,0 +1,2 @@
+Activation requires: activate --recovery-confirmed
+First verify macOS/Recovery can access the EFI backup.

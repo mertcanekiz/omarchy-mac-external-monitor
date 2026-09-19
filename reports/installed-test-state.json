@@ -1,0 +1,53 @@
+{
+  "timestamp": "2026-09-17T21:59:37.871219+03:00",
+  "backup_directory": "snapshots/boot-review-ywfOl6EC",
+  "staged": true,
+  "activated": true,
+  "rebooted": true,
+  "recovery_confirmed": true,
+  "recovery_response": "User booted Recovery, mounted EFI, and confirmed the m1n1 files.",
+  "macos_boot_target_present": "Macintosh HD",
+  "default_boot_target": "Omarchy",
+  "grub_default": "0 (original Omarchy Linux entry)",
+  "test_entry": "Omarchy - external monitor test (manual)",
+  "test_entry_id": "omarchy-display-test",
+  "files": {
+    "/boot/efi/m1n1/boot.bin": {
+      "sha256": "af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201",
+      "bytes": 6212946
+    },
+    "/boot/efi/m1n1/boot.bin.before-display-test": {
+      "sha256": "566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33",
+      "bytes": 6212622
+    },
+    "/boot/efi/m1n1/boot.bin.display-test": {
+      "sha256": "af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201",
+      "bytes": 6212946
+    },
+    "/boot/efi/m1n1/DISPLAY-TEST-RECOVERY.txt": {
+      "sha256": "7e980c735336311d03400c6aea8f56b5932a9783d1aef88b3d9b089a4677d168",
+      "bytes": 1850
+    },
+    "/boot/initramfs-display-test.img": {
+      "sha256": "85b41f507744b1e1861ec3ac06eeb8e6b32b73154f7007ed780761977edeca50",
+      "bytes": 19917570
+    },
+    "/boot/grub/custom.cfg": {
+      "sha256": "4e7282d85a64d3a0aa21e2eb1903d3e6c38df490e5e6bf1edcb82159c7177624",
+      "bytes": 680
+    }
+  },
+  "recovery_confirmed_at": "2026-09-17T22:47:36.826123+03:00",
+  "activated_at": "2026-09-17T22:48:48.505580+03:00",
+  "experimental_boot_tested": true,
+  "experimental_display_working": false,
+  "first_boot_report": "reports/first-display-test-details.json",
+  "first_boot_result": "Both experimental modules resident; external DCP booted; DP-1 disconnected; Apple GPU renderer retained.",
+  "user_cable_report": "No separate charger; LG-supplied cable, user thinks Thunderbolt; exact cable and physical ports unconfirmed.",
+  "second_cable_result": "Trace confirms ACTIVE_CABLE and TBT_CONNECTION; no DP_CONNECTION or HPD_LEVEL observed during reconnect; DP-1 disconnected.",
+  "next_test": "Validate this exact cable with a known-working USB-C video host, or use a known video-capable USB-C cable. Diagnostic appledrm module built in workspace for subsequent separate initramfs test; not installed.",
+  "third_cable_result": "USB-C cable per user; trace reports USB2/USB3 data flags but no DP_CONNECTION, HPD_LEVEL or TBT_CONNECTION so far; DP-1 disconnected.",
+  "monitor_power_cycle_result": "Completed by user with third USB-C cable attached; USB data flags reported, no DP_CONNECTION/HPD_LEVEL/TBT_CONNECTION captured; DP-1 disconnected.",
+  "usbc_preconnected_boot_result": "Both experimental Type-C modules loaded; external DCP booted; LG USB hub/audio/controls enumerate; dcp_dptx_connect logged; DP-1 still disconnected.",
+  "expanded_reconnect_result": "DP_CONNECTION and HPD_LEVEL with pinout C; firmware asks supports_hpd and max_lane_count, then activate; about seven seconds later DEVICE_BUSY_TIMEOUT and DEVICE_NOT_STARTED; no set_link_rate or set_active_lane_count trace events captured."
+}

@@ -1,0 +1,299 @@
+tb devices: ['0-0', '0-0:1.1', '0-1', 'domain0']
+[   0.0] tunnel_hpd <- 0 ok
+[   4.0] unbinding NHI
+[   8.1] tb devices after unbind: []
+[  11.1] tunnel_hpd <- 1 failed: [Errno 110] Connection timed out
+[  13.1] drm: {'card1-DP-1': ('disconnected', 0)}
+[  15.1] drm: {'card1-DP-1': ('disconnected', 0)}
+[  17.1] drm: {'card1-DP-1': ('disconnected', 0)}
+[  19.1] drm: {'card1-DP-1': ('disconnected', 0)}
+[  21.1] drm: {'card1-DP-1': ('disconnected', 0)}
+[  23.2] drm: {'card1-DP-1': ('disconnected', 0)}
+[  23.2] rebinding NHI
+[  31.8] tb devices after bind: ['0-0', '0-0:1.1', '0-1', 'domain0']
+[  33.8] drm: {'card1-DP-1': ('disconnected', 0)}
+[  35.8] drm: {'card1-DP-1': ('disconnected', 0)}
+[  37.8] drm: {'card1-DP-1': ('disconnected', 0)}
+[  39.8] drm: {'card1-DP-1': ('disconnected', 0)}
+[  41.8] drm: {'card1-DP-1': ('disconnected', 0)}
+[  43.8] drm: {'card1-DP-1': ('disconnected', 0)}
+Saved 15 adapters to reports/thunderbolt/dpin-v2-attempt4-nhi-rebind/after.json
+0-0/port1 {'type': 'lane'}
+0-0/port2 {'type': 'lane'}
+0-0/port3 {'type': 'PCIe DOWN'}
+0-0/port4 {'type': 'USB3 DOWN'}
+0-0/port5 {'type': 'DP IN', 'adapter_enabled': True, 'video_enabled': True, 'dprx_done': False, 'local': {'raw': '0x5402334', 'rate_code': 3, 'lane_code': 2}, 'remote': {'raw': '0x840a234', 'rate_code': 2, 'lane_code': 2}, 'common': {'raw': '0x8402234', 'rate_code': 2, 'lane_code': 2}}
+0-0/port6 {'type': 'DP IN', 'adapter_enabled': False, 'video_enabled': False, 'dprx_done': False, 'local': {'raw': '0x5402334', 'rate_code': 3, 'lane_code': 2}, 'remote': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}, 'common': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}}
+0-0/port7 {'type': 'NHI'}
+0-1/port1 {'type': 'lane'}
+0-1/port10 {'type': 'DP OUT', 'adapter_enabled': True, 'video_enabled': True, 'dprx_done': False, 'local': {'raw': '0xc0a334', 'rate_code': 3, 'lane_code': 2}, 'remote': {'raw': '0x5402334', 'rate_code': 3, 'lane_code': 2}, 'common': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}}
+0-1/port11 {'type': 'DP OUT', 'adapter_enabled': False, 'video_enabled': False, 'dprx_done': False, 'local': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}, 'remote': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}, 'common': {'raw': '0x0', 'rate_code': 0, 'lane_code': 0}}
+0-1/port2 {'type': 'lane'}
+0-1/port3 {'type': 'lane'}
+0-1/port4 {'type': 'lane'}
+0-1/port8 {'type': 'PCIe UP'}
+0-1/port9 {'type': 'PCIe DOWN'}
+--- trace ---
+   kworker/u32:2-27638   [000] .....  2148.056172: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 20 (inactive_sink_detected) with len 16
+   kworker/u32:2-27638   [000] .....  2148.056730: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 1 (deactivate) with len 16
+         python3-55751   [003] .....  2156.111023: dptxport_validate_connection: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+         python3-55751   [003] .....  2156.111672: dptxport_connect: 271c00000.dcp: dptx0: core 1, atc 1, die 0
+   kworker/u32:2-27638   [007] .....  2156.113496: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 18 (get_supports_hpd) with len 32
+   kworker/u32:2-27638   [007] .....  2156.113645: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 10 (get_max_lane_count) with len 32
+   kworker/u32:2-27638   [007] .....  2156.113837: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 0 (activate) with len 16
+   kworker/u32:2-27638   [006] .....  2163.180187: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 22 (device_not_responding) with len 16
+   kworker/u32:2-27638   [006] .....  2163.180444: dptxport_apcall: 271c00000.dcp: dptx0: AP Call 24 (device_not_started) with len 16
+--- journal ---
+Sep 18 02:24:59 omarchy kernel: apple-dcp 271c00000.dcp: DPTXPort: acking unhandled call 20
+Sep 18 02:24:59 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_disconnect(port=0)
+Sep 18 02:24:59 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to disconnected state
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): deactivating
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: deactivating Video path from 0:5 to 1:10
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: adding -12 NFC credits to 12
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: deactivating AUX TX path from 0:5 to 1:10
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: deactivating AUX RX path from 1:10 to 0:5
+Sep 18 02:25:03 omarchy kernel: thunderbolt 0-1: device disconnected
+Sep 18 02:25:03 omarchy kernel: thunderbolt 0-0:1.1: retimer disconnected
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: stopping RX ring 0
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: stopping TX ring 0
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: control channel stopped
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: freeing RX ring 0
+Sep 18 02:25:03 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: freeing TX ring 0
+Sep 18 02:25:07 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect(port=0)
+Sep 18 02:25:07 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to dispext0,0
+Sep 18 02:25:07 omarchy kernel: apple-dcp 271c00000.dcp: DP tunnel validate core=1 ATC=1 die=0: 0
+Sep 18 02:25:07 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x885238
+Sep 18 02:25:10 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect: port 0 link configuration timed out
+Sep 18 02:25:11 omarchy kernel: apple-dcp 271c00000.dcp: DPTX HPD assert: -110
+Sep 18 02:25:15 omarchy kernel: apple-dcp 271c00000.dcp: DPTXPort: acking unhandled call 22
+Sep 18 02:25:15 omarchy kernel: apple-dcp 271c00000.dcp: DPTXPort: acking unhandled call 24
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: allocating TX ring 0 of size 10
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: allocating RX ring 0 of size 10
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: control channel created
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: using software connection manager
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: device links to tunneled native ports are missing!
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: control channel starting...
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: starting TX ring 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: starting RX ring 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: security level set to user
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: current switch config:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  USB4 Switch: 5ac:2000 (Revision: 0, TB Version: 32)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max Port Number: 7
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Config:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:    Upstream Port Number: 7 Depth: 0 Route String: 0x0 Enabled: 1, PlugEventsDelay: 255ms
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:    unknown1: 0x0 unknown4: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: initializing Switch at 0x0 (depth: 0, up port: 7)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: credit allocation parameters:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:  USB3: 7
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:  DP AUX: 4
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:  DP main: 15
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:  PCIe: 70
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:  DMA: 52
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: DROM version: 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: uid: 0x5ac0ab7fe8aaa61
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 1: 5ac:2000 (Revision: 0, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 22/22
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 7
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x4ae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 2: 5ac:2000 (Revision: 0, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 22/22
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 7
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x4ae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 3: 5ac:2000 (Revision: 0, TB Version: 1, Type: PCIe (0x100101))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0xae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 4: 5ac:2000 (Revision: 0, TB Version: 1, Type: USB (0x200101))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0xae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 5: 5ac:2000 (Revision: 0, TB Version: 1, Type: DP/HDMI (0xe0101))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 9/9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0xae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 6: 5ac:2000 (Revision: 0, TB Version: 1, Type: DP/HDMI (0xe0101))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 9/9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0xae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 7: 5ac:2000 (Revision: 0, TB Version: 1, Type: NHI (0x2))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 11/11
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0xae00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 174/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: TMU: supports uni-directional mode
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: TMU: current mode: bi-directional, HiFi
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: TMU: mode change bi-directional, HiFi -> uni-directional, LowRes requested
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: TMU: mode set to: uni-directional, LowRes
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: is connected, link is up (state: 2)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: current switch config:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Thunderbolt 3 Switch: 8086:15ef (Revision: 6, TB Version: 16)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max Port Number: 13
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Config:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:    Upstream Port Number: 1 Depth: 1 Route String: 0x1 Enabled: 1, PlugEventsDelay: 255ms
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:    unknown1: 0x0 unknown4: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: initializing Switch at 0x1 (depth: 1, up port: 1)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: reading DROM (length: 0x77)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: DROM version: 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: uid: 0x1ea8b8c0614200
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 1: 8086:15ef (Revision: 6, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 19/19
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 16
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x7800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 120/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 2: 8086:15ef (Revision: 6, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 19/19
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 16
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 0/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 3: 8086:15ef (Revision: 6, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 19/19
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 16
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x3c00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 60/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 4: 8086:15ef (Revision: 6, TB Version: 1, Type: Port (0x1))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 19/19
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 16
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x3c00000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 60/2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:5: disabled by eeprom
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:6: disabled by eeprom
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:7: disabled by eeprom
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 8: 8086:15ef (Revision: 6, TB Version: 1, Type: PCIe (0x100102))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 9: 8086:15ef (Revision: 6, TB Version: 1, Type: PCIe (0x100101))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 10: 8086:15ef (Revision: 6, TB Version: 1, Type: DP/HDMI (0xe0102))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 9/9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 11: 8086:15ef (Revision: 6, TB Version: 1, Type: DP/HDMI (0xe0102))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 9/9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 12: 8086:15ea (Revision: 6, TB Version: 1, Type: Inactive (0x0))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:  Port 13: 8086:15ea (Revision: 6, TB Version: 1, Type: Inactive (0x0))
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max hop id (in/out): 8/8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Max counters: 2
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   NFC Credits: 0x800000
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi:   Credits (total/control): 8/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: running quirk_clx_disable [thunderbolt]
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: disabling CL states
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: current link speed 10.0 Gb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: current link width symmetric, dual lanes
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: TMU: supports uni-directional mode
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: TMU: current mode: bi-directional, HiFi
+Sep 18 02:25:23 omarchy kernel: thunderbolt 0-1: new device found, vendor=0x1e device=0x1115
+Sep 18 02:25:23 omarchy kernel: thunderbolt 0-1: LG Electronics UltraFine 4K
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: NVM version 39.0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: reading NVM authentication status of retimers
+Sep 18 02:25:23 omarchy kernel: thunderbolt 0-0:1.1: NVM version 19.0
+Sep 18 02:25:23 omarchy kernel: thunderbolt 0-0:1.1: new retimer found, vendor=0x8087 device=0x15ee
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: disabling sideband transactions
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1: discovery, not touching CL states
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:3: is unplugged (state: 7)
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: DP adapter HPD set, queuing hotplug
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: discovering PCIe Up path starting from 0:3
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3:  In HopID: 8 => Out port: 1 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3:   Weight: 1 Priority: 3 Credits: 0 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3:   Flow Control (In/Eg): 0/1 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:  In HopID: 8 => Out port: 8 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Weight: 1 Priority: 3 Credits: 32 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: path discovery complete
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: discovering PCIe Down path starting from 1:8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:8:  In HopID: 8 => Out port: 1 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:8:   Weight: 1 Priority: 3 Credits: 7 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:8:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:8:   Flow Control (In/Eg): 1/1 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:8:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:  In HopID: 8 => Out port: 3 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Weight: 1 Priority: 3 Credits: 70 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: path discovery complete
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:3 <-> 1:8 (PCI): discovered
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: DP IN resource available
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:6: DP IN resource available
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: DP OUT resource available after hotplug
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: looking for DP IN <-> DP OUT pairs:
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: DP IN available
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: DP OUT available
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0: allocated DP resource for port 5
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: attached to bandwidth group 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: available bandwidth for new DP tunnel 18000/18000 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): activating
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DP IN maximum supported bandwidth 8100 Mb/s x4 = 25920 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DP OUT maximum supported bandwidth 8100 Mb/s x4 = 25920 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): bandwidth reduced to 5400 Mb/s x4 = 17280 Mb/s
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): disabling LTTPR
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: activating Video path from 0:5 to 1:10
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: adding 12 NFC credits to 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: Writing hop 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:  In HopID: 9 => Out port: 1 Out HopID: 9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Weight: 1 Priority: 1 Credits: 0 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Flow Control (In/Eg): 0/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: Writing hop 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:  In HopID: 9 => Out port: 10 Out HopID: 9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Weight: 1 Priority: 1 Credits: 0 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Flow Control (In/Eg): 0/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: Video path activation complete
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: activating AUX TX path from 0:5 to 1:10
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5: Writing hop 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:  In HopID: 8 => Out port: 1 Out HopID: 10
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Weight: 1 Priority: 2 Credits: 0 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Flow Control (In/Eg): 0/1 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1: Writing hop 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:  In HopID: 10 => Out port: 10 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Weight: 1 Priority: 2 Credits: 1 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: AUX TX path activation complete
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: activating AUX RX path from 1:10 to 0:5
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: Writing hop 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:  In HopID: 8 => Out port: 1 Out HopID: 9
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Weight: 1 Priority: 2 Credits: 1 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Flow Control (In/Eg): 1/1 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: Writing hop 1
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:  In HopID: 9 => Out port: 5 Out HopID: 8
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Weight: 1 Priority: 2 Credits: 4 Drop: 0 PM: 0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:    Counter enabled: 0 Counter index: 2047
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Flow Control (In/Eg): 1/0 Shared Buffer (In/Eg): 0/0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1:   Unknown1: 0x0 Unknown2: 0x0 Unknown3: 0x0
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: AUX RX path activation complete
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:6: DP IN available
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:10: DP OUT in use
+Sep 18 02:25:23 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:6: no suitable DP OUT adapter available, not tunneling

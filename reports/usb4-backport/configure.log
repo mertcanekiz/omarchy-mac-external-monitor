@@ -1,0 +1,34 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+Rust is available!
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+  UPD     /home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build/Makefile
+  HOSTCC  scripts/basic/fixdep
+  HOSTCC  scripts/kconfig/conf.o
+  HOSTCC  scripts/kconfig/confdata.o
+  HOSTCC  scripts/kconfig/expr.o
+  LEX     scripts/kconfig/lexer.lex.c
+  YACC    scripts/kconfig/parser.tab.[ch]
+  HOSTCC  scripts/kconfig/lexer.lex.o
+  HOSTCC  scripts/kconfig/menu.o
+  HOSTCC  scripts/kconfig/parser.tab.o
+  HOSTCC  scripts/kconfig/preprocess.o
+  HOSTCC  scripts/kconfig/symbol.o
+  HOSTCC  scripts/kconfig/util.o
+  HOSTLD  scripts/kconfig/conf
+#
+# configuration written to .config
+#
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+ LOCALVERSION "-ARCH" -> "-usb4-gpu-test"
+ PAHOLE_VERSION 131 -> 132
+ USB4 n -> m
++RESET_APPLE_CIO y
++USB4_APPLE_SOC m
++USB4_DEBUGFS_WRITE n
++USB4_DMA_TEST n
++USB4_NET n

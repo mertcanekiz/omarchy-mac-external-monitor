@@ -1,0 +1,20 @@
+{
+  "checks": [
+    "tps6598x-core: exact built bytes in initramfs, matching vermagic, BTF present",
+    "tps6598x: exact built bytes in initramfs, matching vermagic, BTF present",
+    "patched module pair explicitly included in early boot configuration",
+    "existing Asahi firmware hook and display module preserved; GPU remains in stock kernel",
+    "stock DTB reproduced byte-for-byte from exact release source",
+    "FDT parser rejects truncated/invalid headers",
+    "active m1n1 and kernel unchanged; installed modules remain distinct from test modules"
+  ],
+  "initramfs_sha256": "85b41f507744b1e1861ec3ac06eeb8e6b32b73154f7007ed780761977edeca50",
+  "module_build": "passed with pahole 1.32 versus stock 1.31 metadata-version warning",
+  "boot_tested": false,
+  "display_output_verified": false,
+  "limitations": [
+    "No runtime module-load test",
+    "No monitor connected during build",
+    "Shared m1n1 DTB change requires attended boot and recovery preparation"
+  ]
+}

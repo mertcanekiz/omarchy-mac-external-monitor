@@ -1,0 +1,20 @@
+{
+  "kernel": "7.1.13-3-1-ARCH",
+  "stock_bundle_sha256": "566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33",
+  "candidate_bundle_sha256": "af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201",
+  "dtb_offset": 4936000,
+  "stock_dtb_sha256": "596420449c9b8d30a29392a344398026b5977877caebeecce1c54ac869ba7848",
+  "candidate_dtb_sha256": "886b59b534e3f9b9e762a0f5d8bf6c9c6db6e7d7cf7f1d6f05305459ca013fe8",
+  "stock_dtb_bytes": 65432,
+  "candidate_dtb_bytes": 65756,
+  "verified": [
+    "J313 model",
+    "external DCP enabled",
+    "DP connector type",
+    "dcpext alias",
+    "Type-C port 1 linked to external DCP",
+    "all bytes outside J313 DTB preserved"
+  ],
+  "installed": false,
+  "boot_tested": false
+}

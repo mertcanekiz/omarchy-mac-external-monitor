@@ -1,0 +1,26 @@
+ASAHI USB4 / THUNDERBOLT BRING-UP RECOVERY
+
+The active loader is m1n1/boot.bin.
+
+Saved images in this directory:
+  boot.bin.before-display-test       original packaged m1n1/DT/U-Boot bundle
+  boot.bin.before-thunderbolt-test   previously active display-test bundle
+  boot.bin.thunderbolt-test          new USB4 test bundle
+
+If the USB4 test bundle prevents normal startup, use macOS or Recovery
+Terminal to mount the EFI partition whose partition UUID is:
+
+  bf0b62f5-e52c-4ba5-afa8-e77cd9364cf5
+
+Then replace m1n1/boot.bin with either saved image. To return to the exact
+state immediately before this experiment, copy:
+
+  cp boot.bin.before-thunderbolt-test boot.bin
+
+To return to the original packaged loader/device tree instead, copy:
+
+  cp boot.bin.before-display-test boot.bin
+
+Do not delete or rename either recovery image until the USB4 boot has been
+confirmed. A GRUB kernel choice cannot undo this loader/device-tree change,
+because m1n1 runs before GRUB.

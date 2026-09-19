@@ -1,0 +1,52 @@
++-o dcpext@71C00000  <class AppleARMIODevice, id 0x1000002cb, registered, matched, active, busy 0 (748 ms), retain 9>
+  | {
+  |   "IOInterruptSpecifiers" = (<d3010000>,<d2010000>,<d5010000>,<d4010000>)
+  |   "hdcp-channels" = <0500000006000000>
+  |   "iop-version" = <01000000>
+  |   "clock-gates" = <910100009201000093010000>
+  |   "AAPL,phandle" = <cf000000>
+  |   "IODeviceMemory" = (({"address"=10498342912,"length"=442368}),({"address"=10494476288,"length"=16384}))
+  |   "IOReportLegendPublic" = Yes
+  |   "dp-switch-parent" = <5d000000>
+  |   "iommu-parent" = <d2000000>
+  |   "IOInterruptControllers" = ("IOInterruptController00000067","IOInterruptController00000067","IOInterruptController00000067","IOInterruptController00000067")
+  |   "name" = <"dcpext">
+  |   "interrupt-parent" = <67000000>
+  |   "compatible" = <"iop,ascwrap-v4">
+  |   "clock-ids" = <>
+  |   "interrupts" = <d3010000d2010000d5010000d4010000>
+  |   "hdcp-parent" = <88000000>
+  |   "audio" = <d3000000>
+  |   "dp-switch-ufp-endpoint" = <00000000>
+  |   "dp-switch-ufp-port" = <00000000>
+  |   "dcp-soc-vmax-index" = <0100000002000000>
+  |   "role" = <"DCPEXT">
+  |   "truncate-dvas" = <>
+  |   "IOReportLegend" = ({"IOReportGroupName"="Interrupt Statistics (by index)","IOReportChannels"=((5291294645182136320,4295098369,"               First Level Interrupt Handler Count"),(5291294645182136321,4295098369,"              Second Level Interrupt Handler Count"),(5291294645182136322,4295098369,"        First Level Interrupt Handler Time (MATUs)"),(5291294645182136323,4295098369,"   Second Level Interrupt Handler CPU Time (MATUs)"),(5291294645182136324,4295098369,"Second Level Interrupt Handler System Time (MATUs)")),"IOReportChannelInfo"={"IOReportChannelUnit"=0},"IOReportSubGroupName"="dcpext 2"},{"IOReportGroupName"="Interrupt Statistics (by index)","IOReportChannels"=((5291294645182070784,4295098369,"               First Level Interrupt Handler Count"),(5291294645182070785,4295098369,"              Second Level Interrupt Handler Count"),(5291294645182070786,4295098369,"        First Level Interrupt Handler Time (MATUs)"),(5291294645182070787,4295098369,"   Second Level Interrupt Handler CPU Time (MATUs)"),(5291294645182070788,4295098369,"Second Level Interrupt Handler System Time (MATUs)")),"IOReportChannelInfo"={"IOReportChannelUnit"=0},"IOReportSubGroupName"="dcpext 1"})
+  |   "device_type" = <"dcp">
+  |   "power-gates" = <910100009201000093010000>
+  |   "reg" = <0000c0710000000000c006000000000000008571000000000040000000000000>
+  | }
+  | 
+  +-o iop-dcpext-nub  <class AppleA7IOPNub, id 0x100000563, registered, matched, active, busy 0 (495 ms), retain 7>
+      {
+        "segment-names" = <"__TEXT;__DATA;unknown">
+        "pre-loaded" = <01000000>
+        "quiesced" = <>
+        "compatible" = <"iop-nub,rtbuddy-v2">
+        "coredump-enable" = <40000000>
+        "AAPL,phandle" = <d0000000>
+        "asc-dram-mask" = <000000000f000000>
+        "KDebugCoreID" = 15
+        "running" = <01000000>
+        "no-firmware-service" = <>
+        "external-index" = <01000000>
+        "cold-boot-after-hibernate" = <>
+        "watchdog-enable" = <>
+        "segment-ranges" = <00402200080000000000000000000000004022000800000000106000030000000040dee10b0000000010600000000000000000000f00000000003000000000000040dee00b000000ffffffffffffffff000030000f0000000000000102000000>
+        "coredump-rel-privacy-approved" = <>
+        "name" = <"iop-dcpext-nub">
+        "user-power-managed" = <01000000>
+      }
+      
+

@@ -1,0 +1,27 @@
+running=7.1.13-3-1-ARCH
+esp=/dev/nvme0n1p4 /boot/efi
+9602d026b2960bf308e3cc7a9d14019abeed4b7ccaa387125241073660b7c297  /boot/efi/m1n1/boot.bin
+af4c29967c23f23a571080f3f90b511f2263f5d42e6e06ea14e53cb2be582201  /boot/efi/m1n1/boot.bin.before-thunderbolt-test
+566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33  /boot/efi/m1n1/boot.bin.before-display-test
+9602d026b2960bf308e3cc7a9d14019abeed4b7ccaa387125241073660b7c297  /boot/efi/m1n1/boot.bin.thunderbolt-test
+fde2572e039cba1fb360ac6c72773a5df6abb73d025b4030a57e4aa89a290f29  /boot/vmlinuz-thunderbolt-test
+24b04c9775f4a4d2be535f554ab2accc30be477f12722c44d0629af4282674f0  /boot/initramfs-thunderbolt-test.img
+8af4f7ab56aac8c24d5c637b73858f31e02f8640f35c6e1e87c434a3bd1249b1  /boot/grub/custom.cfg
+644 root:root 33147392 /boot/vmlinuz-thunderbolt-test
+600 root:root 74611183 /boot/initramfs-thunderbolt-test.img
+644 root:root 1224 /boot/grub/custom.cfg
+filename:       /lib/modules/7.2.2-thunderbolt-test+/kernel/drivers/thunderbolt/thunderbolt_apple.ko
+description:    Apple Silicon USB4/Thunderbolt driver
+license:        GPL
+author:         Sven Peter <sven@kernel.org>
+alias:          of:N*T*Capple,t8103-usb4-nhiC*
+alias:          of:N*T*Capple,t8103-usb4-nhi
+alias:          of:N*T*Capple,t8103-usb4-acioC*
+alias:          of:N*T*Capple,t8103-usb4-acio
+depends:        thunderbolt,typec,apple-tunable
+intree:         Y
+name:           thunderbolt_apple
+vermagic:       7.2.2-thunderbolt-test+ SMP preempt mod_unload aarch64
+Filesystem      Size  Used Avail Use% Mounted on
+/dev/nvme0n1p4  499M  146M  354M  30% /boot/efi
+usb4_entry_count=1

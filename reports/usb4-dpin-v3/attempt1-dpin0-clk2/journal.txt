@@ -1,0 +1,70 @@
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: audit: type=1101 audit(1789692771.301:200): pid=4810 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="mert" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: audit: type=1110 audit(1789692771.301:201): pid=4810 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:setcred grantors=pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 03:52:51 omarchy kernel: audit: type=1105 audit(1789692771.303:202): pid=4810 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:session_open grantors=pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_systemd acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect(port=0)
+Sep 18 03:52:51 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to dispext0,0
+Sep 18 03:52:51 omarchy kernel: apple-dcp 271c00000.dcp: DP tunnel validate core=1 ATC=1 die=0: 0
+Sep 18 03:52:51 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x885238
+Sep 18 03:52:51 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_clocks=2
+Sep 18 03:52:51 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN clocks: dpin_clocks=2 TX_DP_CTRL0=0x0000e49d PCLK_STAT=0x00000000
+Sep 18 03:52:51 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN activate: primed PHY DP clocks at 5400 Mb/s: 0
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:51 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:52 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect: port 0 link configuration timed out
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:53 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: apple-dcp 271c00000.dcp: DPTX HPD assert: -110
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:54 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout
+Sep 18 03:52:55 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:10 (DP): DPRX read timeout

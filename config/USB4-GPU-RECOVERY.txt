@@ -1,0 +1,30 @@
+ASAHI 7.1.13 GPU + USB4 BACKPORT RECOVERY
+
+Test kernel: 7.1.13-usb4-gpu-test
+Manual GRUB entry: Omarchy - Asahi 7.1 GPU + USB4 (manual)
+
+The active loader is m1n1/boot.bin. Its device tree is shared by ALL GRUB entries.
+
+Saved images on this EFI partition:
+  boot.bin.before-display-test       Original packaged loader/device tree
+  boot.bin.before-usb4-gpu-test      Previous DP-IN v2 loader/device tree
+  boot.bin.usb4-gpu-test             This stock-GPU + USB4 baseline
+
+From a working Linux boot in the project directory:
+  sudo python3 scripts/stage-usb4-gpu-test.py restore-stock
+Then reboot and select the ordinary stock Asahi kernel entry.
+
+To return to the previous DP-IN v2 experiment instead:
+  sudo python3 scripts/stage-usb4-gpu-test.py restore-previous
+Then select the DP-IN v2 entry on reboot (that 7.2 kernel lacks GPU acceleration).
+
+If Linux cannot start, boot macOS / Recovery Terminal and mount the EFI
+partition with partition UUID bf0b62f5-e52c-4ba5-afa8-e77cd9364cf5.
+From its m1n1 directory, restore the original loader:
+  cp boot.bin.before-display-test boot.bin
+Then boot the ordinary stock Asahi entry.
+
+To restore the previous DP-IN v2 loader instead:
+  cp boot.bin.before-usb4-gpu-test boot.bin
+
+Do not delete any recovery bundles. None of these actions reboots automatically.

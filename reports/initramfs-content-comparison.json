@@ -1,0 +1,15 @@
+{
+  "stock_only": [
+    "early_cpio"
+  ],
+  "test_only": [],
+  "changed": [
+    "buildconfig",
+    "config",
+    "usr/lib/modules/7.1.13-3-1-ARCH/kernel/drivers/usb/typec/tipd/tps6598x-core.ko",
+    "usr/lib/modules/7.1.13-3-1-ARCH/kernel/drivers/usb/typec/tipd/tps6598x.ko"
+  ],
+  "identical_files": 982,
+  "stock_boot_config": "MODULES=\"btrfs hid_apple hid_magicmouse\"\nEARLYHOOKS=\"asahi udev\"\nHOOKS=\"udev plymouth keymap encrypt\"\nLATEHOOKS=\"asahi plymouth\"\nCLEANUPHOOKS=\"udev\"\nEMERGENCYHOOKS=\"plymouth\"\n",
+  "test_boot_config": "MODULES=\"btrfs hid_apple hid_magicmouse tps6598x_core tps6598x\"\nEARLYHOOKS=\"asahi udev\"\nHOOKS=\"udev plymouth keymap encrypt\"\nLATEHOOKS=\"asahi plymouth\"\nCLEANUPHOOKS=\"udev\"\nEMERGENCYHOOKS=\"plymouth\"\n"
+}

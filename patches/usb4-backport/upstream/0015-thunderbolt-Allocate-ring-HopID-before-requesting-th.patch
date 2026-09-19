@@ -1,0 +1,63 @@
+From 77409905e99d49def80b47323d8e37ec7a6c40cf Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:26 +0200
+Subject: [PATCH 15/23] thunderbolt: Allocate ring HopID before requesting the
+ ring interrupt
+
+The Apple NHI has one interrupt per ring and request_ring_irq picks it
+based on ring->hop which is still -1 at this point for rings allocated
+with an automatic HopID. Allocate the HopID first and release it again
+if the interrupt request fails.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/nhi.c | 23 ++++++++++++++++-------
+ 1 file changed, 16 insertions(+), 7 deletions(-)
+
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index 53e3af1c15..90dd8f0ced 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -534,6 +534,16 @@ static int nhi_alloc_hop(struct tb_nhi *nhi, struct tb_ring *ring)
+ 	return ret;
+ }
+ 
++static void nhi_free_hop(struct tb_nhi *nhi, struct tb_ring *ring)
++{
++	guard(spinlock_irq)(&nhi->lock);
++
++	if (ring->is_tx)
++		nhi->tx_rings[ring->hop] = NULL;
++	else
++		nhi->rx_rings[ring->hop] = NULL;
++}
++
+ static struct tb_ring *tb_ring_alloc(struct tb_nhi *nhi, u32 hop, int size,
+ 				     bool transmit, unsigned int flags,
+ 				     int e2e_tx_hop, u16 sof_mask, u16 eof_mask,
+@@ -581,19 +591,18 @@ static struct tb_ring *tb_ring_alloc(struct tb_nhi *nhi, u32 hop, int size,
+ 	if (!ring->descriptors)
+ 		goto err_free_ring;
+ 
++	if (nhi_alloc_hop(nhi, ring))
++		goto err_free_descs;
++
+ 	if (!(flags & RING_FLAG_NO_INTERRUPT) && nhi->ops->request_ring_irq) {
+ 		if (nhi->ops->request_ring_irq(ring, flags & RING_FLAG_NO_SUSPEND))
+-			goto err_free_descs;
++			goto err_free_hop;
+ 	}
+ 
+-	if (nhi_alloc_hop(nhi, ring))
+-		goto err_release_msix;
+-
+ 	return ring;
+ 
+-err_release_msix:
+-	if (nhi->ops->release_ring_irq)
+-		nhi->ops->release_ring_irq(ring);
++err_free_hop:
++	nhi_free_hop(nhi, ring);
+ err_free_descs:
+ 	dma_free_coherent(ring->nhi->dev,
+ 			  ring->size * sizeof(*ring->descriptors),

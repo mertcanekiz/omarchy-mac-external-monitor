@@ -1,0 +1,6 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+  DESCEND bpf/resolve_btfids
+  INSTALL libsubcmd_headers
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'

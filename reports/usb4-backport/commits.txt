@@ -1,0 +1,40 @@
+123c4462f dt-bindings: reset: Add Apple SoC CIO reset
+09768691c reset: Add Apple SoC CIO reset driver
+e9facb5d4 thunderbolt: Wait for tb_domain_release() to complete when driver is removed
+1379c0105 thunderbolt / net: Let the service drivers configure interrupt throttling
+a55c0f10c thunderbolt: Add tb_ring_flush()
+d701e5f15 thunderbolt: Move pci_device out of tb_nhi
+047b1af92 thunderbolt: Separate out common NHI bits
+ff09840bd thunderbolt: Require nhi->ops be valid
+4074b75a8 thunderbolt: Add some more descriptive probe error messages
+a4234a5cd thunderbolt: Initialize ->domain_released completion before it is being used
+4ac021e67 thunderbolt: Make interrupt optional for rings
+afc8c9848 thunderbolt: Add quirk to reset host interface on DMA path teardown for AMD USB4 routers
+03110d77f thunderbolt: Hold a router reference for each allocated HopID
+79753dd5a thunderbolt: Make the DP tunnel activation callback mandatory
+54f98e43c thunderbolt: Fix domain reference leak when DPRX read is canceled
+c3527e48d thunderbolt: Don't access a DP tunnel after its DPRX read was canceled
+3a6a2776b thunderbolt: Mark discovered tunnels as active
+f0a0c8191 thunderbolt: Tear down inactive DP tunnels when the domain is stopped
+e7f2123fe thunderbolt: Drop the DP tunnel activation callback data
+cf517edbe dt-bindings: usb: Add thunderbolt-switch property
+9283d90ad thunderbolt: Try reading host DROM from device tree first
+769d1e325 thunderbolt: Don't read the UID if we already know it
+a107a34d8 thunderbolt: Allocate ring HopID before requesting the ring interrupt
+64e3c670f thunderbolt: Add ring_interrupt_active to tb_nhi_ops
+c990216d7 thunderbolt: Make the ring register layout configurable
+86133be8a thunderbolt: Add ring_interrupt_mask to tb_nhi_ops
+022e8a37d thunderbolt: Add ring_configure to tb_nhi_ops
+85cd70102 thunderbolt: Add QUIRK_NO_DMA_PORT
+b88fb92d4 thunderbolt: Add QUIRK_NO_USB3_BW_ALLOC
+eeb0937e8 thunderbolt: Export symbols required by the Apple Silicon driver
+64c390eea thunderbolt: Add Apple Silicon support
+4bd182ad1 phy: apple: atc: Support DUMMY PIPEHANDLER state in configure_pipehandler
+fbae84e4a phy: apple: atc: Factor out the PIPE mux sequence
+759388511 phy: apple: atc: Implement the USB4 pipehandler state
+fa5897169 usb: typec: Add thunderbolt switch
+9cfe01d96 usb: typec: tipd: Fix Thunderbolt altmode VDOs for cd321x
+c2f041424 usb: typec: tipd: Hook up Thunderbolt switch for CD321x
+f1a77dbdd arm64: dts: apple: Add CIO reset controllers
+8a2d173d5 arm64: dts: apple: t8103: Add USB4 ACIO and NHI
+5f7d34c83 WIP: arm64: dts: apple: Add broken usb4 aliases m1n1 compat

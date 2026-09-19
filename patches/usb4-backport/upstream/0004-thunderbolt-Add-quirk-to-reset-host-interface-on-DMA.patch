@@ -1,0 +1,230 @@
+From bd88fbc0c539abe581592d67ccd022bfa2a22bc5 Mon Sep 17 00:00:00 2001
+From: Basavaraj Natikar <Basavaraj.Natikar@amd.com>
+Date: Thu, 6 Aug 2026 18:29:29 +0530
+Subject: [PATCH 04/23] thunderbolt: Add quirk to reset host interface on DMA
+ path teardown for AMD USB4 routers
+
+Some AMD USB4 host routers have a bug in the Host Interface where
+DMA path setup and teardown cycles may cause the Tx ring to hang.
+
+Fix this by issuing a Host Interface Reset on every DMA path teardown
+for affected routers. The Host Interface Reset brings the registers in
+the memory BAR to their default state and clears the End-to-End Flow
+Control state, preventing the hang condition.
+
+Co-developed-by: Sanath S <Sanath.S@amd.com>
+Signed-off-by: Sanath S <Sanath.S@amd.com>
+Signed-off-by: Basavaraj Natikar <Basavaraj.Natikar@amd.com>
+Signed-off-by: Mika Westerberg <mika.westerberg@linux.intel.com>
+---
+ drivers/thunderbolt/domain.c   | 26 +++++++++++++++++++++++++-
+ drivers/thunderbolt/nhi.c      | 26 ++++++++++++++++++++++++++
+ drivers/thunderbolt/nhi.h      | 21 +++++++++++++++++++--
+ drivers/thunderbolt/nhi_regs.h |  4 ++++
+ drivers/thunderbolt/pci.c      | 23 +++++++++++++++++++++++
+ 5 files changed, 97 insertions(+), 3 deletions(-)
+
+diff --git a/drivers/thunderbolt/domain.c b/drivers/thunderbolt/domain.c
+index 479fa4d265..709c4715b0 100644
+--- a/drivers/thunderbolt/domain.c
++++ b/drivers/thunderbolt/domain.c
+@@ -790,6 +790,21 @@ int tb_domain_approve_xdomain_paths(struct tb *tb, struct tb_xdomain *xd,
+ 			transmit_ring, receive_path, receive_ring);
+ }
+ 
++static void tb_domain_reset_interface(struct tb *tb)
++{
++	struct tb_nhi *nhi = tb->nhi;
++
++	if (!nhi->ops->reset_interface)
++		return;
++
++	guard(mutex)(&tb->lock);
++
++	/* The reset clears the ring state so stop the control channel */
++	tb_ctl_stop(tb->ctl);
++	nhi->ops->reset_interface(nhi);
++	tb_ctl_start(tb->ctl);
++}
++
+ /**
+  * tb_domain_disconnect_xdomain_paths() - Disable DMA paths for XDomain
+  * @tb: Domain disabling the DMA paths
+@@ -812,11 +827,20 @@ int tb_domain_disconnect_xdomain_paths(struct tb *tb, struct tb_xdomain *xd,
+ 				       int transmit_path, int transmit_ring,
+ 				       int receive_path, int receive_ring)
+ {
++	int ret;
++
+ 	if (!tb->cm_ops->disconnect_xdomain_paths)
+ 		return -ENOTSUPP;
+ 
+-	return tb->cm_ops->disconnect_xdomain_paths(tb, xd, transmit_path,
++	ret = tb->cm_ops->disconnect_xdomain_paths(tb, xd, transmit_path,
+ 			transmit_ring, receive_path, receive_ring);
++	if (ret)
++		return ret;
++
++	if (tb->nhi->quirks & QUIRK_RESET_DMA_ON_TEARDOWN)
++		tb_domain_reset_interface(tb);
++
++	return 0;
+ }
+ 
+ static int disconnect_xdomain(struct device *dev, void *data)
+diff --git a/drivers/thunderbolt/nhi.c b/drivers/thunderbolt/nhi.c
+index a4816db5ca..53e3af1c15 100644
+--- a/drivers/thunderbolt/nhi.c
++++ b/drivers/thunderbolt/nhi.c
+@@ -1175,6 +1175,32 @@ static void nhi_reset(struct tb_nhi *nhi)
+ 	dev_warn(nhi->dev, "timeout resetting host router\n");
+ }
+ 
++/**
++ * nhi_reset_interface() - Reset the host interface
++ * @nhi: Host interface to reset
++ *
++ * Brings the registers in the memory BAR back to their default state and
++ * clears the End-to-End Flow Control state. The caller is responsible for
++ * stopping the control channel over the reset because it clears the ring
++ * state as well.
++ */
++void nhi_reset_interface(struct tb_nhi *nhi)
++{
++	u32 val;
++
++	val = ioread32(nhi->iobase + REG_CAPS);
++	/* Only v1 host interfaces implement the reset */
++	if (FIELD_GET(REG_CAPS_VERSION_MASK, val) >= REG_CAPS_VERSION_2)
++		return;
++
++	dev_dbg(nhi->dev, "issuing host interface reset\n");
++
++	iowrite32(REG_HOST_INTERFACE_RESET_RST,
++		  nhi->iobase + REG_HOST_INTERFACE_RESET);
++	/* Wait for tHIReset (10 ms) to complete */
++	usleep_range(10000, 20000);
++}
++
+ static struct tb *nhi_select_cm(struct tb_nhi *nhi)
+ {
+ 	struct tb *tb;
+diff --git a/drivers/thunderbolt/nhi.h b/drivers/thunderbolt/nhi.h
+index d488eadadf..f72d6b2745 100644
+--- a/drivers/thunderbolt/nhi.h
++++ b/drivers/thunderbolt/nhi.h
+@@ -36,6 +36,8 @@ irqreturn_t nhi_msi(int irq, void *data);
+ irqreturn_t ring_msix(int irq, void *data);
+ int nhi_probe(struct tb_nhi *nhi);
+ void nhi_shutdown(struct tb_nhi *nhi);
++void nhi_reset_interface(struct tb_nhi *nhi);
++
+ extern const struct dev_pm_ops nhi_pm_ops;
+ 
+ /**
+@@ -52,6 +54,7 @@ extern const struct dev_pm_ops nhi_pm_ops;
+  * @release_ring_irq: NHI specific interrupt release hook
+  * @is_present: Whether the device is currently present on the parent bus
+  * @init_interrupts: NHI specific interrupt initialization hook
++ * @reset_interface: Resets the host interface
+  */
+ struct tb_nhi_ops {
+ 	int (*init)(struct tb_nhi *nhi);
+@@ -66,6 +69,7 @@ struct tb_nhi_ops {
+ 	void (*release_ring_irq)(struct tb_ring *ring);
+ 	bool (*is_present)(struct tb_nhi *nhi);
+ 	int (*init_interrupts)(struct tb_nhi *nhi);
++	void (*reset_interface)(struct tb_nhi *nhi);
+ };
+ 
+ /*
+@@ -116,11 +120,24 @@ struct tb_nhi_ops {
+ #define PCI_DEVICE_ID_INTEL_PTL_P_NHI0			0xe433
+ #define PCI_DEVICE_ID_INTEL_PTL_P_NHI1			0xe434
+ 
++#define PCI_DEVICE_ID_AMD_1AH_M60H_NHI0			0x1120
++#define PCI_DEVICE_ID_AMD_1AH_M60H_NHI1			0x1121
++#define PCI_DEVICE_ID_AMD_1AH_M68H_NHI0			0x113b
++#define PCI_DEVICE_ID_AMD_1AH_M68H_NHI1			0x113c
++#define PCI_DEVICE_ID_AMD_1AH_M80H_NHI0			0x1155
++#define PCI_DEVICE_ID_AMD_1AH_M80H_NHI1			0x1158
++#define PCI_DEVICE_ID_AMD_1AH_M80H_NHI2			0x1159
++#define PCI_DEVICE_ID_AMD_1AH_M24H_NHI0			0x151c
++#define PCI_DEVICE_ID_AMD_1AH_M24H_NHI1			0x151d
++#define PCI_DEVICE_ID_AMD_1AH_M70H_NHI0			0x158d
++#define PCI_DEVICE_ID_AMD_1AH_M70H_NHI1			0x158e
++
+ #define PCI_CLASS_SERIAL_USB_USB4			0x0c0340
+ 
+ /* Host interface quirks */
+-#define QUIRK_AUTO_CLEAR_INT	BIT(0)
+-#define QUIRK_E2E		BIT(1)
++#define QUIRK_AUTO_CLEAR_INT				BIT(0)
++#define QUIRK_E2E					BIT(1)
++#define QUIRK_RESET_DMA_ON_TEARDOWN			BIT(2)
+ 
+ /*
+  * Minimal number of vectors when we use MSI-X. Two for control channel
+diff --git a/drivers/thunderbolt/nhi_regs.h b/drivers/thunderbolt/nhi_regs.h
+index d6a197fabc..99df60b6db 100644
+--- a/drivers/thunderbolt/nhi_regs.h
++++ b/drivers/thunderbolt/nhi_regs.h
+@@ -115,6 +115,10 @@ struct ring_desc {
+ #define REG_CAPS_VERSION_MASK		GENMASK(23, 16)
+ #define REG_CAPS_VERSION_2		0x40
+ 
++/* Host Interface Reset - resets TX/RX rings and E2E flow control counters */
++#define REG_HOST_INTERFACE_RESET	0x39858
++#define REG_HOST_INTERFACE_RESET_RST	BIT(0)
++
+ #define REG_DMA_MISC			0x39864
+ #define REG_DMA_MISC_INT_AUTO_CLEAR     BIT(2)
+ #define REG_DMA_MISC_DISABLE_AUTO_CLEAR	BIT(17)
+diff --git a/drivers/thunderbolt/pci.c b/drivers/thunderbolt/pci.c
+index bbd186c29e..656a8ed101 100644
+--- a/drivers/thunderbolt/pci.c
++++ b/drivers/thunderbolt/pci.c
+@@ -62,6 +62,27 @@ static void nhi_pci_check_quirks(struct tb_nhi_pci *nhi_pci)
+ 			nhi->quirks |= QUIRK_E2E;
+ 			break;
+ 		}
++	} else if (pdev->vendor == PCI_VENDOR_ID_AMD) {
++		switch (pdev->device) {
++		case PCI_DEVICE_ID_AMD_1AH_M60H_NHI0:
++		case PCI_DEVICE_ID_AMD_1AH_M60H_NHI1:
++		case PCI_DEVICE_ID_AMD_1AH_M68H_NHI0:
++		case PCI_DEVICE_ID_AMD_1AH_M68H_NHI1:
++		case PCI_DEVICE_ID_AMD_1AH_M80H_NHI0:
++		case PCI_DEVICE_ID_AMD_1AH_M80H_NHI1:
++		case PCI_DEVICE_ID_AMD_1AH_M80H_NHI2:
++		case PCI_DEVICE_ID_AMD_1AH_M24H_NHI0:
++		case PCI_DEVICE_ID_AMD_1AH_M24H_NHI1:
++		case PCI_DEVICE_ID_AMD_1AH_M70H_NHI0:
++		case PCI_DEVICE_ID_AMD_1AH_M70H_NHI1:
++			/*
++			 * These AMD hosts may hang the Tx ring when the
++			 * DMA paths are torn down so they need the host
++			 * interface reset after each teardown.
++			 */
++			nhi->quirks |= QUIRK_RESET_DMA_ON_TEARDOWN;
++			break;
++		}
+ 	}
+ }
+ 
+@@ -259,6 +280,7 @@ static const struct tb_nhi_ops pci_nhi_default_ops = {
+ 	.shutdown = nhi_pci_shutdown,
+ 	.is_present = nhi_pci_is_present,
+ 	.init_interrupts = nhi_pci_init_msi,
++	.reset_interface = nhi_reset_interface,
+ };
+ 
+ /* Ice Lake specific NHI operations */
+@@ -442,6 +464,7 @@ static const struct tb_nhi_ops icl_nhi_ops = {
+ 	.release_ring_irq = nhi_pci_ring_release_msix,
+ 	.is_present = nhi_pci_is_present,
+ 	.init_interrupts = nhi_pci_init_msi,
++	.reset_interface = nhi_reset_interface,
+ };
+ 
+ static int nhi_pci_probe(struct pci_dev *pdev, const struct pci_device_id *id)

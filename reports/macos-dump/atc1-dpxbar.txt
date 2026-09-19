@@ -1,0 +1,11 @@
++-o atc1-dpxbar@304C000  <class AppleARMIODevice, id 0x100000293, registered, matched, active, busy 0 (113 ms), retain 8>
+    {
+      "device_type" = <"AAPL,atc-dpxbar">
+      "reg" = <00c00403050000000040000000000000>
+      "IODeviceMemory" = (({"address"=21525479424,"length"=16384}))
+      "name" = <"atc1-dpxbar">
+      "AAPL,phandle" = <62000000>
+      "compatible" = <"atc-dpxbar,t8103">
+    }
+    
+

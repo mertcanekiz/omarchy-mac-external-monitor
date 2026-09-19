@@ -1,0 +1,33 @@
+From 9bc31d73343a57df04010bd62f9b991cf4cc425b Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Thu, 20 Aug 2026 20:37:25 +0200
+Subject: [PATCH] arm64: dts: apple: Add CIO reset controllers
+
+Add the reset controllers used to start the CIO (USB4/Thunderbolt)
+blocks on t8103 and t600x. On t8103 each port comes with a dedicated
+register page represented as a standalone node. On t600x a single
+register shared by all ports of a die is located in the middle of the
+PMGR MMIO region and represented as a sub-node of its syscon.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ arch/arm64/boot/dts/apple/t8103.dtsi | 6 ++++++
+ 1 file changed, 6 insertions(+)
+
+diff --git a/arch/arm64/boot/dts/apple/t8103.dtsi b/arch/arm64/boot/dts/apple/t8103.dtsi
+index fdb41edc5a..174fd47af2 100644
+--- a/arch/arm64/boot/dts/apple/t8103.dtsi
++++ b/arch/arm64/boot/dts/apple/t8103.dtsi
+@@ -1059,6 +1059,12 @@ pmgr_dcp: power-management@23b738000 {
+ 			#apple,bw-doorbell-cells = <2>;
+ 		};
+ 
++		cio_reset: reset-controller@23b784000 {
++			compatible = "apple,t8103-cio-reset";
++			reg = <0x2 0x3b784000 0x0 0x8000>;
++			#reset-cells = <1>;
++		};
++
+ 		pinctrl_ap: pinctrl@23c100000 {
+ 			compatible = "apple,t8103-pinctrl", "apple,pinctrl";
+ 			reg = <0x2 0x3c100000 0x0 0x100000>;

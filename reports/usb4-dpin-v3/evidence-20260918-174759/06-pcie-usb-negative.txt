@@ -1,0 +1,10 @@
+## PCI devices
+0000:00:00.0 0x106b:0x100c
+0000:01:00.0 0x14e4:0x4425
+0000:01:00.1 0x14e4:0x5f69
+## USB devices
+(none above = no tunneled USB)
+## PCIe tunnel failure
+0:3 <-> 1:8 (PCI): activation failed
+1:8: PCIe tunnel activation failed, aborting
+PCIe Down path activation failed: -107

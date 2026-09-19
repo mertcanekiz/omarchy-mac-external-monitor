@@ -1,0 +1,17 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+  DESCEND bpf/resolve_btfids
+  INSTALL libsubcmd_headers
+  MODPOST Module.symvers
+  LD [M]  drivers/phy/apple/phy-apple-atc.ko
+  BTF [M] drivers/phy/apple/phy-apple-atc.ko
+  LD [M]  drivers/gpu/drm/apple/appledrm.ko
+  BTF [M] drivers/gpu/drm/apple/appledrm.ko
+  LD [M]  drivers/thunderbolt/thunderbolt.ko
+  BTF [M] drivers/thunderbolt/thunderbolt.ko
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+  DEPMOD  /home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-dpin-v3/root/lib/modules/7.1.13-usb4-gpu-test
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+Build ok; Image unchanged (e2d1796b282d1199b366240bb6d54183022c9348bf5cafcb9df6e37a5436af10)

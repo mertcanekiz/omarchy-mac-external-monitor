@@ -1,0 +1,5 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+  DTC     arch/arm64/boot/dts/apple/t8103-j313.dtb
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/thunderbolt-kernel/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-thunderbolt'

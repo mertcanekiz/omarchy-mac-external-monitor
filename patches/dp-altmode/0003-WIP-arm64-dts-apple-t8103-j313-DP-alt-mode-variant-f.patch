@@ -1,0 +1,65 @@
+From 546fc155ca188e711f1dc78e85bc90296c1da139 Mon Sep 17 00:00:00 2001
+From: mertcanekiz <ekiz.mertcan@gmail.com>
+Date: Sat, 19 Sep 2026 19:11:04 +0300
+Subject: [PATCH 3/3] WIP: arm64: dts: apple: t8103-j313: DP alt mode variant
+ (fairydust wiring) instead of DP-IN v3
+
+Route dcpext to atcphy1's DisplayPort lanes via crossbar route 0 and
+reference it from the front Type-C connector so the CD321x driver can
+forward HPD (fairydust dp-altmode hacks, adapted to the DP-IN v3 tree).
+
+Co-Authored-By: Claude Fable 5.1 <noreply@anthropic.com>
+---
+ arch/arm64/boot/dts/apple/t8103-j313.dts | 26 +++++++++++++++++-------
+ 1 file changed, 19 insertions(+), 7 deletions(-)
+
+diff --git a/arch/arm64/boot/dts/apple/t8103-j313.dts b/arch/arm64/boot/dts/apple/t8103-j313.dts
+index ea5908def..52e74c8a8 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j313.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j313.dts
+@@ -197,10 +197,16 @@ &isp {
+ #include "hwmon-laptop.dtsi"
+ 
+ /*
+- * Local bring-up experiment (DP-IN v3): route the external display controller
+- * through the front Type-C port's display crossbar into a CIO DP IN adapter,
+- * and give it the Type-C PHY so DP clocks can be configured in USB4 mode.
++ * Local bring-up experiment (DP alt mode): the Asahi "fairydust" wiring for
++ * the front Type-C port. The external display controller drives the Type-C
++ * PHY's DisplayPort lanes through crossbar route 0 (dpphy); HPD comes from the
++ * CD321x data-status register via the connector's "displayport" reference.
++ * This replaces the DP-IN v3 route (apple,tbt-dpin-test) in this DTB variant.
+  */
++&typec1 {
++	displayport = <&dcpext>;
++};
++
+ &display {
+ 	iommus = <&disp0_dart 0>, <&dispext0_dart 0>;
+ };
+@@ -220,12 +226,18 @@ &dcpext_mbox {
+ &dcpext {
+ 	status = "okay";
+ 	apple,connector-type = "DP";
+-	apple,tbt-dpin-test;
+ 	apple,dptx-phy = <1>;
+-	apple,dptx-core = <1>;
+ 	phys = <&atcphy1 PHY_TYPE_DP>;
+ 	phy-names = "dp-phy";
+-	mux-controls = <&atcphy1_xbar 1>, <&atcphy1_xbar 2>;
+-	mux-control-names = "dp-xbar", "dp-xbar-dpin1";
++	mux-controls = <&atcphy1_xbar 0>;
++	mux-control-names = "dp-xbar";
+ 	mux-index = <0>;
+ };
++
++&dpaudio1 {
++	status = "okay";
++};
++
++&ps_atc1_common {
++	apple,always-on; /* fairydust: needed for DP-alt suspend/resume */
++};
+-- 
+2.55.0
+

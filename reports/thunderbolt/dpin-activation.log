@@ -1,0 +1,12 @@
+Unexpected runtime initramfs configuration change: ['MODULES="btrfs btrfs appledrm phy_apple_atc tps6598x_core tps6598x thunderbolt thunderbolt_apple"\nEARLYHOOKS="asahi udev"\nHOOKS="udev plymouth keymap encrypt"\nLATEHOOKS="asahi plymouth"\nCLEANUPHOOKS="udev"\nEMERGENCYHOOKS="plymouth"\n', 'MODULES="btrfs hid_apple hid_magicmouse thunderbolt btrfs appledrm phy_apple_atc tps6598x_core tps6598x thunderbolt thunderbolt_apple"\nEARLYHOOKS="asahi udev"\nHOOKS="udev plymouth keymap encrypt"\nLATEHOOKS="asahi plymouth"\nCLEANUPHOOKS="udev"\nEMERGENCYHOOKS="plymouth"\n']
+Traceback (most recent call last):
+  File "/home/mert/Work/omarchy-mac-external-monitor/scripts/stage-dpin-test.py", line 99, in <module>
+    main()
+    ~~~~^^
+  File "/home/mert/Work/omarchy-mac-external-monitor/scripts/stage-dpin-test.py", line 67, in main
+    subprocess.run(['python3', str(ROOT / 'scripts/verify-dpin-test.py')], check=True)
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.14/subprocess.py", line 578, in run
+    raise CalledProcessError(retcode, process.args,
+                             output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['python3', '/home/mert/Work/omarchy-mac-external-monitor/scripts/verify-dpin-test.py']' returned non-zero exit status 1.

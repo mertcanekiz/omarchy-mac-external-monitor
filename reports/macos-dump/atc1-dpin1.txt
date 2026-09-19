@@ -1,0 +1,28 @@
++-o atc1-dpin1@1E58000  <class AppleARMIODevice, id 0x100000296, registered, matched, active, busy 0 (347 ms), retain 8>
+    {
+      "IOInterruptSpecifiers" = (<78030000>)
+      "dp-switch-dfp-port" = <02000000>
+      "transport-index" = <01000000>
+      "AAPL,phandle" = <65000000>
+      "IODeviceMemory" = (({"address"=21506654208,"length"=16384}))
+      "transport-tunneled" = <01000000>
+      "dpxbar-parent" = <62000000>
+      "dp-switch-parent" = <5d000000>
+      "IOReportLegendPublic" = Yes
+      "dp-switch-dfp-endpoint" = <01000000>
+      "acio-parent" = <58000000>
+      "IOInterruptControllers" = ("IOInterruptController00000067")
+      "name" = <"atc1-dpin1">
+      "interrupt-parent" = <67000000>
+      "atc-phy" = <b0000000>
+      "port-type" = <02000000>
+      "compatible" = <"atc-dpin,t8103">
+      "interrupts" = <78030000>
+      "port-number" = <02000000>
+      "transport-type" = <05000000>
+      "IOReportLegend" = ({"IOReportGroupName"="Interrupt Statistics (by index)","IOReportChannels"=((5291294645182005248,4295098369,"               First Level Interrupt Handler Count"),(5291294645182005249,4295098369,"              Second Level Interrupt Handler Count"),(5291294645182005250,4295098369,"        First Level Interrupt Handler Time (MATUs)"),(5291294645182005251,4295098369,"   Second Level Interrupt Handler CPU Time (MATUs)"),(5291294645182005252,4295098369,"Second Level Interrupt Handler System Time (MATUs)")),"IOReportChannelInfo"={"IOReportChannelUnit"=0},"IOReportSubGroupName"="atc1-dpin1 0"})
+      "device_type" = <"AAPL,atc-dpin">
+      "reg" = <0080e501050000000040000000000000>
+    }
+    
+

@@ -1,0 +1,109 @@
+From e7dc0e18baf660ca022aae7fac44f909cc900102 Mon Sep 17 00:00:00 2001
+From: Sven Peter <sven@kernel.org>
+Date: Sun, 30 Aug 2026 22:19:33 +0200
+Subject: [PATCH 22/23] thunderbolt: Export symbols required by the Apple
+ Silicon driver
+
+The driver for the ACIO host router complex on Apple Silicon SoCs can
+be built as a module and needs tb_probe() and the domain functions to
+register its NHI with the software connection manager as well as
+tb_switch_find_vse_cap(), tb_cfg_write() and tb_port_unlock() to
+configure the cable details for its co-processor and to unlock the
+lane ports. Restrict these exports to the thunderbolt_apple module to
+keep them internal to the Thunderbolt subsystem.
+
+Signed-off-by: Sven Peter <sven@kernel.org>
+---
+ drivers/thunderbolt/cap.c    | 2 ++
+ drivers/thunderbolt/ctl.c    | 2 ++
+ drivers/thunderbolt/domain.c | 2 ++
+ drivers/thunderbolt/switch.c | 1 +
+ drivers/thunderbolt/tb.c     | 2 ++
+ 5 files changed, 9 insertions(+)
+
+diff --git a/drivers/thunderbolt/cap.c b/drivers/thunderbolt/cap.c
+index 4ab22d5291..e000a53e5e 100644
+--- a/drivers/thunderbolt/cap.c
++++ b/drivers/thunderbolt/cap.c
+@@ -6,6 +6,7 @@
+  * Copyright (C) 2018, Intel Corporation
+  */
+ 
++#include <linux/export.h>
+ #include <linux/slab.h>
+ #include <linux/errno.h>
+ 
+@@ -254,3 +255,4 @@ int tb_switch_find_vse_cap(struct tb_switch *sw, enum tb_switch_vse_cap vsec)
+ 
+ 	return -ENOENT;
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_switch_find_vse_cap, "thunderbolt_apple");
+diff --git a/drivers/thunderbolt/ctl.c b/drivers/thunderbolt/ctl.c
+index cd47b627f9..b2a6b300e9 100644
+--- a/drivers/thunderbolt/ctl.c
++++ b/drivers/thunderbolt/ctl.c
+@@ -8,6 +8,7 @@
+ 
+ #include <linux/crc32.h>
+ #include <linux/delay.h>
++#include <linux/export.h>
+ #include <linux/slab.h>
+ #include <linux/pci.h>
+ #include <linux/dmapool.h>
+@@ -1159,6 +1160,7 @@ int tb_cfg_write(struct tb_ctl *ctl, const void *buffer, u64 route, u32 port,
+ 	}
+ 	return res.err;
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_cfg_write, "thunderbolt_apple");
+ 
+ /**
+  * tb_cfg_get_upstream_port() - get upstream port number of switch at route
+diff --git a/drivers/thunderbolt/domain.c b/drivers/thunderbolt/domain.c
+index 709c4715b0..65d0eca3c9 100644
+--- a/drivers/thunderbolt/domain.c
++++ b/drivers/thunderbolt/domain.c
+@@ -492,6 +492,7 @@ int tb_domain_add(struct tb *tb, bool reset)
+ 
+ 	return ret;
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_domain_add, "thunderbolt_apple");
+ 
+ /**
+  * tb_domain_remove() - Removes and releases a domain
+@@ -516,6 +517,7 @@ void tb_domain_remove(struct tb *tb)
+ 
+ 	device_unregister(&tb->dev);
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_domain_remove, "thunderbolt_apple");
+ 
+ /**
+  * tb_domain_suspend_noirq() - Suspend a domain
+diff --git a/drivers/thunderbolt/switch.c b/drivers/thunderbolt/switch.c
+index 039a56ae9d..6e0f0eca87 100644
+--- a/drivers/thunderbolt/switch.c
++++ b/drivers/thunderbolt/switch.c
+@@ -627,6 +627,7 @@ int tb_port_unlock(struct tb_port *port)
+ 		return usb4_port_unlock(port);
+ 	return 0;
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_port_unlock, "thunderbolt_apple");
+ 
+ static int __tb_port_enable(struct tb_port *port, bool enable)
+ {
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 233905a0ca..83045ef523 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -6,6 +6,7 @@
+  * Copyright (C) 2019, Intel Corporation
+  */
+ 
++#include <linux/export.h>
+ #include <linux/slab.h>
+ #include <linux/errno.h>
+ #include <linux/delay.h>
+@@ -3433,3 +3434,4 @@ struct tb *tb_probe(struct tb_nhi *nhi)
+ 
+ 	return tb;
+ }
++EXPORT_SYMBOL_FOR_MODULES(tb_probe, "thunderbolt_apple");
