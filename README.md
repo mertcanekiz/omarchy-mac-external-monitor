@@ -9,7 +9,8 @@ are not verifiable from Linux, and the leading (unproven) hypothesis is the moni
 are USB-managed and the USB path is unimplemented on M1 Linux. **2026-09-20:** the m1n1 hypervisor
 trace of macOS was captured (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) and replayed in the
 **DP-IN v4** kernel build (`reports/usb4-dpin-v4/README.md`), installed as GRUB entry
-"Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)" and waiting for its first boot test.
+"Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)". **First boot 2026-09-20 20:10: the LG shows the desktop at
+3840x2160@60.** Bring-up is still triggered manually after boot (see the v4 README).
 Read the docs below before acting; several earlier confident claims were later corrected.
 
 ## Start here (read in this order)

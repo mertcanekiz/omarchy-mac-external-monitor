@@ -5,8 +5,9 @@ Last updated 2026-09-19 (early hours). Written so a fresh session can continue w
 For an adversarial review packet (claims + reproducible proof + threats to validity), see
 `reports/usb4-dpin-v3/REVIEW.md` and the `evidence-*/` bundle it cites.
 
-2026-09-20: the hypervisor trace was captured (`HV-TRACE-FINDINGS.md`) and turned into the
-DP-IN v4 kernel build (`../usb4-dpin-v4/README.md`), installed and waiting for a boot test.
+**2026-09-20 20:10: SOLVED. DP-IN v4 (`../usb4-dpin-v4/README.md`), built from the hypervisor trace
+(`HV-TRACE-FINDINGS.md`), lights the LG at 3840x2160@60. Everything below is history; the USB/PCIe
+scaler hypothesis was wrong.**
 
 Previous planned step: an m1n1 hypervisor trace of macOS lighting the LG. See
 `reports/usb4-dpin-v3/M1N1-TRACE-RUNBOOK.md` and the trace module
