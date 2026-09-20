@@ -1,0 +1,1494 @@
+# PT[200000000:235200000] -> HW:HW
+# PT[235200000:235204000] -> RESERVED VUART
+# PT[235204000:23b7001c0] -> HW:HW
+# PT[23b7001c0:23b7001c4] -> RESERVED PMGR HACK
+# PT[23b7001c4:23b7001c8] -> HW:HW
+# PT[23b7001c8:23b7001cc] -> RESERVED PMGR HACK
+# PT[23b7001cc:23b700220] -> HW:HW
+# PT[23b700220:23b700224] -> RESERVED PMGR HACK
+# PT[23b700224:23b700270] -> HW:HW
+# PT[23b700270:23b700274] -> RESERVED PMGR HACK
+# PT[23b700274:23b700420] -> HW:HW
+# PT[23b700420:23b700424] -> RESERVED PMGR HACK
+# PT[23b700424:23b754000] -> HW:HW
+# PT[23b754000:23b754020] -> RESERVED CPU_START
+# PT[23b754020:23d280088] -> HW:HW
+# PT[23d280088:23d28008c] -> RESERVED PMGR HACK
+# PT[23d28008c:23d280098] -> HW:HW
+# PT[23d280098:23d28009c] -> RESERVED PMGR HACK
+# PT[23d28009c:23d29c044] -> HW:HW
+# PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# PT[23d29c048:23d29c05c] -> HW:HW
+# PT[23d29c05c:23d29c060] -> RESERVED PMGR HACK
+# PT[23d29c060:271304000] -> HW:HW
+# PT[271304000:271308000] -> ASYNC.RW DARTTracer@/arm-io/dart-dispext0
+# PT[271308000:27130c000] -> HW:HW
+# PT[27130c000:271310000] -> ASYNC.RW DARTTracer@/arm-io/dart-dcpext
+# PT[271310000:271850000] -> HW:HW
+# PT[271850000:271854000] -> ASYNC.RW PrintTracer
+# PT[271854000:271c00000] -> HW:HW
+# PT[271c00000:271c6c000] -> SYNC.RW DCPTracer@/arm-io/dcpext
+# PT[271c6c000:300000000] -> HW:HW
+# PT[380000000:501e50000] -> HW:HW
+# PT[501e50000:501e54000] -> SYNC.RW PrintTracer
+# PT[501e54000:501e58000] -> HW:HW
+# PT[501e58000:501e5c000] -> SYNC.RW PrintTracer
+# PT[501e5c000:50228c000] -> HW:HW
+# PT[50228c000:50228d800] -> ASYNC.RW Dwc3Tracer@/arm-io/usb-drd1
+# PT[50228d800:502a84000] -> HW:HW
+# PT[502a84000:502a88000] -> ASYNC.RW Dwc3Tracer@/arm-io/usb-drd1
+# PT[502a88000:502a90000] -> HW:HW
+# PT[502a90000:502a94000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[502a94000:503000000] -> HW:HW
+# PT[503000000:503006a00] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503006a00:503007000] -> HW:HW
+# PT[503007000:503018000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503018000:503020000] -> HW:HW
+# PT[503020000:503024000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503024000:50304c000] -> HW:HW
+# PT[50304c000:503050000] -> SYNC.RW PrintTracer
+# PT[503050000:503058000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503058000:780000000] -> HW:HW
+# PT[800000000:801f7c000] -> HW:RAM-LOW
+# PT[815588000:bdf0a4000] -> HW:RAM-HIGH
+# PT[bdf0a4000:be0de4000] -> *UNMAPPED*
+# PT[be0de4000:be6e24000] -> HW:RAM-HIGH
+# PT[be6e24000:bffe24000] -> *UNMAPPED*
+# PT[bffe24000:c00000000] -> HW:RAM-HIGH
+# [cpu0] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu0] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu0] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu0] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu0] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu0] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu0] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu0] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu0] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR R 23b700420+0:32 = 0x22ff -> 0x22ff
+# [cpu0] PMGR R 23d280088+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR R 23d280098+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0x100000ff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0x100000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0x1f0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0x1f0000ff: Dangerous write
+# [cpu0] PMGR R 23b700420+0:32 = 0x22ff -> 0x22ff
+# [cpu0] PMGR W 23b700420+0:32 = 0x23f0: Dangerous write
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23d280098+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR W 23d280098+0:32 = 0x3f0: Dangerous write
+# [cpu0] PMGR R 23d280098+0:32 = 0xff -> 0x0
+# [cpu0] PMGR R 23d280088+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR W 23d280088+0:32 = 0x3f0: Dangerous write
+# [cpu0] PMGR R 23d280088+0:32 = 0xff -> 0x0
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x80
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x8
+# [cpu0] Starting guest secondary 0:1:3
+# [cpu0]  CPU #7: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 7
+TTY> HV: Entering guest secondary 7 at 0x817a08000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu7] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu7] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu7] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu7] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu7] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu7] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu7] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu7] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu7] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu7] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu7] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu7] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu7] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu7] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu7] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu7] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu7] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu7] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu7] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu7] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu7] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x40
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x4
+# [cpu0] Starting guest secondary 0:1:2
+# [cpu0]  CPU #6: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 6
+TTY> HV: Entering guest secondary 6 at 0x817a08000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu6] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu6] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu6] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu6] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu6] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu6] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu6] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu6] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu6] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu6] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu6] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu6] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu6] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu6] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu6] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu6] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu6] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu6] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu6] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu6] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu6] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x8
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x8
+# [cpu0] Starting guest secondary 0:0:3
+# [cpu0]  CPU #3: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 3
+TTY> HV: Entering guest secondary 3 at 0x817a08000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu3] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu3] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu3] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu3] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu3] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu3] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu3] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu3] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu3] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu3] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x4
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x4
+# [cpu0] Starting guest secondary 0:0:2
+# [cpu0]  CPU #2: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 2
+TTY> HV: Entering guest secondary 2 at 0x817a08000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu2] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu2] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu2] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu2] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu2] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu2] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu2] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu2] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu2] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu2] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu2] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] CPUSTART W 23b754000+4:32 = 0x20
+# [cpu3] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu3] CPUSTART W 23b754000+c:32 = 0x2
+# [cpu3] Starting guest secondary 0:1:1
+# [cpu3]  CPU #5: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 5
+TTY> HV: Entering guest secondary 5 at 0x817a08000
+# [cpu3] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu3] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu5] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu5] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu5] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu5] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu5] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu5] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu5] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu5] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu5] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu5] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu5] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu5] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu5] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu5] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu5] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu5] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu5] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu5] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu5] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu5] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu5] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x10
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x1
+# [cpu0] Starting guest secondary 0:1:0
+# [cpu0]  CPU #4: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 4
+TTY> HV: Entering guest secondary 4 at 0x817a08000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu4] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu4] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu4] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu4] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu4] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu4] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu4] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu4] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu4] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu4] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu4] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu4] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu4] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu4] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu4] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu4] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu4] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu4] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu4] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu4] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu4] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu2] CPUSTART W 23b754000+4:32 = 0x2
+# [cpu2] CPUSTART W 23b754000+8:32 = 0x2
+# [cpu2] Starting guest secondary 0:0:1
+# [cpu2]  CPU #1: RVBAR = 0x817a08000
+TTY> HV: Initializing secondary 1
+TTY> HV: Entering guest secondary 1 at 0x817a08000
+# [cpu2] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu2] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu1] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu2] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu1] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu1] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu1] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu1] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu1] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu1] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu1] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu1] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu1] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [DARTTracer@/arm-io/dart-dcpext] Invalidate Stream: 0xffffffff ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] OUTBOX_CTRL = 0x22201 (FIFOCNT=0x0, OVERFLOW=0, EMPTY=1, FULL=0, RPTR=0x2, WPTR=0x2, ENABLE=1)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x6(SetIOPPower) 0060000000000220 (TYPE=0x6, STATE=0x220)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] <0x1(HELLO) 00100000000c000c (TYPE=0x1)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x2(HELLO_ACK) 00200000000c000c (TYPE=0x2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x0 (management)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x1
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x2 (syslog)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x3
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x4
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x8
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0xa
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] <0x8(EPMap) 008000000000051f (TYPE=0x8, LAST=0, BASE=0, BITMAP=0x51f)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x1
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000100000002 (TYPE=0x5, EP=0x1, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x2 (syslog)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000200000002 (TYPE=0x5, EP=0x2, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x3
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000300000002 (TYPE=0x5, EP=0x3, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:03 0008000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:03 0001000000000fa1 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x4
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000400000002 (TYPE=0x5, EP=0x4, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x8
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000800000002 (TYPE=0x5, EP=0x8, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0xa
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050000a00000002 (TYPE=0x5, EP=0xa, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:0a 0000000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x8(EPMap_Ack) 0080000000000001 (TYPE=0x8, LAST=0, BASE=0, MORE=1)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x20 (system)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x21 (test)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x22 (dcpexpert)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x23
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x24 (dpavctrl)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x25 (epicep)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x26 (dpsac)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x27 (dpdev)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x28 (dpavserv)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x29 (av)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x2a (dptxport)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x2b (hdcp)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x2c (epicep2c)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Adding endpoint #0x37 (dcpep)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] <0x8(EPMap) 0088000100801fff (TYPE=0x8, LAST=1, BASE=1, BITMAP=0x801fff)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x8(EPMap_Ack) 0088000100000000 (TYPE=0x8, LAST=1, BASE=1, MORE=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:01 0011000f00267000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0010400000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:03 0001000f01304000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:03 0002000f01328000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0010400f01330000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 00c0000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] <0x7(None) 0070000000000020 (TYPE=0x7)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:01 0011000be204b000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0xb(SetAPPower) 00b0000000000020 (TYPE=0xb, STATE=0x20)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] <0x8(Init) 008000008000003f (TYPE=0x8, ENTRYSIZE=0x80, COUNT=0x3f)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] <0x1(GetBuf) 0010300000000000 (TYPE=0x1, SIZE=0x3, DVA=0x0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [syslog] >0x1(GetBuf_Ack) 0010300f01338000 (TYPE=0x1, SIZE=0x3, DVA=0xf01338000)
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:08 0103ff8000f0025f ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [management] <0xb(SetAPPowerAck) 00b0000000000020 (TYPE=0xb, STATE=0x20)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x37 (dcpep)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050003700000002 (TYPE=0x5, EP=0x37, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] Shared memory DVA: 0xf01340000
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >0x0(SetShmem) 000f013400000040 (TYPE=0x0, DVA=0xf01340000, FLAG=0x4)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [syslog] * [ap_link.c:299]shared memory dva: 0xf01340000 0xffffffff00029000
+# [cpu1] [DCPTracer@/arm-io/dcpext] [syslog] * [ap_link.c:276]ap_link: IOMFB: DCP heap size: 0x1030000 [iBoot:0x1030000] [LinkService:0x0]
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <0x1(InitComplete) 0000000000400101 (TYPE=0x1)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x20 (system)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002000000002 (TYPE=0x5, EP=0x20, FLAG=2)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x21 (test)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002100000002 (TYPE=0x5, EP=0x21, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [system] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [system] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [system] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [test] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [test] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [test] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [test] >0xa1(GetBuf_Ack) 00a1000f01404000 (TYPE=0xa1, DVA=0xf01404000)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [test] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [test] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [test] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [test] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] >0xa1(GetBuf_Ack) 00a1000f01410000 (TYPE=0xa1, DVA=0xf01410000)
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [system] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [system] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x22 (dcpexpert)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002200000002 (TYPE=0x5, EP=0x22, FLAG=2)
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpexpert] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] <Ch 1 Type REPLY Ver 2 Tag 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system]   Len 64 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] Init: system
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system]   Props: {'system-service': True}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] New service: system on channel 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] <Ch 3 Type REPLY Ver 2 Tag 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system]   Len 32 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] Init: powerlog-service
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system]   Props: None
+# [cpu3] [DCPTracer@/arm-io/dcpext] [system] New service: powerlog-service on channel 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpexpert] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpexpert] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] >0xa1(GetBuf_Ack) 00a1000f0141c000 (TYPE=0xa1, DVA=0xf0141c000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] <Ch 1 Type REPLY Ver 2 Tag 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert]   Len 68 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] Init: dcpexpert-service
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert]   Props: {'interface-id': 0}
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpexpert] New service: dcpexpert-service on channel 1
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x23
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002300000002 (TYPE=0x5, EP=0x23, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:23 0080000000000008 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:23 00a0000000000008 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:23 008900000200cafe ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:23 00a1000f01428000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:23 008a00000100cafe ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:23 008b01000100cafe ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:23 00a3000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:23 0086000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:23 0085000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x25 (epicep)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002500000002 (TYPE=0x5, EP=0x25, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x24 (dpavctrl)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002400000002 (TYPE=0x5, EP=0x24, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] >0xa1(GetBuf_Ack) 00a1000f01434000 (TYPE=0xa1, DVA=0xf01434000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] >0xa1(GetBuf_Ack) 00a1000f01440000 (TYPE=0xa1, DVA=0xf01440000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x27 (dpdev)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002700000002 (TYPE=0x5, EP=0x27, FLAG=2)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dpdev] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x28 (dpavserv)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002800000002 (TYPE=0x5, EP=0x28, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavserv] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 1 Type REPLY Ver 2 Tag 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 240 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Init: dispext0:dcpav-controller-epic:
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Props: {'EPICName': 'dcpav-controller-epic', 'EPICUnit': 0, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpav-controller-epic:0'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] New service: dcpav-controller-epic0 on channel 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 3 Type REPLY Ver 2 Tag 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 240 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Init: dispext0:dcpdp-controller-epic:
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Props: {'EPICName': 'dcpdp-controller-epic', 'EPICUnit': 0, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpdp-controller-epic:0'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] New service: dcpdp-controller-epic0 on channel 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 5 Type REPLY Ver 2 Tag 2
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 240 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Init: dispext0:dcpav-controller-epic:
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Props: {'EPICName': 'dcpav-controller-epic', 'EPICUnit': 1, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpav-controller-epic:1'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] New service: dcpav-controller-epic1 on channel 5
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 7 Type REPLY Ver 2 Tag 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 240 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Init: dispext0:dcpdp-controller-epic:
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Props: {'EPICName': 'dcpdp-controller-epic', 'EPICUnit': 1, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpdp-controller-epic:1'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] New service: dcpdp-controller-epic1 on channel 7
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpdev] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpdev] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavserv] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavserv] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavserv] >0xa1(GetBuf_Ack) 00a1000f0144c000 (TYPE=0xa1, DVA=0xf0144c000)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavserv] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavserv] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpdev] >0xa1(GetBuf_Ack) 00a1000f01458000 (TYPE=0xa1, DVA=0xf01458000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpdev] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpdev] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x29 (av)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002900000002 (TYPE=0x5, EP=0x29, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpdev] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpdev] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dpavserv] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [av] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [av] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [av] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavserv] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x2b (hdcp)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002b00000002 (TYPE=0x5, EP=0x2b, FLAG=2)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [av] >0xa1(GetBuf_Ack) 00a1000f01464000 (TYPE=0xa1, DVA=0xf01464000)
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [av] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [av] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x26 (dpsac)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002600000002 (TYPE=0x5, EP=0x26, FLAG=2)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpsac] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpsac] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpsac] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [av] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [av] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] >0xa1(GetBuf_Ack) 00a1000f01470000 (TYPE=0xa1, DVA=0xf01470000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpsac] >0xa1(GetBuf_Ack) 00a1000f0147c000 (TYPE=0xa1, DVA=0xf0147c000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpsac] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpsac] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpsac] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpsac] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x2a (dptxport)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002a00000002 (TYPE=0x5, EP=0x2a, FLAG=2)
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <Ch 1 Type REPLY Ver 2 Tag 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 244 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] Init: dispext0:dcpdptx-hdcp-interface
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp]   Props: {'EPICName': 'dcpdptx-hdcp-interface', 'EPICUnit': 0, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpdptx-hdcp-interface:0'}
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] New service: dcpdptx-hdcp-interface0 on channel 1
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] <Ch 3 Type REPLY Ver 2 Tag 1
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 244 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] Init: dispext0:dcpdptx-hdcp-interface
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp]   Props: {'EPICName': 'dcpdptx-hdcp-interface', 'EPICUnit': 1, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXController', 'interface-name': 'dispext0:dcpdptx-hdcp-interface:1'}
+# [cpu2] [DCPTracer@/arm-io/dcpext] [hdcp] New service: dcpdptx-hdcp-interface1 on channel 3
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] >0xa1(GetBuf_Ack) 00a1000f01488000 (TYPE=0xa1, DVA=0xf01488000)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] <Ch 1 Type REPLY Ver 2 Tag 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport]   Len 232 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] Init: dispext0:dcpdptx-port-epic:0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport]   Props: {'EPICName': 'dcpdptx-port-epic', 'EPICUnit': 0, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXRemotePort', 'interface-name': 'dispext0:dcpdptx-port-epic:0'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] New service: dcpdptx-port-epic0 on channel 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] <Ch 3 Type REPLY Ver 2 Tag 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport]   Len 232 Ver 4 Cat REPORT Type 0x30/ANNOUNCE Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] Init: dispext0:dcpdptx-port-epic:1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport]   Props: {'EPICName': 'dcpdptx-port-epic', 'EPICUnit': 1, 'EPICLocation': 'External', 'EPICProviderClass': 'AppleDCPDPTXRemotePort', 'interface-name': 'dispext0:dcpdptx-port-epic:1'}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dptxport] New service: dcpdptx-port-epic1 on channel 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management]   Starting endpoint #0x2c (epicep2c)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [management] >0x5(StartEP) 0050002c00000002 (TYPE=0x5, EP=0x2c, FLAG=2)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [epicep2c] >0x80(Init) 0080000000000008 (TYPE=0x80)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [epicep2c] <0xa0(Init_Ack) 00a0000000000008 (TYPE=0xa0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [epicep2c] <0x89(GetBuf) 008900000200cafe (TYPE=0x89)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [epicep2c] >0xa1(GetBuf_Ack) 00a1000f01494000 (TYPE=0xa1, DVA=0xf01494000)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep2c] <0x8a(InitTX) 008a00000100cafe (TYPE=0x8a, OFFSET=0x0, SIZE=0x100, TAG=0xcafe)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [epicep2c] <0x8b(InitRX) 008b01000100cafe (TYPE=0x8b, OFFSET=0x100, SIZE=0x100, TAG=0xcafe)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [epicep2c] >0xa3(Hello) 00a3000000000000 (TYPE=0xa3)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [epicep2c] <0x86(None) 0086000000000000 (TYPE=0x86)
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] >TX msg:0xa2000000000040 (TYPE=0xa2, WPTR=0x40)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] >Ch 3 Type NOTIFY Ver 2 Tag 0
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] Report 18
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] 00000000  ca 03 00 00 01 00 00 00                           |........        |
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] >TX msg:0xa2000000000040 (TYPE=0xa2, WPTR=0x40)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] >Ch 3 Type NOTIFY Ver 2 Tag 0
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] Report 18
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dptxport] 00000000  cf 03 00 00 01 00 00 00                           |........        |
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] >TX msg:0xa2000000000080 (TYPE=0xa2, WPTR=0x80)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] >Ch 1 Type NOTIFY Ver 2 Tag 1
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] Report 18
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dptxport] 00000000  e2 03 00 00 01 00 00 00                           |........        |
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp] >TX msg:0xa2000000000080 (TYPE=0xa2, WPTR=0x80)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp] >Ch 1 Type NOTIFY Ver 2 Tag 1
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp] Report 18
+# [cpu0] [DCPTracer@/arm-io/dcpext] [hdcp] 00000000  eb 03 00 00 01 00 00 00                           |........        |
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa2000000000040 (TYPE=0xa2, WPTR=0x40)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 5 Type NOTIFY Ver 2 Tag 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Report 18
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] 00000000  10 04 00 00 01 00 00 00                           |........        |
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa20000000000c0 (TYPE=0xa2, WPTR=0xc0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 5 Type COMMAND Ver 2 Tag 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 30 Ver 4 Cat COMMAND Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] > unknown group 0; command 12
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] 00000010  *
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 5 Type REPLY Ver 2 Tag 4
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 30 Ver 4 Cat REPLY Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] < unknown group 0; command 12
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic1] 00000010  *
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa2000000000100 (TYPE=0xa2, WPTR=0x100)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 7 Type NOTIFY Ver 2 Tag 2
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Report 18
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] 00000000  0f 04 00 00 01 00 00 00                           |........        |
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa2000000000140 (TYPE=0xa2, WPTR=0x140)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 1 Type NOTIFY Ver 2 Tag 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] Report 18
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] 00000000  11 04 00 00 01 00 00 00                           |........        |
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa20000000001c0 (TYPE=0xa2, WPTR=0x1c0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 1 Type COMMAND Ver 2 Tag 4
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 30 Ver 4 Cat COMMAND Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] > unknown group 0; command 12
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] 00000010  *
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] <Ch 1 Type REPLY Ver 2 Tag 5
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 30 Ver 4 Cat REPLY Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] < unknown group 0; command 12
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] 00000000  00 00 00 00 00 00 00 00  00 00 00 00 00 00 00 00  |................|
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dpavctrl] [dcpav-controller-epic0] 00000010  *
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] >TX msg:0xa2000000000200 (TYPE=0xa2, WPTR=0x200)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] >Ch 3 Type NOTIFY Ver 2 Tag 5
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl]   Len 8 Ver 4 Cat REPORT Type 0x12/18 Seq 0
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] Report 18
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dpavctrl] 00000000  17 04 00 00 01 00 00 00                           |........        |
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] >TX msg:0xa2000000000100 (TYPE=0xa2, WPTR=0x100)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] >Ch 1 Type COMMAND Ver 2 Tag 2
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 30 Ver 4 Cat COMMAND Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] [dcpdptx-hdcp-interface0] > open
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] <Ch 1 Type REPLY Ver 2 Tag 2
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 30 Ver 4 Cat REPLY Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] [dcpdptx-hdcp-interface0] < open
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] >TX msg:0xa2000000000180 (TYPE=0xa2, WPTR=0x180)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] >Ch 3 Type COMMAND Ver 2 Tag 3
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 30 Ver 4 Cat COMMAND Type 0xc0/STD_SERVICE Seq 1
+# [cpu1] [DCPTracer@/arm-io/dcpext] [hdcp] [dcpdptx-hdcp-interface1] > open
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] <RX msg:0x85000000000000 (TYPE=0x85)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] <Ch 3 Type REPLY Ver 2 Tag 3
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp]   Len 30 Ver 4 Cat REPLY Type 0xc0/STD_SERVICE Seq 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [hdcp] [dcpdptx-hdcp-interface1] < open
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_SIG = 0x1c10004 (VBUSDET_FORCE_VAL=0, VBUSDET_FORCE_EN=0, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x10)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_SIG = 0x1c17004 (VBUSDET_FORCE_VAL=0, VBUSDET_FORCE_EN=0, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_SIG = 0x1c17004 (VBUSDET_FORCE_VAL=0, VBUSDET_FORCE_EN=0, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_SIG = 0x1c17005 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=0, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_SIG = 0x1c17005 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=0, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_SIG = 0x1c17007 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=1, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_SIG = 0x1c17007 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=1, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_SIG = 0x1c17007 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=1, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_SIG = 0x1c17007 (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=1, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=0, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_SIG = 0x1c1700f (VBUSDET_FORCE_VAL=1, VBUSDET_FORCE_EN=1, VBUSVLDEXT_FORCE_VAL=1, VBUSVLDEXT_FORCE_EN=1, MODE_HOST=0x17)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0xb (RESET=1, PORT_RESET=1, APB_RESETN=0, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0x3 (RESET=1, PORT_RESET=1, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0x3 (RESET=1, PORT_RESET=1, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0x2 (RESET=0, PORT_RESET=1, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0x2 (RESET=0, PORT_RESET=1, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0x0 (RESET=0, PORT_RESET=0, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0x0 (RESET=0, PORT_RESET=0, APB_RESETN=0, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0x4 (RESET=0, PORT_RESET=0, APB_RESETN=1, SIDDQ=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_MISCTUNE = 0x608c0013 (APBCLK_GATE_OFF=1, REFCLK_GATE_OFF=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_MISCTUNE = 0x408c0013 (APBCLK_GATE_OFF=0, REFCLK_GATE_OFF=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_MISCTUNE = 0x408c0013 (APBCLK_GATE_OFF=0, REFCLK_GATE_OFF=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_MISCTUNE = 0x8c0013 (APBCLK_GATE_OFF=0, REFCLK_GATE_OFF=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_USBCTL = 0x4 (MODE_HOST=0, MODE_ISOLATION=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_USBCTL = 0x2 (MODE_HOST=1, MODE_ISOLATION=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x0] A401 IOMobileFramebufferAP::start_signal()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0xc00000002 (TYPE=0x2, LEN=0xc, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D598 IOMobileFramebufferAP::find_swap_function_gated()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D108 UnifiedPipeline2::create_provider_service()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D108 UnifiedPipeline2::create_provider_service()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D109 UnifiedPipeline2::create_product_service()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D110 UnifiedPipeline2::create_PMU_service()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:4175]IOMFB: Could not find PMU service
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D111 UnifiedPipeline2::create_iomfb_service()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='bics_mode', value=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5c00000002 (TYPE=0x2, LEN=0x5c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D415 ServiceRelay::sr_setProperty_bool(obj='IOMF', key='external', value=True)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='IdleState', value=5)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x30 (DWC3_FORCE_CLAMP_EN=1, DWC3_RESET_N=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x20 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x20 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GCTL = 0x30c12004 (U2RSTECN=1, PRTCAP=2, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=0, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GCTL = 0x30c11004 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=0, DSBLCLKGTNG=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='IdleCachingMethod', value=2)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105800000002 (TYPE=0x2, LEN=0x1058, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D413 ServiceRelay::sr_setProperty_dict(obj='IOMF', key='M3TimingParameters', value=...)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'subframe-duration-nclks': 0,
+           'display-lead-time-nclks': 0,
+           'initial-subframe-irq-time-lines': 0,
+           'subframe-interrupt-time-lines': 0,
+           'initial-vbi-advance-lines': 2,
+           'vbi-advance-lines': 2}
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='IOMFBBICSType', value=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5c00000002 (TYPE=0x2, LEN=0x5c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D415 ServiceRelay::sr_setProperty_bool(obj='IOMF', key='APTDevice', value=False)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='W40a_Blending_OK', value=1)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x6000000002 (TYPE=0x2, LEN=0x60, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D414 ServiceRelay::sr_setProperty_int(obj='IOMF', key='color-accuracy-index', value=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5c00000002 (TYPE=0x2, LEN=0x5c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D415 ServiceRelay::sr_setProperty_bool(obj='IOMF', key='ADP is generic pipe', value=True)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5c00000002 (TYPE=0x2, LEN=0x5c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D415 ServiceRelay::sr_setProperty_bool(obj='IOMF', key='NormalModeActive', value=False)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D112 UnifiedPipeline2::create_backlight_service()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_MUX_CTRL = 0x22 (MUX_MODE=2(DUMMY_PHY), CLK_SELECT=4(DUMMY_PHY))
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D38 = 0x0 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D38 = 0xf800000 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D38 = 0xf800000 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D38 = 0xf800f80 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D3C = 0x0 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D3C = 0xfc00000 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D3C = 0xfc00000 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D3C = 0xfc00fc0 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D40 = 0x3c20060c ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D40 = 0x3c14060c ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D40 = 0x3c14060c ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D40 = 0x3c140a0c ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   DWC3_D40 = 0x3c140a0c ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   DWC3_D40 = 0x3c140a10 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GCTL = 0x30c11004 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=0, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GCTL = 0x691004 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=0, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GCTL = 0x691004 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=0, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GCTL = 0x691006 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=1, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUSB2PHYCFG = 0x102400 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=0, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUSB2PHYCFG = 0x102400 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=0, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUSB3PIPECTL = 0x1021102 (PHYSOFTRST=0, U2SSINP3OK=0, DISRXDETINP3=0, UX_EXIT_PX=0, REQP1P2P3=1, DEPOCHANGE=0, SUSPHY=1, LFPSFILT=0, RX_DETOPOLL=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUSB3PIPECTL = 0x1001102 (PHYSOFTRST=0, U2SSINP3OK=0, DISRXDETINP3=0, UX_EXIT_PX=0, REQP1P2P3=1, DEPOCHANGE=0, SUSPHY=0, LFPSFILT=0, RX_DETOPOLL=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GCTL = 0x691006 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=1, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GCTL = 0x691006 (U2RSTECN=1, PRTCAP=1, CORESOFTRESET=0, SOFITPSYNC=0, SCALEDOWN=0, DISSCRAMBLE=0, U2EXIT_LFPS=1, GBLHIBERNATIONEN=1, DSBLCLKGTNG=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUSB3PIPECTL = 0x1001102 (PHYSOFTRST=0, U2SSINP3OK=0, DISRXDETINP3=0, UX_EXIT_PX=0, REQP1P2P3=1, DEPOCHANGE=0, SUSPHY=0, LFPSFILT=0, RX_DETOPOLL=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUSB3PIPECTL = 0x1021102 (PHYSOFTRST=0, U2SSINP3OK=0, DISRXDETINP3=0, UX_EXIT_PX=0, REQP1P2P3=1, DEPOCHANGE=0, SUSPHY=1, LFPSFILT=0, RX_DETOPOLL=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUSB2PHYCFG = 0x102400 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=0, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUSB2PHYCFG = 0x102440 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=1, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_NONSELECTED_OVERRIDE = 0x1332 (NATIVE_POWER_DOWN=0x2, NATIVE_RESET=1, DUMMY_PHY_EN=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_NONSELECTED_OVERRIDE = 0x9332 (NATIVE_POWER_DOWN=0x2, NATIVE_RESET=1, DUMMY_PHY_EN=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_MUX_CTRL = 0x22 (MUX_MODE=2(DUMMY_PHY), CLK_SELECT=4(DUMMY_PHY))
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GSBUSCFG1 = 0x6f00 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GSBUSCFG1 = 0x2f00 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUCTL = 0xa416802 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUCTL = 0xa4b68c8 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GDBGLTSSM = 0x9cc20006 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GDBGLTSSM = 0x9cc20004 ()
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   GUSB2PHYCFG = 0x102440 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=1, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   GUSB2PHYCFG = 0x2102440 (PHYSOFTRST=0, U2_FREECLK_EXISTS=0, SUSPHY=1, ULPI_UTMI=0, ENBLSLPM=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_NONSELECTED_OVERRIDE = 0x9332 (NATIVE_POWER_DOWN=0x2, NATIVE_RESET=1, DUMMY_PHY_EN=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_NONSELECTED_OVERRIDE = 0x9732 (NATIVE_POWER_DOWN=0x2, NATIVE_RESET=1, DUMMY_PHY_EN=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   0x50228d020 = 0x4e928162
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   0x50228d024 = 0x8b8080
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:4191]IOMFB: Could not find Backlight service
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D113 UnifiedPipeline2::create_nvram_service()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:4199]IOMFB: Could not find nvram service
+# [cpu1] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:1838]virtual bool UnifiedPipeline::start_ios_gated(): Created AP Services
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=40, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=61, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=62, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=37, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=38, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=39, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=43, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=66, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=67, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=105, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=20, value=0, unk0=0, unk1=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=19, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=25, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=26, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=27, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=28, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=15, value=65536, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=162, value=0, unk0=0, unk1=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=34, value=65536, unk0=0, unk1=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x21 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=1)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x20 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: R.4   PIPEHANDLER_AON_GEN = 0x20 (DWC3_FORCE_CLAMP_EN=0, DWC3_RESET_N=0)
+# [Dwc3Tracer@/arm-io/usb-drd1] MMIO: W.4   PIPEHANDLER_AON_GEN = 0x30 (DWC3_FORCE_CLAMP_EN=1, DWC3_RESET_N=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_USBCTL = 0x102 (MODE_HOST=1, MODE_ISOLATION=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_USBCTL = 0x104 (MODE_HOST=0, MODE_ISOLATION=1)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0x4 (RESET=0, PORT_RESET=0, APB_RESETN=1, SIDDQ=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=16, value=-1, unk0=0, unk1=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0xc (RESET=0, PORT_RESET=0, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0xc (RESET=0, PORT_RESET=0, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0xe (RESET=0, PORT_RESET=1, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0xe (RESET=0, PORT_RESET=1, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0xf (RESET=1, PORT_RESET=1, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_CTL = 0xf (RESET=1, PORT_RESET=1, APB_RESETN=1, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_CTL = 0xb (RESET=1, PORT_RESET=1, APB_RESETN=0, SIDDQ=1)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_MISCTUNE = 0x8c0013 (APBCLK_GATE_OFF=0, REFCLK_GATE_OFF=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_MISCTUNE = 0x208c0013 (APBCLK_GATE_OFF=1, REFCLK_GATE_OFF=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: R.4   USB2PHY_MISCTUNE = 0x208c0013 (APBCLK_GATE_OFF=1, REFCLK_GATE_OFF=0)
+# [PhyTracer@/arm-io/atc-phy1] MMIO: W.4   USB2PHY_MISCTUNE = 0x608c0013 (APBCLK_GATE_OFF=1, REFCLK_GATE_OFF=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=17, value=-1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=79, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=80, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=81, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=82, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=94, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=126, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=127, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=130, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=131, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=132, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=87, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=88, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=78, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=77, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=89, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=74, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=75, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=76, value=1, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=90, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=91, value=255, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=97, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=98, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=99, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=100, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=95, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=96, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=93, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=141, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=144, value=-1, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=145, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=13, value=65536, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=14, value=65536, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=68, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=0, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=1, value=0, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=21, value=1, unk0=0, unk1=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=92, value=1, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=103, value=2, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=161, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=160, value=0, unk0=0, unk1=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:1871]virtual bool UnifiedPipeline::start_ios_gated(): Flushed RTPs
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0xc00000002 (TYPE=0x2, LEN=0xc, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D100 UnifiedPipeline2::match_pmu_service()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D206 UPPipe2::match_pmu_service_2()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D207 UPPipe2::match_backlight_service()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A132 UPPipe2::backlight_service_matched()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D552 IOMobileFramebufferAP::setProperty_dict(key='DisplayPipeStrideRequirements', value=...)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'StrideLinearHorizontal': 64, 'StrideLinearVertical': 1}
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D552 IOMobileFramebufferAP::setProperty_dict(key='DisplayPipePlaneBaseAlignment', value=...)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'PlaneBaseAlignmentLinear': 64}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [syslog] * [PPipeDCP_H13P.cpp:11122]IOMFB setup_video_limits called on secondary display with no timing set
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x9400000002 (TYPE=0x2, LEN=0x94, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D124 UnifiedPipeline2::read_edt_data(key='initial-vbi-advance-lines', count=1, value=[2])
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D561 IOMobileFramebufferAP::setProperty_dict(key='M3TimingParameters', value=...)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'subframe-duration-nclks': 0,
+           'display-lead-time-nclks': 0,
+           'initial-subframe-irq-time-lines': 0,
+           'subframe-interrupt-time-lines': 0,
+           'initial-vbi-advance-lines': 2,
+           'vbi-advance-lines': 2}
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D552 IOMobileFramebufferAP::setProperty_dict(key='IOMFBMaxSrcPixels', value=...)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'MaxSrcRectWidth': 6144,
+           'MaxSrcRectTotal': 26542080,
+           'MaxSrcBufferWidth': 16384,
+           'MaxSrcBufferHeight': 16384,
+           'MaxVideoSrcDownscalingWidth': 0,
+           'VideoClock': 0,
+           'PixelClock': 0,
+           'IOMFBMaxCompressedSizeInBytes': 0}
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D101 UnifiedPipeline2::UNK_get_some_field()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D552 IOMobileFramebufferAP::setProperty_dict(key='DisplayPipePlaneBaseAlignment', value=...)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'DefaultStride': 0,
+           'LinearX_Alignment': 64,
+           'LinearY_Alignment': 1,
+           'PlaneBaseAlignmentLinear': 64}
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400000002 (TYPE=0x2, LEN=0x1054, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D552 IOMobileFramebufferAP::setProperty_dict(key='IOMFBScalingLimits', value=...)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'RGBLayer_MinScaleFraction': 2,
+           'RGBLayer_MaxScale': 4,
+           'YUVLayer_MinScaleFraction': 2,
+           'YUVLayer_MaxScale': 4}
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='IOMFBSupportsYFlip', value=True)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='IOMFBSupportsXFlip', value=True)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='IOMFBSupportsYFlip', value=True)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='IOMFBSupportsXFlip', value=True)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='ALSSSupported', value=False)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='ACSSSupported', value=False)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x5800000002 (TYPE=0x2, LEN=0x58, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D565 IOMobileFramebufferAP::setProperty_bool(key='SPLCSupported', value=False)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D000 UPPipeAP_H13P::did_boot_signal()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D001 UPPipeAP_H13P::did_power_on_signal()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:1356]set_device_enabled_gated: current state: 1, requested state: 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D120 UnifiedPipeline2::start_hardware_boot()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A373 UnifiedPipeline2::set_create_DFB()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A445 IOMobileFramebufferAP::do_create_default_frame_buffer()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A103 UPPipe2::get_config_frame_size(width=0, height=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A444 IOMobileFramebufferAP::get_display_size(arg0=<out>, arg1=<out>)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A104 UPPipe2::set_config_frame_size(width=6144, height=3456)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A105 UPPipe2::program_config_frame_size()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A029 UPPipeAP_H13P::setup_video_limits()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] * [PPipeDCP_H13P.cpp:11122]IOMFB setup_video_limits called on secondary display with no timing set
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A466 IOMobileFramebufferAP::flush_supportsPower(arg0=True)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A036 UPPipeAP_H13P::apt_supported()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A000 UPPipeAP_H13P::late_init_signal(arg0=True)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x4c00400002 (TYPE=0x2, LEN=0x4c, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D003 UPPipeAP_H13P::rt_bandwidth_setup_ap(config=<out>)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000400002 (TYPE=0x2, LEN=0x10, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D108 UnifiedPipeline2::create_provider_service()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x3800400002 (TYPE=0x2, LEN=0x38, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D411 ServiceRelay::sr_mapDeviceMemoryWithIndex(obj='PROV', index=5, flags=2147483904, unk_u64=<out>, addr=<out>, length=<out>)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000400002 (TYPE=0x2, LEN=0x10, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D108 UnifiedPipeline2::create_provider_service()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x3800400002 (TYPE=0x2, LEN=0x38, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D411 ServiceRelay::sr_mapDeviceMemoryWithIndex(obj='PROV', index=6, flags=2147483904, unk_u64=<out>, addr=<out>, length=<out>)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x40] A463 IOMobileFramebufferAP::setDisplayRefreshProperties()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] 0x105400400002 (TYPE=0x2, LEN=0x1054, OFF=0x40, CTX=0x0(CB), ACK=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x40] D561 IOMobileFramebufferAP::setProperty_dict(key='IOMFBDisplayRefresh', value=...)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep]   value = {'displayMinRefreshInterval': 71582788,
+           'displayMinRefreshIntervalMachTime': 399984,
+           'displayMaxRefreshInterval': 178956970,
+           'displayMaxRefreshIntervalMachTime': 999984,
+           'displayRefreshStep': 0,
+           'displayRefreshStepMachTime': 0}
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D111 UnifiedPipeline2::create_iomfb_service()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu1] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu3] [DCPTracer@/arm-io/dcpext] <ep:04 0080000000000000 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:04 0080000000000000 ()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=141, value=0, unk0=1336690201, unk1=1)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] * [PPipeDCP_H13P.cpp:10468]set_run_mode_safe: no need to defer: 2 -> 1
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] * [PPipeDCP_H13P.cpp:10468]set_run_mode_safe: no need to defer: 1 -> 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0xc00000002 (TYPE=0x2, LEN=0xc, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D002 UPPipeAP_H13P::will_power_off_signal()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=13, value=65536, unk0=0, unk1=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1c00000002 (TYPE=0x2, LEN=0x1c, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D300 PropRelay::pr_publish(prop_id=14, value=65536, unk0=0, unk1=0)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1400000002 (TYPE=0x2, LEN=0x14, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D574 IOMobileFramebufferAP::powerUpDART(arg0=False)
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [syslog] * [nifiedPipeline.cpp:1356]set_device_enabled_gated: current state: 1, requested state: 0
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D577 IOMobileFramebufferAP::powerstate_notify(arg0=False, arg1=False)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D122 UnifiedPipeline2::is_waking_from_hibernate()
+# [cpu0] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x0] A374 UnifiedPipeline2::vi_set_temperature_hint()
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D110 UnifiedPipeline2::create_PMU_service()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] 0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1)
+# [cpu3] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1))
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >C[0x0] A131 UPPipe2::pmu_service_matched()
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x1000000002 (TYPE=0x2, LEN=0x10, OFF=0x0, CTX=0x0(CB), ACK=0)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <d[0x0] D110 UnifiedPipeline2::create_PMU_service()
+# [cpu1] [DCPTracer@/arm-io/dcpext] [dcpep] >ACK CB.0 (0x42 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x0(CB), ACK=1))
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] 0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1)
+# [cpu2] [DCPTracer@/arm-io/dcpext] [dcpep] <ACK CMD.0 (0x242 (TYPE=0x2, LEN=0x0, OFF=0x0, CTX=0x2(CMD), ACK=1))
+# [cpu0] [DCPTracer@/arm-io/dcpext] >ep:01 0000000000000022 ()
+# [cpu0] [DCPTracer@/arm-io/dcpext] <ep:01 0010300f00267000 ()

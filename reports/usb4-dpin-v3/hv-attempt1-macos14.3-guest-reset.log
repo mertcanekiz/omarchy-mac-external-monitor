@@ -1,0 +1,482 @@
+# PT[200000000:235200000] -> HW:HW
+# PT[235200000:235204000] -> RESERVED VUART
+# PT[235204000:23b7001c0] -> HW:HW
+# PT[23b7001c0:23b7001c4] -> RESERVED PMGR HACK
+# PT[23b7001c4:23b7001c8] -> HW:HW
+# PT[23b7001c8:23b7001cc] -> RESERVED PMGR HACK
+# PT[23b7001cc:23b700220] -> HW:HW
+# PT[23b700220:23b700224] -> RESERVED PMGR HACK
+# PT[23b700224:23b700270] -> HW:HW
+# PT[23b700270:23b700274] -> RESERVED PMGR HACK
+# PT[23b700274:23b700420] -> HW:HW
+# PT[23b700420:23b700424] -> RESERVED PMGR HACK
+# PT[23b700424:23b754000] -> HW:HW
+# PT[23b754000:23b754020] -> RESERVED CPU_START
+# PT[23b754020:23d280088] -> HW:HW
+# PT[23d280088:23d28008c] -> RESERVED PMGR HACK
+# PT[23d28008c:23d280098] -> HW:HW
+# PT[23d280098:23d28009c] -> RESERVED PMGR HACK
+# PT[23d28009c:23d29c044] -> HW:HW
+# PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# PT[23d29c048:23d29c05c] -> HW:HW
+# PT[23d29c05c:23d29c060] -> RESERVED PMGR HACK
+# PT[23d29c060:271304000] -> HW:HW
+# PT[271304000:271308000] -> ASYNC.RW DARTTracer@/arm-io/dart-dispext0
+# PT[271308000:27130c000] -> HW:HW
+# PT[27130c000:271310000] -> ASYNC.RW DARTTracer@/arm-io/dart-dcpext
+# PT[271310000:271850000] -> HW:HW
+# PT[271850000:271854000] -> ASYNC.RW PrintTracer
+# PT[271854000:271c00000] -> HW:HW
+# PT[271c00000:271c6c000] -> SYNC.RW DCPTracer@/arm-io/dcpext
+# PT[271c6c000:300000000] -> HW:HW
+# PT[380000000:501e50000] -> HW:HW
+# PT[501e50000:501e54000] -> SYNC.RW PrintTracer
+# PT[501e54000:501e58000] -> HW:HW
+# PT[501e58000:501e5c000] -> SYNC.RW PrintTracer
+# PT[501e5c000:50228c000] -> HW:HW
+# PT[50228c000:50228d800] -> ASYNC.RW Dwc3Tracer@/arm-io/usb-drd1
+# PT[50228d800:502a84000] -> HW:HW
+# PT[502a84000:502a88000] -> ASYNC.RW Dwc3Tracer@/arm-io/usb-drd1
+# PT[502a88000:502a90000] -> HW:HW
+# PT[502a90000:502a94000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[502a94000:503000000] -> HW:HW
+# PT[503000000:503006a00] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503006a00:503007000] -> HW:HW
+# PT[503007000:503018000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503018000:503020000] -> HW:HW
+# PT[503020000:503024000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503024000:50304c000] -> HW:HW
+# PT[50304c000:503050000] -> SYNC.RW PrintTracer
+# PT[503050000:503058000] -> ASYNC.RW PhyTracer@/arm-io/atc-phy1
+# PT[503058000:780000000] -> HW:HW
+# PT[800000000:801f7c000] -> HW:RAM-LOW
+# PT[814d30000:bdf0a4000] -> HW:RAM-HIGH
+# PT[bdf0a4000:be0de4000] -> *UNMAPPED*
+# PT[be0de4000:be6e24000] -> HW:RAM-HIGH
+# PT[be6e24000:bffe24000] -> *UNMAPPED*
+# PT[bffe24000:c00000000] -> HW:RAM-HIGH
+# [cpu0] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu0] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu0] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu0] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu0] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu0] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu0] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu0] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu0] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu0] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR R 23b700420+0:32 = 0x22ff -> 0x22ff
+# [cpu0] PMGR R 23d280088+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR R 23d280098+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700220+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700220+0:32 = 0x100000ff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0xff: Dangerous write
+# [cpu0] PMGR R 23b700270+0:32 = 0xff -> 0xff
+# [cpu0] PMGR W 23b700270+0:32 = 0x100000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c0+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c0+0:32 = 0x1f0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0xf0000ff: Dangerous write
+# [cpu0] PMGR R 23b7001c8+0:32 = 0xf0000ff -> 0xf0000ff
+# [cpu0] PMGR W 23b7001c8+0:32 = 0x1f0000ff: Dangerous write
+# [cpu0] PMGR R 23b700420+0:32 = 0x22ff -> 0x22ff
+# [cpu0] PMGR W 23b700420+0:32 = 0x23f0: Dangerous write
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23b700420+0:32 = 0x20ff -> 0x2000
+# [cpu0] PMGR R 23d280098+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR W 23d280098+0:32 = 0x3f0: Dangerous write
+# [cpu0] PMGR R 23d280098+0:32 = 0xff -> 0x0
+# [cpu0] PMGR R 23d280088+0:32 = 0x2ff -> 0x2ff
+# [cpu0] PMGR W 23d280088+0:32 = 0x3f0: Dangerous write
+# [cpu0] PMGR R 23d280088+0:32 = 0xff -> 0x0
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x80
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x8
+# [cpu0] Starting guest secondary 0:1:3
+# [cpu0]  CPU #7: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 7
+TTY> HV: Entering guest secondary 7 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu7] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu7] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu7] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu7] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu7] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu7] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu7] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu7] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu7] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu7] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu7] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu7] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu7] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu7] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu7] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu7] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu7] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu7] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu7] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu7] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu7] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu7] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu7] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu7] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu7] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu7] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu7] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu7] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu7] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu7] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x40
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x4
+# [cpu0] Starting guest secondary 0:1:2
+# [cpu0]  CPU #6: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 6
+TTY> HV: Entering guest secondary 6 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu6] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu6] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu6] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu6] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu6] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu6] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu6] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu6] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu6] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu6] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu6] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu6] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu6] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu6] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu6] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu6] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu6] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu6] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu6] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu6] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu6] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu6] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu6] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu6] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu6] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu6] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu6] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu6] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu6] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu6] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x8
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x8
+# [cpu0] Starting guest secondary 0:0:3
+# [cpu0]  CPU #3: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 3
+TTY> HV: Entering guest secondary 3 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu3] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu3] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu3] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu3] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu3] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu3] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu3] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu3] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu3] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu3] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu3] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu3] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x4
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x4
+# [cpu0] Starting guest secondary 0:0:2
+# [cpu0]  CPU #2: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 2
+TTY> HV: Entering guest secondary 2 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu2] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu2] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu2] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu2] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu2] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu2] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu2] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu2] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu2] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu2] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu2] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu2] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu2] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x2
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x2
+# [cpu0] Starting guest secondary 0:0:1
+# [cpu0]  CPU #1: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 1
+TTY> HV: Entering guest secondary 1 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x0
+# [cpu1] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu1] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu1] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu1] Pass: mrs x13, HID5_EL1 = 2082df50e700df14 (HID5_EL1)
+# [cpu1] Pass: msr HID5_EL1, x13 = 2082df50e700df14 (OK) (HID5_EL1)
+# [cpu1] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu1] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu1] Pass: mrs x13, EHID10_EL1 = 3000528002788 (EHID10_EL1)
+# [cpu1] Pass: msr EHID10_EL1, x13 = 3000528002788 (OK) (EHID10_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618000 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID9_EL1 = 600000811 (EHID9_EL1)
+# [cpu1] Pass: msr EHID9_EL1, x13 = 600000811 (OK) (EHID9_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu1] Pass: mrs x13, EHID20_EL1 = 618100 (EHID20_EL1)
+# [cpu1] Pass: msr EHID20_EL1, x13 = 618100 (OK) (EHID20_EL1)
+# [cpu0] CPUSTART W 23b754000+4:32 = 0x10
+# [cpu0] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu0] CPUSTART W 23b754000+c:32 = 0x1
+# [cpu0] Starting guest secondary 0:1:0
+# [cpu0]  CPU #4: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 4
+TTY> HV: Entering guest secondary 4 at 0x817304000
+# [cpu0] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu0] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu4] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu4] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu4] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu4] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu4] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu4] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu4] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu4] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu4] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu4] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu4] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu4] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu4] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu4] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu4] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu4] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu4] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu4] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu4] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu4] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu4] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu4] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu4] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu4] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu4] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu4] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu4] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu4] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu4] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu4] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu2] CPUSTART W 23b754000+4:32 = 0x20
+# [cpu2] CPUSTART W 23b754000+8:32 = 0x0
+# [cpu2] CPUSTART W 23b754000+c:32 = 0x2
+# [cpu2] Starting guest secondary 0:1:1
+# [cpu2]  CPU #5: RVBAR = 0x817304000
+TTY> HV: Initializing secondary 5
+TTY> HV: Entering guest secondary 5 at 0x817304000
+# [cpu2] PT[23d29c044:23d29c048] -> RESERVED PMGR HACK
+# [cpu2] PT[23d29c048:23d29c04c] -> RESERVED CPU STATE HACK
+# [cpu5] Pass: msr OSLAR_EL1, x31 = 0 (OK) (OSLAR_EL1)
+# [cpu5] Pass: mrs x13, ACC_CFG_EL1 = d (ACC_CFG_EL1)
+# [cpu5] Skip: msr ACC_CFG_EL1, x13 = d
+# [cpu5] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu5] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu5] Pass: mrs x13, HID14_EL1 = 500000bb8 (HID14_EL1)
+# [cpu5] Pass: msr HID14_EL1, x13 = 500000bb8 (OK) (HID14_EL1)
+# [cpu5] Pass: mrs x13, HID5_EL1 = 2082df205700ff12 (HID5_EL1)
+# [cpu5] Pass: msr HID5_EL1, x13 = 2082df205700ff12 (OK) (HID5_EL1)
+# [cpu5] Pass: mrs x13, HID13_EL1 = c332200211010205 (HID13_EL1)
+# [cpu5] Pass: msr HID13_EL1, x13 = c332200211010205 (OK) (HID13_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu5] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu5] Pass: mrs x13, HID3_EL1 = 4180000cf8001fe0 (HID3_EL1)
+# [cpu5] Pass: msr HID3_EL1, x13 = 4180000cf8001fe0 (OK) (HID3_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1400000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID16_EL1 = 6900000440000000 (HID16_EL1)
+# [cpu5] Pass: msr HID16_EL1, x13 = 6900000440000000 (OK) (HID16_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu5] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID0_EL1 = 10002990120e0e00 (HID0_EL1)
+# [cpu5] Pass: msr HID0_EL1, x13 = 10002990120e0e00 (OK) (HID0_EL1)
+# [cpu5] Pass: mrs x13, HID6_EL1 = 7dc8031f007c0e (HID6_EL1)
+# [cpu5] Pass: msr HID6_EL1, x13 = 7dc8031f007c0e (OK) (HID6_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID7_EL1 = 3110000 (HID7_EL1)
+# [cpu5] Pass: msr HID7_EL1, x13 = 3110000 (OK) (HID7_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu5] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)
+# [cpu5] Pass: mrs x13, HID21_EL1 = 1040000 (HID21_EL1)
+# [cpu5] Pass: msr HID21_EL1, x13 = 1040000 (OK) (HID21_EL1)
+# [cpu5] Pass: mrs x13, HID9_EL1 = 8100086c000000 (HID9_EL1)
+# [cpu5] Pass: msr HID9_EL1, x13 = 8100086c000000 (OK) (HID9_EL1)
+# [cpu5] Pass: mrs x13, HID11_EL1 = 804000010008000 (HID11_EL1)
+# [cpu5] Pass: msr HID11_EL1, x13 = 804000010008000 (OK) (HID11_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID1_EL1 = 1440000002000000 (HID1_EL1)
+# [cpu5] Pass: msr HID1_EL1, x13 = 1440000002000000 (OK) (HID1_EL1)
+# [cpu5] Pass: mrs x13, HID18_EL1 = 2000040004000 (HID18_EL1)
+# [cpu5] Pass: msr HID18_EL1, x13 = 2000040004000 (OK) (HID18_EL1)

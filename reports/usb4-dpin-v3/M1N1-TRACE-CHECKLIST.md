@@ -1,5 +1,20 @@
 # PRINTABLE CHECKLIST — trace macOS lighting the LG with the m1n1 hypervisor
 
+> **2026-09-20 update — read first.** This was executed (8 runs). Results and the corrected recipe are
+> in `HV-TRACE-FINDINGS.md`. The corrections that matter, folded into the steps below:
+> 1. Use the **macOS 13.5 kernel from Apple's 13.5 IPSW** (`kernelcache.release.mac13g`), not the Air's
+>    14.3 one — the stub's firmware is 13.5 and the 14.3 kernel panics at once (SIO protocol 9 vs 10).
+> 2. The Preboot kernelcache is a full IMG4: `pyimg4 img4 extract -i kernelcache -p kc.im4p`, then
+>    `pyimg4 im4p extract -i kc.im4p -o kernelcache.macho`. (`scripts/host-m1n1-trace.sh extract` does both.)
+> 3. Patch `chosen/boot-uuid` to a bogus UUID (`run_guest -c ...`) or xnu panics "rootvp not
+>    authenticated". xnu then waits **60 s** for root and **reboots the TARGET into macOS Recovery**.
+>    That minute is the trace window. Afterwards: hold power → Omarchy again.
+> 4. Add boot-arg **`trm_enabled=0`** or Thunderbolt Restricted Mode blocks the LG ("identification restricted").
+> 5. Also log the **second** ACM port (`/dev/cu.usbmodem<AirSerial>3`): that is the guest's kernel
+>    console, where every panic lands. `scripts/host-m1n1-trace.sh vuart`.
+> 6. The panel will **not** light in this kernel-only guest (no WindowServer to request a mode). The
+>    DP-IN/crossbar/PHY recipe is captured anyway. Lighting it needs a 13.5 macOS volume (see findings).
+
 Two machines: **TARGET** = this M1 MacBook Air (dual-boots Omarchy Linux / macOS 14.3).
 **HOST** = your other Mac. One USB-C cable between them. The LG on its Thunderbolt cable.
 
@@ -83,16 +98,19 @@ A bare m1n1 finds no payload and prints "No valid payload found" → proxy mode.
 - [ ] Run (one command):
       ```
       cd ~/m1n1/proxyclient
-      export M1N1DEVICE=/dev/cu.usbmodemP_01        # ← use the name you saw
-      export TRACE_DCP=dcpext                        # trace the EXTERNAL display controller
+      export M1N1DEVICE=/dev/cu.usbmodemXXXXXXXXXXXX1  # ← the port ending in 1 (proxy); ...3 is the guest console
+      export TRACE_DCP=dcpext                          # trace the EXTERNAL display controller
       python3 tools/run_guest.py \
           -m hv/trace_dcp.py \
           -m hv/trace_atc.py \
           -m hv/trace_dpin_bringup.py \
+          -c 'hv.adt["/chosen"].boot_uuid = "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF"; hv.adt["/chosen"].apfs_preboot_uuid = "DEADBEEF-DEAD-BEEF-DEAD-BEEFDEADBEEF"' \
           -l ~/dpin-trace.log \
-          ~/kernelcache.macho \
-          -- "debug=0x14e serial=3 apcie=0xfffffffe -enable-kprintf-spam wdt=-1 clpc=0"
+          ~/kernelcache-13.5.macho \
+          -- "-v debug=0x14e serial=3 apcie=0xfffffffe -enable-kprintf-spam wdt=-1 clpc=0 trm_enabled=0"
       ```
+      Or simply `scripts/host-m1n1-trace.sh trace` (same thing), with `scripts/host-m1n1-trace.sh vuart`
+      running in a second terminal to capture the guest console.
 - [ ] Wait. macOS boots on the TARGET's screen under the hypervisor (slower than normal; SYNC
       tracing costs speed — that is expected). The HOST terminal streams trace lines.
 - [ ] Optional, only if run_guest complains about ABI/version: first run
