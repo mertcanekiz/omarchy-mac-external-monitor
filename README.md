@@ -14,6 +14,11 @@ trace of macOS was captured (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) and re
 unplug/replug**, see `reports/usb4-dpin-v5/README.md`. `scripts/dpin-recover.sh` remains as a fallback.
 Read the docs below before acting; several earlier confident claims were later corrected.
 
+## Knowledge base for a from-scratch rewrite
+
+`docs/knowledge-base/` (2026-09-21): architecture, the macOS register sequence, a hunk-by-hunk walkthrough of
+the working patches with hack/keep verdicts, DRM/hotplug findings, a step-by-step rewrite plan, evidence index.
+
 ## Start here (read in this order)
 
 1. **`reports/usb4-dpin-v3/HANDOFF.md`** — the single source of truth. Current state, what is proven

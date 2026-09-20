@@ -1,0 +1,618 @@
+diff --git a/arch/arm64/boot/dts/apple/t8103-j313.dts b/arch/arm64/boot/dts/apple/t8103-j313.dts
+index f5b7bb441..ea5908def 100644
+--- a/arch/arm64/boot/dts/apple/t8103-j313.dts
++++ b/arch/arm64/boot/dts/apple/t8103-j313.dts
+@@ -20,6 +20,7 @@ / {
+ 
+ 	aliases {
+ 		sep = &sep;
++		dcpext = &dcpext;
+ 	};
+ 
+ 	led-controller {
+@@ -194,3 +195,37 @@ &isp {
+ };
+ 
+ #include "hwmon-laptop.dtsi"
++
++/*
++ * Local bring-up experiment (DP-IN v3): route the external display controller
++ * through the front Type-C port's display crossbar into a CIO DP IN adapter,
++ * and give it the Type-C PHY so DP clocks can be configured in USB4 mode.
++ */
++&display {
++	iommus = <&disp0_dart 0>, <&dispext0_dart 0>;
++};
++
++&dispext0_dart {
++	status = "okay";
++};
++
++&dcpext_dart {
++	status = "okay";
++};
++
++&dcpext_mbox {
++	status = "okay";
++};
++
++&dcpext {
++	status = "okay";
++	apple,connector-type = "DP";
++	apple,tbt-dpin-test;
++	apple,dptx-phy = <1>;
++	apple,dptx-core = <1>;
++	phys = <&atcphy1 PHY_TYPE_DP>;
++	phy-names = "dp-phy";
++	mux-controls = <&atcphy1_xbar 1>, <&atcphy1_xbar 2>;
++	mux-control-names = "dp-xbar", "dp-xbar-dpin1";
++	mux-index = <0>;
++};
+diff --git a/drivers/gpu/drm/apple/connector.c b/drivers/gpu/drm/apple/connector.c
+index 15b3664d8..082e31fa9 100644
+--- a/drivers/gpu/drm/apple/connector.c
++++ b/drivers/gpu/drm/apple/connector.c
+@@ -15,6 +15,7 @@
+ #include <drm/drm_managed.h>
+ 
+ #include "dcp-internal.h"
++#include "dcp.h"
+ 
+ enum dcp_chunk_type {
+ 	DCP_CHUNK_COLOR_ELEMENTS,
+@@ -79,6 +80,51 @@ CONNECTOR_DEBUGFS_ENTRY(timing, DCP_CHUNK_TIMING_ELELMENTS);
+ CONNECTOR_DEBUGFS_ENTRY(display_attribs, DCP_CHUNK_DISPLAY_ATTRIBUTES);
+ CONNECTOR_DEBUGFS_ENTRY(transport, DCP_CHUNK_TRANSPORT);
+ 
++/* Fixed-route bring-up only: a firmware request is not proof of a picture. */
++static int tunnel_hpd_get(void *data, u64 *value)
++{
++	struct apple_connector *con = data;
++	struct apple_dcp *dcp = platform_get_drvdata(con->dcp);
++
++	mutex_lock(&dcp->hpd_mutex);
++	*value = dcp->dptxport[0].connected;
++	mutex_unlock(&dcp->hpd_mutex);
++	return 0;
++}
++
++static int tunnel_hpd_set(void *data, u64 value)
++{
++	struct apple_connector *con = data;
++	struct apple_dcp *dcp = platform_get_drvdata(con->dcp);
++
++	if (!dcp->dp_tunnel || value > 1)
++		return -EINVAL;
++	return value ? dcp_dptx_connect_oob(con->dcp, 0) :
++		       dcp_dptx_disconnect_oob(con->dcp, 0);
++}
++DEFINE_DEBUGFS_ATTRIBUTE(tunnel_hpd_fops, tunnel_hpd_get, tunnel_hpd_set, "%llu\n");
++
++static int tunnel_dpin_get(void *data, u64 *value)
++{
++	struct apple_connector *con = data;
++	int ret = dcp_dptx_tunnel_get_dpin(con->dcp);
++
++	if (ret < 0)
++		return ret;
++	*value = ret;
++	return 0;
++}
++
++static int tunnel_dpin_set(void *data, u64 value)
++{
++	struct apple_connector *con = data;
++
++	if (value > 1)
++		return -EINVAL;
++	return dcp_dptx_tunnel_select_dpin(con->dcp, value);
++}
++DEFINE_DEBUGFS_ATTRIBUTE(tunnel_dpin_fops, tunnel_dpin_get, tunnel_dpin_set, "%llu\n");
++
+ static void dcp_afk_debugfs_root(struct platform_device *pdev, int ep, struct dentry *root)
+ {
+ #if IS_ENABLED(CONFIG_DRM_APPLE_DEBUG)
+@@ -101,6 +147,12 @@ static void dcp_afk_debugfs_root(struct platform_device *pdev, int ep, struct de
+ void apple_connector_debugfs_init(struct drm_connector *connector, struct dentry *root)
+ {
+ 	struct apple_connector *apple_con = to_apple_connector(connector);
++	struct apple_dcp *dcp = platform_get_drvdata(apple_con->dcp);
++
++	if (dcp->dp_tunnel) {
++		debugfs_create_file("tunnel_hpd", 0600, root, apple_con, &tunnel_hpd_fops);
++		debugfs_create_file("tunnel_dpin", 0600, root, apple_con, &tunnel_dpin_fops);
++	}
+ 
+         debugfs_create_file("ColorElements", 0444, root, apple_con,
+                             &chunk_color_fops);
+diff --git a/drivers/gpu/drm/apple/dcp-internal.h b/drivers/gpu/drm/apple/dcp-internal.h
+index 57832487d..3e63d5f5a 100644
+--- a/drivers/gpu/drm/apple/dcp-internal.h
++++ b/drivers/gpu/drm/apple/dcp-internal.h
+@@ -265,6 +265,14 @@ struct apple_dcp {
+ 
+ 	u32 dptx_phy;
+ 	u32 dptx_die;
++	/* Opt-in, fixed-route Thunderbolt DP-IN bring-up experiment. */
++	bool dp_tunnel;
++	bool tunnel_mux_selected;
++	u32 dptx_core;
++	u32 tunnel_mux_index;
++	/* crossbar controls for DP IN 0 / DP IN 1 and the selected one */
++	struct mux_control *xbar_dpin[2];
++	u32 tunnel_dpin;
+ 	int hdmi_hpd_irq;
+ };
+ 
+diff --git a/drivers/gpu/drm/apple/dcp.c b/drivers/gpu/drm/apple/dcp.c
+index ddd413fde..4a7abe2ca 100644
+--- a/drivers/gpu/drm/apple/dcp.c
++++ b/drivers/gpu/drm/apple/dcp.c
+@@ -361,7 +361,7 @@ static int dcp_dptx_connect(struct apple_dcp *dcp, u32 port)
+ {
+ 	int ret = 0;
+ 
+-	if (!dcp->phy) {
++	if (!dcp->phy && !dcp->dp_tunnel) {
+ 		dev_warn(dcp->dev, "dcp_dptx_connect: missing phy\n");
+ 		return -ENODEV;
+ 	}
+@@ -377,32 +377,63 @@ static int dcp_dptx_connect(struct apple_dcp *dcp, u32 port)
+ 	if (dcp->dptxport[port].connected)
+ 		goto out_unlock;
+ 
++	if (dcp->dp_tunnel) {
++		ret = mux_control_select(dcp->xbar, dcp->tunnel_mux_index);
++		if (ret)
++			goto out_unlock;
++		dcp->tunnel_mux_selected = true;
++		ret = dptxport_validate_connection(dcp->dptxport[port].service,
++				dcp->dptx_core, dcp->dptx_phy, dcp->dptx_die);
++		dev_info(dcp->dev, "DP tunnel validate core=%u ATC=%u die=%u: %d\n",
++			 dcp->dptx_core, dcp->dptx_phy, dcp->dptx_die, ret);
++		if (ret)
++			goto out_mux;
++	}
++
+ 	reinit_completion(&dcp->dptxport[port].linkcfg_completion);
+ 	dcp->dptxport[port].atcphy = dcp->phy;
+-	dptxport_connect(dcp->dptxport[port].service, 0, dcp->dptx_phy, dcp->dptx_die);
+-	dptxport_request_display(dcp->dptxport[port].service);
++	ret = dptxport_connect(dcp->dptxport[port].service, dcp->dptx_core,
++			       dcp->dptx_phy, dcp->dptx_die);
++	if (ret) {
++		dev_err(dcp->dev, "DPTX connect failed: %d\n", ret);
++		goto out_mux;
++	}
++	ret = dptxport_request_display(dcp->dptxport[port].service);
++	if (ret) {
++		dev_err(dcp->dev, "DPTX display request failed: %d\n", ret);
++		goto out_mux;
++	}
+ 	dcp->dptxport[port].connected = true;
+ 
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 	ret = wait_for_completion_timeout(&dcp->dptxport[port].linkcfg_completion,
+ 				    DPTX_CONNECT_TIMEOUT);
+-	if (ret < 0)
+-		dev_warn(dcp->dev, "dcp_dptx_connect: port %d link complete failed:%d\n",
+-			 port, ret);
++	if (!ret)
++		dev_warn(dcp->dev, "dcp_dptx_connect: port %d link configuration timed out\n",
++			 port);
+ 	else
+ 		dev_dbg(dcp->dev, "dcp_dptx_connect: waited %d ms for link\n",
+ 			jiffies_to_msecs(DPTX_CONNECT_TIMEOUT - ret));
+ 
+ 	usleep_range(5, 10);
+ 
+-	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort)
+-		dptxport_set_hpd(dcp->dptxport[port].service, true);
++	if (dcp->connector_type == DRM_MODE_CONNECTOR_DisplayPort) {
++		ret = dptxport_set_hpd(dcp->dptxport[port].service, true);
++		dev_info(dcp->dev, "DPTX HPD assert: %d\n", ret);
++		if (ret)
++			return ret;
++	}
+ 
+ 	if (dcp->avep)
+ 		av_service_connect(dcp);
+ 
+ 	return 0;
+ 
++out_mux:
++	if (dcp->tunnel_mux_selected) {
++		mux_control_deselect(dcp->xbar);
++		dcp->tunnel_mux_selected = false;
++	}
+ out_unlock:
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 	return ret;
+@@ -418,16 +449,64 @@ static void disconnected_hpd_event(struct apple_connector *con)
+ 
+ static int dcp_dptx_disconnect(struct apple_dcp *dcp, u32 port)
+ {
++	int ret = 0;
++
+ 	dev_info(dcp->dev, "%s(port=%d)\n", __func__, port);
+ 
+ 	mutex_lock(&dcp->hpd_mutex);
+ 	if (dcp->dptxport[port].enabled && dcp->dptxport[port].connected) {
+-		dptxport_release_display(dcp->dptxport[port].service);
++		ret = dptxport_release_display(dcp->dptxport[port].service);
++		if (ret)
++			goto out_unlock;
+ 		dcp->dptxport[port].connected = false;
+ 	}
++	if (dcp->tunnel_mux_selected) {
++		ret = mux_control_deselect(dcp->xbar);
++		dcp->tunnel_mux_selected = false;
++	}
++out_unlock:
+ 	mutex_unlock(&dcp->hpd_mutex);
+ 
+-	return 0;
++	return ret;
++}
++
++/*
++ * DP-IN bring-up: choose which CIO DP IN adapter (0 or 1) the external
++ * display controller is routed to. Only allowed while disconnected.
++ */
++int dcp_dptx_tunnel_select_dpin(struct platform_device *pdev, u32 dpin)
++{
++	struct apple_dcp *dcp = platform_get_drvdata(pdev);
++	int ret = 0;
++
++	if (!dcp->dp_tunnel || dpin > 1)
++		return -EINVAL;
++	if (!dcp->xbar_dpin[dpin])
++		return -ENODEV;
++
++	mutex_lock(&dcp->hpd_mutex);
++	if (dcp->dptxport[0].connected || dcp->tunnel_mux_selected) {
++		ret = -EBUSY;
++		goto out;
++	}
++	dcp->tunnel_dpin = dpin;
++	dcp->xbar = dcp->xbar_dpin[dpin];
++	/* m1n1 dcpav.py: DPPHY=0, DPIN0=1, DPIN1=2. */
++	dcp->dptx_core = dpin + 1;
++	dev_info(dcp->dev, "DP-IN route selected: dpin%u (dptx core %u)\n",
++		 dpin, dcp->dptx_core);
++out:
++	mutex_unlock(&dcp->hpd_mutex);
++	return ret;
++}
++
++int dcp_dptx_tunnel_get_dpin(struct platform_device *pdev)
++{
++	struct apple_dcp *dcp = platform_get_drvdata(pdev);
++
++	if (!dcp->dp_tunnel)
++		return -EINVAL;
++	return dcp->tunnel_dpin;
+ }
+ 
+ int dcp_dptx_connect_oob(struct platform_device *pdev, u32 port)
+@@ -519,7 +598,7 @@ int dcp_start(struct platform_device *pdev)
+ 				 ret);
+ 	}
+ 
+-	if (dcp->phy && dcp->fw_compat >= DCP_FIRMWARE_V_13_5) {
++	if ((dcp->phy || dcp->dp_tunnel) && dcp->fw_compat >= DCP_FIRMWARE_V_13_5) {
+ 		ret = ibootep_init(dcp);
+ 		if (ret)
+ 			dev_warn(dcp->dev, "Failed to start IBOOT endpoint: %d\n",
+@@ -553,7 +632,7 @@ int dcp_start(struct platform_device *pdev)
+ 				dcp_dptx_connect(dcp, 0);
+ #endif
+ 		}
+-	} else if (dcp->phy) {
++	} else if (dcp->phy || dcp->dp_tunnel) {
+ 		dev_warn(dcp->dev, "OS firmware incompatible with dptxport EP\n");
+ 	}
+ 	ret = iomfb_start_rtkit(dcp);
+@@ -748,8 +827,9 @@ static int dcp_create_piodma_iommu_dev(struct apple_dcp *dcp)
+ 	}
+ 
+ 	dcp->iommu_dom = iommu_get_domain_for_dev(&dcp->piodma->dev);
+-	if (IS_ERR(dcp->iommu_dom)) {
+-		ret = dev_err_probe(dcp->dev, PTR_ERR(dcp->iommu_dom),
++	if (IS_ERR_OR_NULL(dcp->iommu_dom)) {
++		ret = dev_err_probe(dcp->dev,
++				    dcp->iommu_dom ? PTR_ERR(dcp->iommu_dom) : -ENODEV,
+ 				    "Failed to get default iommu domain for "
+ 				    "piodma device\n");
+ 		dcp->iommu_dom = NULL;
+@@ -759,6 +839,7 @@ static int dcp_create_piodma_iommu_dev(struct apple_dcp *dcp)
+ 	return 0;
+ err_destroy_pdev:
+ 	of_platform_device_destroy(&dcp->piodma->dev, NULL);
++	dcp->piodma = NULL;
+ 	return ret;
+ }
+ 
+@@ -1044,9 +1125,9 @@ static int dcp_comp_bind(struct device *dev, struct device *main, void *data)
+ 		dcp->connector_type = DRM_MODE_CONNECTOR_Unknown;
+ 
+ 	ret = dcp_create_piodma_iommu_dev(dcp);
+-	if (ret || !dcp->iommu_dom)
++	if (ret)
+ 		return dev_err_probe(dev, ret,
+-				"Failed to created PIODMA iommu child device");
++				"Failed to create PIODMA iommu child device\n");
+ 
+ 	ret = dcp_get_disp_regs(dcp);
+ 	if (ret) {
+@@ -1182,11 +1263,43 @@ static int dcp_platform_probe(struct platform_device *pdev)
+ 
+ 	platform_set_drvdata(pdev, dcp);
+ 
++	dcp->dp_tunnel = of_property_read_bool(dev->of_node, "apple,tbt-dpin-test");
++	if (dcp->dp_tunnel) {
++		int ret;
++
++		/* m1n1 dcpav.py: DPPHY=0, DPIN0=1, DPIN1=2. */
++		ret = of_property_read_u32(dev->of_node, "apple,dptx-core", &dcp->dptx_core);
++		if (ret || dcp->dptx_core < 1 || dcp->dptx_core > 2)
++			return -EINVAL;
++		ret = of_property_read_u32(dev->of_node, "mux-index", &dcp->tunnel_mux_index);
++		if (ret)
++			return ret;
++		/* "dp-xbar" is the DP IN 0 control, "dp-xbar-dpin1" the optional DP IN 1 one. */
++		dcp->xbar_dpin[0] = devm_mux_control_get(dev, "dp-xbar");
++		if (IS_ERR(dcp->xbar_dpin[0]))
++			return dev_err_probe(dev, PTR_ERR(dcp->xbar_dpin[0]), "DP-IN crossbar unavailable\n");
++		dcp->xbar_dpin[1] = devm_mux_control_get(dev, "dp-xbar-dpin1");
++		if (IS_ERR(dcp->xbar_dpin[1])) {
++			dev_warn(dev, "DP-IN 1 crossbar control unavailable: %ld\n",
++				 PTR_ERR(dcp->xbar_dpin[1]));
++			dcp->xbar_dpin[1] = NULL;
++		}
++		dcp->tunnel_dpin = dcp->dptx_core - 1;
++		dcp->xbar = dcp->xbar_dpin[dcp->tunnel_dpin];
++		if (!dcp->xbar)
++			return dev_err_probe(dev, -ENODEV, "DP-IN %u crossbar control missing\n",
++					     dcp->tunnel_dpin);
++		dev_warn(dev, "Experimental DP-IN route; connect manually through tunnel_hpd debugfs\n");
++	}
++
+ 	dcp->phy = devm_phy_optional_get(dev, "dp-phy");
+ 	if (IS_ERR(dcp->phy)) {
+ 		dev_err(dev, "Failed to get dp-phy: %ld\n", PTR_ERR(dcp->phy));
+ 		return PTR_ERR(dcp->phy);
+ 	}
++	if (dcp->dp_tunnel)
++		dev_info(dev, "DP-IN route %s the Type-C PHY for DP clock setup\n",
++			 dcp->phy ? "uses" : "has no PHY;");
+ 
+ 	bitmap_zero(dcp->iomfb_surfaces, DCP_MAX_PLANES);
+ 	if (!of_property_present(dev->of_node, "apple,iomfb-surfaces"))
+@@ -1214,7 +1327,8 @@ static int dcp_platform_probe(struct platform_device *pdev)
+ 		surf++;
+ 	}
+ 
+-	if (dcp->phy) {
++	/* The DP-altmode/DP2HDMI setup below must not run for the DP-IN route. */
++	if (dcp->phy && !dcp->dp_tunnel) {
+ 		int ret;
+ 		/*
+ 		 * Request DP2HDMI related GPIOs as optional for DP-altmode
+diff --git a/drivers/gpu/drm/apple/dcp.h b/drivers/gpu/drm/apple/dcp.h
+index 2b421772b..710498f96 100644
+--- a/drivers/gpu/drm/apple/dcp.h
++++ b/drivers/gpu/drm/apple/dcp.h
+@@ -57,6 +57,8 @@ void dcp_send_message(struct apple_dcp *dcp, u8 endpoint, u64 message);
+ 
+ int dcp_dptx_connect_oob(struct platform_device *pdev, u32 port);
+ int dcp_dptx_disconnect_oob(struct platform_device *pdev, u32 port);
++int dcp_dptx_tunnel_select_dpin(struct platform_device *pdev, u32 dpin);
++int dcp_dptx_tunnel_get_dpin(struct platform_device *pdev);
+ 
+ int iomfb_start_rtkit(struct apple_dcp *dcp);
+ void iomfb_shutdown(struct apple_dcp *dcp);
+diff --git a/drivers/gpu/drm/apple/dptxep.c b/drivers/gpu/drm/apple/dptxep.c
+index 1ea00602d..36a53a09b 100644
+--- a/drivers/gpu/drm/apple/dptxep.c
++++ b/drivers/gpu/drm/apple/dptxep.c
+@@ -5,6 +5,16 @@
+ #include <linux/completion.h>
+ #include <linux/phy/phy.h>
+ #include <linux/delay.h>
++#include <linux/module.h>
++
++/*
++ * DP-IN bring-up: link rate (in Mb/s per lane) to pre-program into the
++ * Type-C PHY when the firmware activates a tunneled DP port, so the CIO DP IN
++ * adapter has DP clocks before the firmware starts AUX traffic. 0 disables.
++ */
++static int dpin_prime_rate = 5400;
++module_param(dpin_prime_rate, int, 0644);
++MODULE_PARM_DESC(dpin_prime_rate, "DP-IN: PHY DP link rate to prime on activate (0=off, default 5400)");
+ 
+ #include "afk.h"
+ #include "dcp.h"
+@@ -251,12 +261,20 @@ static int dptxport_call_get_max_lane_count(struct apple_epic_service *service,
+ 	struct dptxport_apcall_lane_count *reply = reply_;
+ 	struct dptx_port *dptx = service->cookie;
+ 	struct apple_dcp *dcp = service->ep->dcp;
+-	union phy_configure_opts phy_ops;
++	union phy_configure_opts phy_ops = {};
+ 	int ret;
+ 
+ 	if (reply_size < sizeof(*reply))
+ 		return -EINVAL;
+ 
++	if (dcp->dp_tunnel) {
++		/* Virtual DP link into the router, not the Type-C PHY lanes. */
++		dptx->lane_count = 4;
++		reply->retcode = 0;
++		reply->lane_count = cpu_to_le64(dptx->lane_count);
++		return 0;
++	}
++
+ 	ret = phy_validate(dptx->atcphy, PHY_MODE_DP, 0, &phy_ops);
+ 	if (ret < 0) {
+ 		dev_err(dcp->dev, "phy_validate failed: %d\n", ret);
+@@ -483,6 +501,17 @@ dptxport_call_activate(struct apple_epic_service *service,
+ 	if (!dcp->typec_mux)
+ 		phy_set_mode_ext(dptx->atcphy, PHY_MODE_DP, dcp->index);
+ 
++	if (dcp->dp_tunnel && dptx->atcphy && dpin_prime_rate) {
++		union phy_configure_opts opts = {};
++		int ret;
++
++		opts.dp.link_rate = dpin_prime_rate;
++		opts.dp.set_rate = 1;
++		ret = phy_configure(dptx->atcphy, &opts);
++		dev_info(dcp->dev, "DP-IN activate: primed PHY DP clocks at %d Mb/s: %d\n",
++			 dpin_prime_rate, ret);
++	}
++
+ 	memcpy(reply, data, min(reply_size, data_size));
+ 	if (reply_size >= 4)
+ 		memset(reply, 0, 4);
+diff --git a/drivers/phy/apple/atc.c b/drivers/phy/apple/atc.c
+index 92af7f8c1..8afc7539b 100644
+--- a/drivers/phy/apple/atc.c
++++ b/drivers/phy/apple/atc.c
+@@ -44,6 +44,21 @@
+ #include <linux/usb/typec_mux.h>
+ #include <linux/usb/typec_tbt.h>
+ 
++/*
++ * Local DP-IN (DisplayPort over USB4/Thunderbolt) bring-up experiment.
++ * Selects which DisplayPort clocks are enabled inside the PHY while the port
++ * is in USB4/Thunderbolt mode and a display controller is routed to a CIO
++ * DP IN adapter through the display crossbar:
++ *   0: nothing (stock behaviour)
++ *   1: DPRX pixel clock only
++ *   2: DPRX + DPTX pixel clocks and DP PMA lane reset release
++ *   3: full DP-altmode AUX/clock sequence (atcphy_enable_dp_aux)
++ * Writable at runtime; applied on every DP link-rate configure request.
++ */
++static int dpin_clocks = 2;
++module_param(dpin_clocks, int, 0644);
++MODULE_PARM_DESC(dpin_clocks, "DP clock setup for USB4 DP IN adapters (0-3, default 2)");
++
+ #define AUSPLL_FSM_CTRL 0x1014
+ 
+ #define AUSPLL_APB_CMD_OVERRIDE 0x2000
+@@ -1438,6 +1453,48 @@ static void atcphy_disable_dp_aux(struct apple_atcphy *atcphy)
+ 	core_clear32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTX_PCLK2_ENABLE);
+ }
+ 
++static bool atcphy_mode_is_tunnel(const struct apple_atcphy *atcphy)
++{
++	return atcphy->mode == APPLE_ATCPHY_MODE_USB4 ||
++	       atcphy->mode == APPLE_ATCPHY_MODE_TBT;
++}
++
++/* Local DP-IN bring-up experiment; see the dpin_clocks parameter. */
++static void atcphy_dpin_enable_clocks(struct apple_atcphy *atcphy)
++{
++	u32 ctrl;
++
++	if (dpin_clocks >= 3) {
++		atcphy_enable_dp_aux(atcphy);
++		goto out;
++	}
++
++	if (dpin_clocks >= 2) {
++		core_set32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTXPHY_PMA_LANE_RESET_N);
++		core_set32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTXPHY_PMA_LANE_RESET_N_OV);
++	}
++
++	core_mask32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPRX_PCLK_SELECT,
++		    FIELD_PREP(DPRX_PCLK_SELECT, 1));
++	core_set32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPRX_PCLK_ENABLE);
++
++	if (dpin_clocks >= 2) {
++		core_mask32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTX_PCLK1_SELECT,
++			    FIELD_PREP(DPTX_PCLK1_SELECT, 1));
++		core_set32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTX_PCLK1_ENABLE);
++		core_mask32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTX_PCLK2_SELECT,
++			    FIELD_PREP(DPTX_PCLK2_SELECT, 1));
++		core_set32(atcphy, ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0, DPTX_PCLK2_ENABLE);
++	}
++
++	core_set32(atcphy, ACIOPHY_PLL_COMMON_CTRL,
++		   ACIOPHY_PLL_WAIT_FOR_CMN_READY_BEFORE_RESET_EXIT);
++out:
++	ctrl = readl(atcphy->regs.core + ACIOPHY_LANE_DP_CFG_BLK_TX_DP_CTRL0);
++	dev_info(atcphy->dev, "DP-IN clocks: dpin_clocks=%d TX_DP_CTRL0=0x%08x PCLK_STAT=0x%08x\n",
++		 dpin_clocks, ctrl, readl(atcphy->regs.core + ACIOPHY_DP_PCLK_STAT));
++}
++
+ static int atcphy_dp_configure_lane(struct apple_atcphy *atcphy, enum atcphy_lane lane,
+ 				    const struct atcphy_dp_link_rate_configuration *cfg)
+ {
+@@ -1684,8 +1741,20 @@ static int atcphy_dp_configure(struct apple_atcphy *atcphy, enum atcphy_dp_link_
+ 	mode_cfg = atcphy_get_mode_config(atcphy, atcphy->mode);
+ 	cfg = &dp_lr_config[lr];
+ 
+-	if (atcphy->dp_link_rate == lr)
++	if (atcphy_mode_is_tunnel(atcphy)) {
++		/*
++		 * DP-IN bring-up experiment: the display controller output is
++		 * routed to a CIO DP IN adapter, not to the DP lanes. Always
++		 * re-run the clock setup so runtime parameter changes apply.
++		 */
++		dev_info(atcphy->dev, "DP-IN configure: mode %d, link rate index %d, dpin_clocks=%d\n",
++			 atcphy->mode, lr, dpin_clocks);
++		if (!dpin_clocks)
++			return 0;
++		atcphy_dpin_enable_clocks(atcphy);
++	} else if (atcphy->dp_link_rate == lr) {
+ 		return 0;
++	}
+ 
+ 	ret = readl_poll_timeout(atcphy->regs.core + ACIOPHY_CMN_SHM_STS_REG0, reg,
+ 				 (reg & ACIOPHY_CMN_SHM_STS_REG0_CMD_READY), 10, 10000);
+@@ -2085,6 +2154,11 @@ static int atcphy_dpphy_validate(struct phy *phy, enum phy_mode mode, int submod
+ 	case APPLE_ATCPHY_MODE_DP:
+ 		opts->lanes = 4;
+ 		break;
++	case APPLE_ATCPHY_MODE_USB4:
++	case APPLE_ATCPHY_MODE_TBT:
++		/* DP-IN bring-up: virtual 4-lane link into the CIO DP IN adapter. */
++		opts->lanes = 4;
++		break;
+ 	default:
+ 		opts->lanes = 0;
+ 	}
+diff --git a/drivers/thunderbolt/tb.c b/drivers/thunderbolt/tb.c
+index 7e6f65fc1..ea6d3cd85 100644
+--- a/drivers/thunderbolt/tb.c
++++ b/drivers/thunderbolt/tb.c
+@@ -51,6 +51,16 @@ MODULE_PARM_DESC(asym_threshold,
+ 		"threshold (Mb/s) when to Gen 4 switch link symmetry. 0 disables. (default: "
+ 		__MODULE_STRING(TB_ASYM_THRESHOLD) ")");
+ 
++/*
++ * Local bring-up knob: bitmask of host router DP IN adapter numbers that
++ * must not be used for DP tunnels. Writable at runtime; takes effect on the
++ * next tunnel search (NHI rebind or hotplug).
++ */
++static unsigned int dp_in_skip_mask;
++module_param(dp_in_skip_mask, uint, 0644);
++MODULE_PARM_DESC(dp_in_skip_mask,
++		 "bitmask of host router DP IN adapter numbers to skip when tunneling (default: 0)");
++
+ /**
+  * struct tb_cm - Simple Thunderbolt connection manager
+  * @tunnel_list: List of active tunnels
+@@ -2099,6 +2109,12 @@ static void tb_tunnel_dp(struct tb *tb)
+ 			continue;
+ 		}
+ 
++		if (!tb_route(port->sw) && (dp_in_skip_mask & BIT(port->port))) {
++			tb_port_info(port, "DP IN skipped (dp_in_skip_mask=0x%x)\n",
++				     dp_in_skip_mask);
++			continue;
++		}
++
+ 		in = port;
+ 		tb_port_dbg(in, "DP IN available\n");
+ 
