@@ -10,8 +10,8 @@ are USB-managed and the USB path is unimplemented on M1 Linux. **2026-09-20:** t
 trace of macOS was captured (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) and replayed in the
 **DP-IN v4** kernel build (`reports/usb4-dpin-v4/README.md`), installed as GRUB entry
 "Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)". **First boot 2026-09-20 20:10: the LG shows the desktop at
-3840x2160@60.** v4 needs `scripts/dpin-recover.sh` after boot/replug; **v5** (automatic hotplug,
-`reports/usb4-dpin-v5/README.md`) is installed and waiting for its first boot.
+3840x2160@60.** **v5 (2026-09-21) is fully automatic: picture at the lock screen and after
+unplug/replug**, see `reports/usb4-dpin-v5/README.md`. `scripts/dpin-recover.sh` remains as a fallback.
 Read the docs below before acting; several earlier confident claims were later corrected.
 
 ## Start here (read in this order)

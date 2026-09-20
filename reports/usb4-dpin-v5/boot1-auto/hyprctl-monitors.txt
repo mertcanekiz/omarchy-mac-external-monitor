@@ -1,0 +1,8 @@
+Monitor eDP-1 (ID 0):
+	2560x1600@60.00000 at 0x0
+	dpmsStatus: 1
+	availableModes: 2560x1600@60.00Hz 
+Monitor DP-1 (ID 1):
+	3840x2160@60.00000 at 1600x0
+	dpmsStatus: 1
+	availableModes: 3840x2160@60.00Hz 3840x2160@49.99Hz 3840x2160@30.00Hz 3360x1890@60.00Hz 2560x1440@60.00Hz 1920x1080@60.00Hz 640x480@60.00Hz 

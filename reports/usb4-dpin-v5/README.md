@@ -1,10 +1,28 @@
-# DP-IN v5 — automatic hotplug (built + staged 2026-09-20 evening, NOT yet booted)
+# DP-IN v5 — automatic hotplug — **WORKS (2026-09-21): picture at the lock screen, replug recovers by itself**
 
 v4 lights the LG but needs `scripts/dpin-recover.sh` (or `run-dpin-v3.py connect` + a DPMS cycle)
 after every boot, replug or monitor power cycle. v5 makes both automatic. Kernel branch
 `thunderbolt-7.1.13-dpin-v5` (commit `69349e941`, one commit on top of v4 `9a7b5dbca`), same
 kernel release `7.1.13-usb4-gpu-test`; changed modules: `thunderbolt.ko`, `phy-apple-atc.ko`
 (rebuilt, unchanged source), `appledrm.ko`, plus the J313 DTB (`apple,tbt-nhi = <&usb4_1_nhi>`).
+
+## Result (first boot, 2026-09-21)
+
+Booted the v5 entry with the LG attached: picture as soon as the lock screen appeared. Unplugged and
+replugged the cable: picture came back by itself. Evidence in `boot1-auto/` (kernel log, DRM and
+Hyprland state). Both mechanisms fired:
+
+```
+boot:   DP tunnel up on host DP IN 5 -> DP-IN auto connect: 0 -> dcp_hotplug() connected:1 nr_modes:7
+        -> dcp_poweron() -> mode_set_gated 3840x2160@60 link: 1
+replug: DP tunnel down -> DP-IN auto disconnect: 0
+        DP tunnel up -> DP-IN auto connect: 0 -> dcp_hotplug() connected:1
+        -> crtc_atomic_check: forcing a modeset (no valid mode)   <- Hyprland kept its stale output state
+        -> dcp_poweron() -> mode_set_gated 3840x2160@60 link: 1
+```
+So on a replug Hyprland does *not* disable/enable the CRTC; the forced modeset in atomic_check plus
+the `dcp->powered` re-poweron is what makes the reconnect work. `scripts/dpin-recover.sh` is now
+only a fallback.
 
 ## What v5 adds
 

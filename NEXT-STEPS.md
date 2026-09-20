@@ -1,3 +1,8 @@
+> **2026-09-21 — DONE: DP-IN v5 boots straight to a picture on the LG UltraFine and survives unplug/replug
+> with no manual step.** Entry **Omarchy - Asahi 7.1 USB4 DP-IN v5 (manual)**; details in
+> [reports/usb4-dpin-v5/README.md](reports/usb4-dpin-v5/README.md). Remaining polish: make v5 the default
+> GRUB entry / drop the v4 fallback, push the kernel branches, upstream-quality cleanup of the WIP commits.
+
 > **2026-09-20 night — the LG WORKS (DP-IN v4, picture at 3840x2160@60, webcam-confirmed).** Manual
 > recovery after boot/replug/power-cycle: `scripts/dpin-recover.sh`. **DP-IN v5** (automatic hotplug via a
 > Thunderbolt DP-tunnel notifier + forced modeset) is built, installed and ACTIVE as the loader; GRUB entry

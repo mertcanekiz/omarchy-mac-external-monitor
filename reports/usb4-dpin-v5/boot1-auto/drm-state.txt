@@ -1,0 +1,2 @@
+/sys/class/drm/card2-DP-1: connected enabled
+/sys/class/drm/card2-eDP-1: connected enabled
