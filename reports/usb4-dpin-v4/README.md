@@ -85,3 +85,11 @@ The module tree and the v4 initramfs stay. From macOS/Recovery: `USB4-DPIN-V4-RE
 - `scripts/run-dpin-v3.py` now takes `--dpin-mode` instead of `--phy-clocks` and records the dpin
   register blocks in `status`/`before.json`/`after.json`.
 - `boot-bundle.json`, `stage-manifest.json`, `build-*.log`, `initramfs-contents.txt` in this directory.
+
+## GRUB cleanup (2026-09-20)
+
+`/boot/grub/custom.cfg` now holds only the v4 entry; the generated default "Omarchy Linux" entry
+comes from `grub.cfg`. The old experiment entries (display-test, USB4 bring-up, DP-IN v1/v2,
+GPU+USB4, DP-IN v3) are kept in `config/grub-custom-all-experiments.cfg.bak`; their kernels,
+initramfs images and loader bundles were not deleted. `stage-usb4-dpin-v4.py restore` now leaves
+an empty custom.cfg (default entry only).
