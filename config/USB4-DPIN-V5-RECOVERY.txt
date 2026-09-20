@@ -1,17 +1,16 @@
-DP-IN v4 LOADER RECOVERY (2026-09-20)
+DP-IN v5 LOADER RECOVERY (2026-09-21)
 
-The active loader is m1n1/boot.bin (the DP-IN v4 m1n1 bundle). Its device tree
+The active loader is m1n1/boot.bin (the DP-IN v5 m1n1 bundle). Its device tree
 is shared by ALL GRUB entries. GRUB entries: "Omarchy Linux" (stock kernel
-7.1.13-3-1-ARCH) and "Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)" (7.1.13-usb4-gpu-test).
+7.1.13-3-1-ARCH) and "Omarchy - Asahi 7.1 USB4 DP-IN v5" (7.1.13-usb4-gpu-test, the default).
 
 Saved images in this folder:
   boot.bin.before-display-test   original packaged loader/device tree (stock)
-  boot.bin.before-usb4-dpin-v4   same stock loader (backup taken when v4 was activated)
-  boot.bin.usb4-dpin-v4          the DP-IN v4 bundle
+  boot.bin.usb4-dpin-v5          the DP-IN v5 bundle (active)
   boot.bin.hvproxy               bare m1n1 for tethered hypervisor tracing (proxy mode)
 
 From a working Linux boot in the project directory:
-  sudo python3 scripts/stage-usb4-dpin-v4.py restore
+  sudo python3 stage-usb4-dpin-v5.py restore  (falls back to the stock loader)
 
 If Linux cannot start, boot macOS / Recovery Terminal, mount the EFI partition
 (partition UUID bf0b62f5-e52c-4ba5-afa8-e77cd9364cf5, volume "EFI - OMARC") and

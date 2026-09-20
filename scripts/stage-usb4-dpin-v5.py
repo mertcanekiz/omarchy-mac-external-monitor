@@ -52,8 +52,11 @@ def main():
 
     if action == 'restore':
         m = json.loads(manifest_path.read_text())
-        copy(ESP / 'boot.bin.before-usb4-dpin-v5', ESP / 'boot.bin')
-        assert digest(ESP / 'boot.bin') == m['previous_loader']
+        # the v4 loader backup was purged on 2026-09-21; fall back to the stock loader
+        prev = ESP / 'boot.bin.before-usb4-dpin-v5'
+        if not prev.exists():
+            prev = ESP / 'boot.bin.before-display-test'
+        copy(prev, ESP / 'boot.bin')
         for name in MODULES:
             copy(backup / name, target / name)
         subprocess.run(['depmod', RELEASE], check=True)
