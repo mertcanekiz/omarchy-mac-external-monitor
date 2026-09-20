@@ -1,0 +1,23 @@
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN route selected: dpin0 (dptx core 1)
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect(port=0)
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 before enable: 00=00000004 04=00000002 08=00000000 0c=00000001 10=00000001
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after enable: 00=00000004 04=00000000 08=00000003 0c=00000001 10=00000001
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x885238
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 activate: DPTX_INACTIVE cleared, ack=0x0 (0)
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDP13Service.cpp:60: [AFK]version: 12
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDPService.cpp:76: [AFK]version: 12
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 9
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 11
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DPTX HPD assert (after activate): 0
+Sep 20 20:25:24 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_mode=1
+Sep 20 20:25:24 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN PCLK on: TX_DP_CTRL0=0x0000e01d PCLK_STAT=0x0000000f CLKOUT_MASTER=0x00002054
+Sep 20 20:25:24 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to dispext0,0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN crossbar up (dpin0 <- dispext0): 0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after connect: 00=00000004 04=00000000 08=00000003 0c=00000000 10=00000000
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:88:0:0:0:0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:135: IOMFB: IOAVVideoInterface published
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:714: IOMFBStatus VideoInterfaceIOAV::plug_gated(IOAVVideoInterface *, bool): display HPD asserted
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: cb_hotplug() connected:1, valid_mode:0
+Sep 20 20:25:24 omarchy kernel: apple-dcp 271c00000.dcp: dcp_hotplug() connected:1 valid_mode:0 nr_modes:7

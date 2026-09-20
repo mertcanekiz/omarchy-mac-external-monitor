@@ -1,0 +1,13 @@
+{
+  "write_succeeded": true,
+  "settings": {
+    "dpin_mode": "1",
+    "prime_rate": "0",
+    "validate": "N",
+    "connect_unk": "721153",
+    "hpd_after_activate": "Y",
+    "skip_mask": "0",
+    "dprx_timeout": "-1"
+  },
+  "dpin": "0"
+}

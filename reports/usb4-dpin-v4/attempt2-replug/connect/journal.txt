@@ -1,0 +1,51 @@
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: kauditd_printk_skb: 5 callbacks suppressed
+Sep 20 20:23:31 omarchy kernel: audit: type=1101 audit(1789925011.450:265): pid=52133 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="mert" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1110 audit(1789925011.451:266): pid=52133 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:setcred grantors=pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1105 audit(1789925011.453:267): pid=52133 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:session_open grantors=pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_systemd acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1106 audit(1789925011.454:268): pid=52133 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:session_close grantors=pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_systemd acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1104 audit(1789925011.454:269): pid=52133 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:setcred grantors=pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1101 audit(1789925011.466:270): pid=52136 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:accounting grantors=pam_unix,pam_permit,pam_time acct="mert" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: audit: type=1110 audit(1789925011.467:271): pid=52136 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:setcred grantors=pam_faillock,pam_permit,pam_env,pam_faillock acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: audit: type=1105 audit(1789925011.469:272): pid=52136 uid=1001 auid=1001 ses=3 subj=unconfined msg='op=PAM:session_open grantors=pam_systemd_home,pam_limits,pam_unix,pam_permit,pam_systemd acct="root" exe="/usr/bin/sudo" hostname=? addr=? terminal=? res=success'
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN route selected: dpin0 (dptx core 1)
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX read timeout
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_connect(port=0)
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 before enable: 00=00000005 04=00000001 08=00000000 0c=00000000 10=00000000
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after enable: 00=00000004 04=00000000 08=00000003 0c=00000000 10=00000000
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: AppleDCPDPTX.cpp:355: [AFK]powering nub 0x885238
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 activate: DPTX_INACTIVE cleared, ack=0x0 (0)
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDP13Service.cpp:60: [AFK]version: 12
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DCPDPService.cpp:76: [AFK]version: 12
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 5
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: AFK[ep:28]: new service DCPDPService on channel 7
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DPTX HPD assert (after activate): 0
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): DPRX capabilities read completed
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): consumed bandwidth 0/17280 Mb/s
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth consumption changed, re-calculating estimated bandwidth
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: re-calculating bandwidth estimation for group 1
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:1: link maximum bandwidth 18000/18000 Mb/s
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 1:3: link maximum bandwidth 18000/18000 Mb/s
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: 0:5 <-> 1:11 (DP): re-calculated estimated bandwidth 18000 (+ 0 reserved) = 18000 Mb/s
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth estimation for group 1 done
+Sep 20 20:23:31 omarchy kernel: thunderbolt-apple-nhi 501f00000.nhi: bandwidth re-calculation done
+Sep 20 20:23:31 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN configure: mode 4, link rate index 2, dpin_mode=1
+Sep 20 20:23:31 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN PCLK on: TX_DP_CTRL0=0x0000e01d PCLK_STAT=0x0000000f CLKOUT_MASTER=0x00002054
+Sep 20 20:23:31 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to dispext0,0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN crossbar up (dpin0 <- dispext0): 0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after connect: 00=00000004 04=00000000 08=00000003 0c=00000000 10=00000000
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:57:0:0:0:0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: set_drive_settings: 4:0:0:0:0:0:0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:135: IOMFB: IOAVVideoInterface published
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: eoInterfaceIOAV.cpp:714: IOMFBStatus VideoInterfaceIOAV::plug_gated(IOAVVideoInterface *, bool): display HPD asserted
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: cb_hotplug() connected:1, valid_mode:0
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: dcp_hotplug() connected:1 valid_mode:0 nr_modes:7
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: FramebufferDCP.cpp:1962: IOMFB: swap_submit_dcp: swallowed swap ID 860 as fControllerPowerState is 0 for External Display
+Sep 20 20:23:31 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: FramebufferDCP.cpp:1967: IOMFB: swap_submit_dcp: swallowed swap ID 860 as timinsg are not enabled for External Display

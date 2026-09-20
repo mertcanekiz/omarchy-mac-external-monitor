@@ -128,3 +128,17 @@ bundle and `before-*` backup except the stock loader (`boot.bin.before-display-t
 `boot.bin.before-usb4-dpin-v4`), the v4 bundle and `boot.bin.hvproxy`; the old recovery notes went
 with them and `USB4-DPIN-V4-RECOVERY.txt` is now self-contained (copy in `config/`). Copies of all
 deleted bundles/initramfs images still exist under `artifacts/` (gitignored) if ever needed.
+
+## Link-drop recovery (replug, monitor power cycle) — 2026-09-20 evening
+
+Any Thunderbolt link drop resets the DP-IN bridge block and the firmware tears the link down.
+The Thunderbolt core rebuilds the tunnel by itself within a second; the DCP side does not
+recover on its own. Verified recipe, webcam-confirmed (`attempt4-monitor-powercycle/01-before-dark.jpg`
+→ `03-after-dpms-cycle.jpg`): **`scripts/dpin-recover.sh`** = `disconnect`, `connect`, then a global
+DPMS off/on so Hyprland issues a real modeset. Without the modeset the connect looks perfect in every
+log (DPRX done, HPD, 7 modes) but Hyprland keeps its stale output state, submits frames the firmware
+"swallows" (`fControllerPowerState is 0`), and the firmware then drops the link again
+(`attempt2-replug`, `attempt3-inactive-edge`). The driver already sets the DRM link-status property
+to BAD on such a reconnect; Hyprland ignores it. Hyprland's targeted `dpms("off","DP-1")` blanks both
+outputs and the IPC times out during the ~8 s DCP modeset; the untargeted `hl.dsp.dpms("on")` recovers.
+The DPTX_INACTIVE "edge" idea from attempt 3 was not the cause (attempt 4 lit with 0x0c already 0).

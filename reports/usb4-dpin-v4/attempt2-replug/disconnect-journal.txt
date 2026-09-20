@@ -1,0 +1,10 @@
+Sep 20 20:22:26 omarchy kernel: apple-dcp 271c00000.dcp: RTKit: syslog message: DPTXController.cpp:3227: AppleDCPDPTXController::handleInterrupt(): FIFO error interrupt COMMON_INT_STA_3=0x00000010
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: cb_hotplug() connected:0, valid_mode:1
+Sep 20 20:23:18 omarchy kernel: apple-display-crossbar 50304c000.mux: Switched dpin0 to disconnected state
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN crossbar down (dpin0)
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after crossbar down: 00=00000005 04=00000001 08=00000000 0c=00000000 10=00000001
+Sep 20 20:23:18 omarchy kernel: phy-apple-atc 503000000.phy: DP-IN PCLK off: TX_DP_CTRL0=0x0000e001 PCLK_STAT=0x00000000 CLKOUT_MASTER=0x00002000
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: DPTXPort: acking unhandled call 20
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: dcp_dptx_disconnect(port=0)
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after deactivate: 00=00000005 04=00000001 08=00000000 0c=00000000 10=00000000
+Sep 20 20:23:18 omarchy kernel: apple-dcp 271c00000.dcp: DP-IN dpin0 after deactivate: 00=00000005 04=00000001 08=00000000 0c=00000000 10=00000000
