@@ -5,6 +5,8 @@ Thunderbolt, so we can (a) learn whether the panel lights from DisplayPort alone
 and (b) get the concrete recipe for whatever step Linux is missing. This is the Asahi
 reverse-engineering gold standard and it removes the guessing the review flagged.
 
+Printable step-by-step: `reports/usb4-dpin-v3/M1N1-TRACE-CHECKLIST.md` (do this one; the runbook is the background).
+
 ## Hardware / logistics
 
 - **Target:** this M1 MacBook Air (t8103 / j313), with the LG on the front (left-front) USB-C port.

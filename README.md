@@ -25,6 +25,8 @@ of macOS. Read the docs below before acting; several earlier confident claims we
 5. `NEXT-STEPS.md` — older running log of every experiment (cable tests → DP-IN v1/v2 → USB4 backport
    → DP-IN v3). Useful history; HANDOFF.md supersedes its "what to do next".
 
+Printable step-by-step: `reports/usb4-dpin-v3/M1N1-TRACE-CHECKLIST.md` (do this one; the runbook is the background).
+
 ## The current live experiment: DP-IN v3
 
 - **Boot entry:** GRUB → *Omarchy - Asahi 7.1 USB4 DP-IN v3 (manual)*. Kernel `7.1.13-usb4-gpu-test`.

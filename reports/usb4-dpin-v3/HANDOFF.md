@@ -9,6 +9,8 @@ Next planned step: an m1n1 hypervisor trace of macOS lighting the LG. See
 `reports/usb4-dpin-v3/M1N1-TRACE-RUNBOOK.md` and the trace module
 `sources/m1n1-thunderbolt/proxyclient/hv/trace_dpin_bringup.py`.
 
+Printable step-by-step: `reports/usb4-dpin-v3/M1N1-TRACE-CHECKLIST.md` (do this one; the runbook is the background).
+
 ## Goal
 
 Make the **LG 24MD4KL UltraFine** (Thunderbolt 3 monitor) show a picture on an **M1 MacBook Air
