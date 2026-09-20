@@ -1,0 +1,16 @@
+{
+  "release": "7.1.13-usb4-gpu-test",
+  "previous_loader": "8540cb9aee3edccfdb648e88aac67f5aa1bd532882365ccd07294351e27380d8",
+  "bundle": "195a5df61a12e226f5b0aa2a332e991c023d9c8af991c363acdfb957ea405d49",
+  "initramfs": "0a36f1bc9e4a2e86e014787490467243207c2146c138d2e4b06a35172a77e1c3",
+  "modules": {
+    "thunderbolt/thunderbolt.ko": "0594372043c854f45d2a0dee3f4c4ceb016dc6b958064ff22effdd1adcd6fd6c",
+    "phy/apple/phy-apple-atc.ko": "92e3f9a18a2c2e4f46881447296b10aae01711c134e97b2cc077738bcb775a08",
+    "gpu/drm/apple/appledrm.ko": "595dc0bdc9da3f50db6c2f54d7f65d72c4e2fce0c2bd92b933c8fd83cb3cbf30"
+  },
+  "module_backups": {
+    "thunderbolt/thunderbolt.ko": "ffe9da353973a80ff26ea9685cf327cb3829d266f0819522bc3a55236119ab9f",
+    "phy/apple/phy-apple-atc.ko": "92e3f9a18a2c2e4f46881447296b10aae01711c134e97b2cc077738bcb775a08",
+    "gpu/drm/apple/appledrm.ko": "0a7d65e74212f8290e453bd9eeadda2866b4b20e61eb599f825cda30890621b6"
+  }
+}

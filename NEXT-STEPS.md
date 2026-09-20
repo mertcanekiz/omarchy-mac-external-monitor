@@ -1,3 +1,9 @@
+> **2026-09-20 night — the LG WORKS (DP-IN v4, picture at 3840x2160@60, webcam-confirmed).** Manual
+> recovery after boot/replug/power-cycle: `scripts/dpin-recover.sh`. **DP-IN v5** (automatic hotplug via a
+> Thunderbolt DP-tunnel notifier + forced modeset) is built, installed and ACTIVE as the loader; GRUB entry
+> **Omarchy - Asahi 7.1 USB4 DP-IN v5 (manual)**, not yet booted. v4 entry kept as fallback. See
+> [reports/usb4-dpin-v5/README.md](reports/usb4-dpin-v5/README.md) and [reports/usb4-dpin-v4/README.md](reports/usb4-dpin-v4/README.md).
+
 > **2026-09-20 — DP-IN v4 built and installed, awaiting one reboot:** the m1n1 hypervisor trace of
 > macOS (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) is now replayed by the kernel; see
 > [reports/usb4-dpin-v4/README.md](reports/usb4-dpin-v4/README.md) for the delta table and the test

@@ -1,0 +1,55 @@
+make: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
+make[1]: Entering directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+  DESCEND bpf/resolve_btfids
+  INSTALL libsubcmd_headers
+  CC [M]  drivers/thunderbolt/nhi.o
+  CC [M]  drivers/thunderbolt/ctl.o
+  CC [M]  drivers/thunderbolt/tb.o
+  CC [M]  drivers/thunderbolt/switch.o
+  CC [M]  drivers/thunderbolt/cap.o
+  CC [M]  drivers/thunderbolt/pci.o
+  CC [M]  drivers/thunderbolt/path.o
+  CC [M]  drivers/thunderbolt/tunnel.o
+  CC [M]  drivers/thunderbolt/eeprom.o
+  CC [M]  drivers/thunderbolt/domain.o
+  CC [M]  drivers/thunderbolt/dma_port.o
+  CC [M]  drivers/thunderbolt/icm.o
+  CC [M]  drivers/thunderbolt/property.o
+  CC [M]  drivers/thunderbolt/xdomain.o
+  CC [M]  drivers/thunderbolt/lc.o
+  CC [M]  drivers/thunderbolt/tmu.o
+  CC [M]  drivers/thunderbolt/usb4.o
+  CC [M]  drivers/thunderbolt/usb4_port.o
+  CC [M]  drivers/thunderbolt/nvm.o
+  CC [M]  drivers/thunderbolt/retimer.o
+  CC [M]  drivers/thunderbolt/quirks.o
+  CC [M]  drivers/thunderbolt/clx.o
+  CC [M]  drivers/thunderbolt/debugfs.o
+  CC [M]  drivers/thunderbolt/apple.o
+  LD [M]  drivers/thunderbolt/thunderbolt.o
+  LD [M]  drivers/thunderbolt/thunderbolt_apple.o
+  DESCEND bpf/resolve_btfids
+  INSTALL libsubcmd_headers
+  DESCEND bpf/resolve_btfids
+  INSTALL libsubcmd_headers
+  CC [M]  drivers/gpu/drm/apple/apple_drv.o
+  CC [M]  drivers/gpu/drm/apple/dcp.o
+  CC [M]  drivers/gpu/drm/apple/dcp_backlight.o
+  CC [M]  drivers/gpu/drm/apple/dptxep.o
+  CC [M]  drivers/gpu/drm/apple/afk.o
+  CC [M]  drivers/gpu/drm/apple/iomfb.o
+  CC [M]  drivers/gpu/drm/apple/parser.o
+  CC [M]  drivers/gpu/drm/apple/systemep.o
+  CC [M]  drivers/gpu/drm/apple/audio.o
+  CC [M]  drivers/gpu/drm/apple/av.o
+  CC [M]  drivers/gpu/drm/apple/connector.o
+  CC [M]  drivers/gpu/drm/apple/ibootep.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v12_3.o
+  CC [M]  drivers/gpu/drm/apple/iomfb_v13_3.o
+  CC [M]  drivers/gpu/drm/apple/epic/dpavservep.o
+  CC [M]  drivers/gpu/drm/apple/plane.o
+  CC [M]  drivers/gpu/drm/apple/trace.o
+  LD [M]  drivers/gpu/drm/apple/appledrm.o
+  DTC     arch/arm64/boot/dts/apple/t8103-j313.dtb
+make[1]: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/artifacts/usb4-backport/build'
+make: Leaving directory '/home/mert/Work/omarchy-mac-external-monitor/sources/linux-usb4-backport'
