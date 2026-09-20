@@ -68,7 +68,7 @@ Ports on the TARGET (important, the hypervisor hides the tether port from macOS)
 ### A4. On the TARGET (Linux): the proxy-mode loader is ALREADY STAGED
 Already done by the last session, nothing to do now — for reference:
 - `/boot/efi/m1n1/boot.bin.hvproxy`        = bare m1n1 (no payload → drops into proxy mode)
-- `/boot/efi/m1n1/boot.bin.before-hvproxy` = backup of the current Linux loader
+- `/boot/efi/m1n1/boot.bin.usb4-dpin-v4` = the current Linux loader (DP-IN v4 bundle; the old before-hvproxy backup was purged 2026-09-20)
 Why this works: Asahi's stage-1 m1n1 (in the Linux stub) chainloads `m1n1/boot.bin` from the EFI.
 A bare m1n1 finds no payload and prints "No valid payload found" → proxy mode. macOS is untouched.
 
@@ -130,10 +130,10 @@ A bare m1n1 finds no payload and prints "No valid payload found" → proxy mode.
   - From macOS (hold power → Macintosh HD → Terminal):
         ```
         diskutil mount "EFI - OMARC"
-        cp "/Volumes/EFI - OMARC/m1n1/boot.bin.before-hvproxy" "/Volumes/EFI - OMARC/m1n1/boot.bin"
+        cp "/Volumes/EFI - OMARC/m1n1/boot.bin.usb4-dpin-v4" "/Volumes/EFI - OMARC/m1n1/boot.bin"
         diskutil unmount "EFI - OMARC"
         ```
-  - Or, if you kept a Linux boot: `sudo cp /boot/efi/m1n1/boot.bin.before-hvproxy /boot/efi/m1n1/boot.bin && sudo sync`
+  - Or, if you kept a Linux boot: `sudo cp /boot/efi/m1n1/boot.bin.usb4-dpin-v4 /boot/efi/m1n1/boot.bin && sudo sync`
 - [ ] Reboot → Linux boots normally again.
 
 ### B7. Bring the log home

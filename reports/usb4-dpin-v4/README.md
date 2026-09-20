@@ -93,3 +93,12 @@ comes from `grub.cfg`. The old experiment entries (display-test, USB4 bring-up, 
 GPU+USB4, DP-IN v3) are kept in `config/grub-custom-all-experiments.cfg.bak`; their kernels,
 initramfs images and loader bundles were not deleted. `stage-usb4-dpin-v4.py restore` now leaves
 an empty custom.cfg (default entry only).
+
+## Purge of the old experiments (2026-09-20)
+
+Deleted from `/boot`: `vmlinuz-thunderbolt-test` and the display-test, thunderbolt-test, DP-IN
+v1/v2, GPU+USB4 and DP-IN v3 initramfs images. Deleted from the ESP: every experiment loader
+bundle and `before-*` backup except the stock loader (`boot.bin.before-display-test`, also
+`boot.bin.before-usb4-dpin-v4`), the v4 bundle and `boot.bin.hvproxy`; the old recovery notes went
+with them and `USB4-DPIN-V4-RECOVERY.txt` is now self-contained (copy in `config/`). Copies of all
+deleted bundles/initramfs images still exist under `artifacts/` (gitignored) if ever needed.
