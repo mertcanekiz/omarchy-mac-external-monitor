@@ -1,0 +1,12 @@
+{
+  "release": "7.1.13-usb4-gpu-test",
+  "previous_loader": "566227f96ea94bafac65ee6c997da0ba98be6f20479c3619ba1b8b739d156f33",
+  "bundle": "8540cb9aee3edccfdb648e88aac67f5aa1bd532882365ccd07294351e27380d8",
+  "initramfs": "a7cd0221f726c11bfdf80580a7129d0f14604edd8a4776e18c1b5fc79a08a46b",
+  "modules_installed": 1865,
+  "modules": {
+    "thunderbolt/thunderbolt.ko": "ffe9da353973a80ff26ea9685cf327cb3829d266f0819522bc3a55236119ab9f",
+    "phy/apple/phy-apple-atc.ko": "92e3f9a18a2c2e4f46881447296b10aae01711c134e97b2cc077738bcb775a08",
+    "gpu/drm/apple/appledrm.ko": "0a7d65e74212f8290e453bd9eeadda2866b4b20e61eb599f825cda30890621b6"
+  }
+}

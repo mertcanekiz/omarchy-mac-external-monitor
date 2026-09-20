@@ -6,8 +6,11 @@ Goal: make the **LG 24MD4KL UltraFine** (a Thunderbolt-3-only monitor) show a pi
 **Status (2026-09-19):** Thunderbolt transport works and a DisplayPort tunnel negotiates to the
 monitor (valid EDID, HBR2 x4 caps, HPD). **No picture yet** — main-link training and pixel delivery
 are not verifiable from Linux, and the leading (unproven) hypothesis is the monitor's scaler/backlight
-are USB-managed and the USB path is unimplemented on M1 Linux. Next step is an m1n1 hypervisor trace
-of macOS. Read the docs below before acting; several earlier confident claims were later corrected.
+are USB-managed and the USB path is unimplemented on M1 Linux. **2026-09-20:** the m1n1 hypervisor
+trace of macOS was captured (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) and replayed in the
+**DP-IN v4** kernel build (`reports/usb4-dpin-v4/README.md`), installed as GRUB entry
+"Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)" and waiting for its first boot test.
+Read the docs below before acting; several earlier confident claims were later corrected.
 
 ## Start here (read in this order)
 

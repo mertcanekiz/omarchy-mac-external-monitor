@@ -38,7 +38,7 @@ def filtered_config(path: Path) -> bytes:
 
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--profile', choices=('thunderbolt-test', 'usb4-gpu', 'usb4-dpin-v3', 'dpalt'),
+    parser.add_argument('--profile', choices=('thunderbolt-test', 'usb4-gpu', 'usb4-dpin-v3', 'usb4-dpin-v4', 'dpalt'),
                         default='thunderbolt-test')
     args = parser.parse_args()
     m1n1_path = ROOT / "sources/m1n1-thunderbolt/build/m1n1.bin"
@@ -71,6 +71,18 @@ def main() -> None:
         kernel_release = '7.1.13-usb4-gpu-test'
         if b'apple,tbt-dpin-test' not in custom_dtb_path.read_bytes():
             raise SystemExit('J313 DTB lacks the DP-IN v3 marker')
+    elif args.profile == 'usb4-dpin-v4':
+        # DP-IN v4: v3 kernel/build tree with the macOS-trace-faithful DP-IN drivers and atc-dpin DT nodes.
+        custom_dtb_path = ROOT / 'artifacts/usb4-backport/build/arch/arm64/boot/dts/apple' / MODEL_DTB
+        output = ROOT / 'artifacts/usb4-dpin-v4/boot.bin.usb4-dpin-v4'
+        report_path = ROOT / 'reports/usb4-dpin-v4/boot-bundle.json'
+        kernel_commit = subprocess.check_output(
+            ['git', '-C', str(ROOT / 'sources/linux-usb4-backport'), 'rev-parse', 'HEAD'],
+            text=True).strip()
+        kernel_release = '7.1.13-usb4-gpu-test'
+        dtb = custom_dtb_path.read_bytes()
+        if b'apple,tbt-dpin-test' not in dtb or b'apple,t8103-atc-dpin' not in dtb:
+            raise SystemExit('J313 DTB lacks the DP-IN v4 markers')
     elif args.profile == 'dpalt':
         # DP alt mode variant: same kernel/modules as v3 except tipd, fairydust DTB wiring.
         custom_dtb_path = ROOT / 'artifacts/dpalt/out' / MODEL_DTB

@@ -3,7 +3,7 @@
 
 Subcommands (all need root):
   status                      print tunnel/adapter/DRM state
-  connect OUTDIR [--dpin N] [--phy-clocks N] [--prime-rate N] [--wait S]
+  connect OUTDIR [--dpin N] [--dpin-mode N] [--prime-rate N] [--wait S]
   disconnect
   retunnel [--skip-mask MASK] rebind the front-port NHI so the thunderbolt core
                               rebuilds the DP tunnel (optionally skipping DP IN adapters)
@@ -26,8 +26,11 @@ NHI = '501f00000.nhi'
 DCP = '271c00000.dcp'
 RELEASE = '7.1.13-usb4-gpu-test'
 PARAMS = {
-    'phy_clocks': Path('/sys/module/phy_apple_atc/parameters/dpin_clocks'),
+    'dpin_mode': Path('/sys/module/phy_apple_atc/parameters/dpin_mode'),
     'prime_rate': Path('/sys/module/appledrm/parameters/dpin_prime_rate'),
+    'validate': Path('/sys/module/appledrm/parameters/dpin_validate'),
+    'connect_unk': Path('/sys/module/appledrm/parameters/dpin_connect_unk'),
+    'hpd_after_activate': Path('/sys/module/appledrm/parameters/dpin_hpd_after_activate'),
     'skip_mask': Path('/sys/module/thunderbolt/parameters/dp_in_skip_mask'),
     'dprx_timeout': Path('/sys/module/thunderbolt/parameters/dprx_timeout'),
 }
@@ -89,6 +92,18 @@ def drm():
     return res
 
 
+def dpin_regs():
+    """First 0x40 bytes of the atc1-dpin0/1 bridge blocks (v4: the kernel writes 0x08/0x0c itself)."""
+    out = {}
+    tool = ROOT / 'artifacts/mmio/mmio-dump'
+    if not tool.exists():
+        return out
+    for name, addr in (('atc1-dpin0', '501e50000'), ('atc1-dpin1', '501e58000')):
+        r = subprocess.run([str(tool), addr, '0x40'], capture_output=True, text=True)
+        out[name] = (r.stdout or r.stderr).strip().splitlines()
+    return out
+
+
 def status_dict():
     con = controls()
     return {
@@ -101,6 +116,7 @@ def status_dict():
         'tb_devices': sorted(p.name for p in Path('/sys/bus/thunderbolt/devices').iterdir()),
         'adapters': adapters(),
         'drm': drm(),
+        'dpin_regs': dpin_regs(),
     }
 
 
@@ -151,8 +167,8 @@ def cmd_connect(args):
     con = controls()
     if read(con / 'tunnel_hpd') != '0':
         raise SystemExit('Already requested; run disconnect first.')
-    if args.phy_clocks is not None:
-        PARAMS['phy_clocks'].write_text(str(args.phy_clocks))
+    if args.dpin_mode is not None:
+        PARAMS['dpin_mode'].write_text(str(args.dpin_mode))
     if args.prime_rate is not None:
         PARAMS['prime_rate'].write_text(str(args.prime_rate))
     if args.dpin is not None:
@@ -222,7 +238,8 @@ def main():
     c = sub.add_parser('connect')
     c.add_argument('output', type=Path)
     c.add_argument('--dpin', type=int, choices=(0, 1))
-    c.add_argument('--phy-clocks', type=int, choices=(0, 1, 2, 3))
+    c.add_argument('--dpin-mode', type=int, choices=(0, 1, 2),
+                   help='phy_apple_atc.dpin_mode: 1=macOS tunnel PLL sequence (v4 default), 2=legacy v3')
     c.add_argument('--prime-rate', type=int)
     c.add_argument('--wait', type=int, default=25)
     c.set_defaults(fn=cmd_connect)

@@ -1,3 +1,9 @@
+> **2026-09-20 — DP-IN v4 built and installed, awaiting one reboot:** the m1n1 hypervisor trace of
+> macOS (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`) is now replayed by the kernel; see
+> [reports/usb4-dpin-v4/README.md](reports/usb4-dpin-v4/README.md) for the delta table and the test
+> procedure. GRUB entry **Omarchy - Asahi 7.1 USB4 DP-IN v4 (manual)**. The deleted
+> `/usr/lib/modules/7.1.13-usb4-gpu-test` tree was reinstalled from the v4 module build.
+
 > **2026-09-19 — DP alt mode investigation (Paugge USB4 cable):** see
 > [reports/dp-altmode/INVESTIGATION.md](reports/dp-altmode/INVESTIGATION.md). Short version: the
 > USB4 cable makes the CD321x enter Thunderbolt 3 (firmware decides, Linux cannot override), so DP alt
