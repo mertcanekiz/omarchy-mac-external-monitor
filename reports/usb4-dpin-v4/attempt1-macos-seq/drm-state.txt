@@ -1,0 +1,2 @@
+/sys/class/drm/card2-DP-1: connected enabled 3840x2160
+/sys/class/drm/card2-eDP-1: connected enabled 2560x1600

@@ -1,4 +1,4 @@
-# DP-IN v4 — replay the macOS DP-IN bring-up on Linux (built + installed 2026-09-20, NOT yet booted)
+# DP-IN v4 — replay the macOS DP-IN bring-up on Linux — **PICTURE ON THE LG, 2026-09-20 20:10**
 
 v4 turns the m1n1 hypervisor trace of macOS 13.5 lighting the LG UltraFine
 (`reports/usb4-dpin-v3/HV-TRACE-FINDINGS.md`, run 8) into kernel code. Same kernel image and
@@ -10,6 +10,32 @@ diff is `patches/thunderbolt-dpin-v4-macos-sequence.patch`.
 The `/usr/lib/modules/7.1.13-usb4-gpu-test` tree had been deleted; `scripts/stage-usb4-dpin-v4.py`
 reinstalled the complete tree from the v4 module build (1865 modules), so the older
 "GPU + USB4" and "DP-IN v3" GRUB entries work again too (with v4's appledrm/phy modules).
+
+## Result (first boot, attempt 1)
+
+Booted the v4 entry with the LG on the left-front port, ran
+`sudo python3 scripts/run-dpin-v3.py connect reports/usb4-dpin-v4/attempt1-macos-seq --dpin 0` with all
+defaults (`dpin_mode=1`, no validate, connectTo 0xb0101, HPD after ACTIVATE). **The LG lit up and shows
+the Hyprland desktop at 3840x2160@60** (user-observed; `drm-state.txt`, `hyprctl-monitors.txt`,
+kernel log and adapter/dpin register state are in `attempt1-macos-seq/`). No manual register pokes.
+Kernel log of the sequence:
+
+```
+DP-IN dpin0 before enable: 00=00000005 04=00000001 08=00000000 0c=00000001 10=00000001
+DP-IN dpin0 after enable:  00=00000004 04=00000000 08=00000003 0c=00000001 10=00000001
+DP-IN dpin0 activate: DPTX_INACTIVE cleared, ack=0x0 (0)
+thunderbolt 0:5 <-> 1:11 (DP): DPRX capabilities read completed
+DPTX HPD assert (after activate): 0
+phy-apple-atc: DP-IN configure: mode 4, link rate index 2, dpin_mode=1
+phy-apple-atc: DP-IN PCLK on: TX_DP_CTRL0=0x0000e01d PCLK_STAT=0x0000000f CLKOUT_MASTER=0x00002054
+apple-display-crossbar: Switched dpin0 to dispext0,0 ; DP-IN crossbar up (dpin0 <- dispext0): 0
+dcp_hotplug() connected:1 nr_modes:7 ; then a second WILL_CHANGE/SET_LINK_RATE round: crossbar down, PCLK on, crossbar up
+```
+This time the tunnel landed on the LG's DP OUT port 11 (v3 runs used port 10); both work. The
+domain-0 NHI (back port) still had the tethered Mac attached (router "Mac16,8"), irrelevant.
+
+Which of the deltas is the decisive one is not yet isolated; the A/B knobs below exist for that.
+The v3 "USB-managed scaler/backlight" hypothesis is refuted: no USB or PCIe tunnel exists on this boot.
 
 ## What differs from v3, and where each item comes from in the trace
 
