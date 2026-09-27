@@ -10,10 +10,17 @@ Saved images in this folder:
   boot.bin.hvproxy               bare m1n1 for tethered hypervisor tracing (proxy mode)
 
 From a working Linux boot in the project directory:
-  sudo python3 stage-usb4-dpin-v5.py restore  (falls back to the stock loader)
+  sudo mv /etc/default/update-m1n1 /etc/default/update-m1n1.dpin-v5-disabled
+  sudo update-m1n1
+Then select the ordinary "Omarchy Linux" entry on the next boot. Only reboot
+after update-m1n1 succeeds. The override above was installed on 2026-09-22 to
+preserve the tested m1n1/device trees in /usr/local/share/asahi-dpin-v5/ across
+package updates. Disabling it restores the updater's packaged inputs.
 
 If Linux cannot start, boot macOS / Recovery Terminal, mount the EFI partition
 (partition UUID bf0b62f5-e52c-4ba5-afa8-e77cd9364cf5, volume "EFI - OMARC") and
 from its m1n1 directory restore the original loader:
   cp boot.bin.before-display-test boot.bin
 Then boot the ordinary "Omarchy Linux" entry. Do not delete these images.
+Once back in Linux, disable /etc/default/update-m1n1 as above if staying on stock;
+otherwise the next package update would reactivate the v5 boot components.

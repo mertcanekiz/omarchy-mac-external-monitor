@@ -1,5 +1,10 @@
 # DP-IN v5 — automatic hotplug — **WORKS (2026-09-21): picture at the lock screen, replug recovers by itself**
 
+**2026-09-22 update recovery:** a package hook overwrote the shared boot bundle
+with stock components. Restored verified v5 boot components and installed a
+supported `update-m1n1` override to preserve them across updates. Reboot validation
+is pending. See [cause, repair, maintenance and rollback](UPDATE-RECOVERY.md).
+
 v4 lights the LG but needs `scripts/dpin-recover.sh` (or `run-dpin-v3.py connect` + a DPMS cycle)
 after every boot, replug or monitor power cycle. v5 makes both automatic. Kernel branch
 `thunderbolt-7.1.13-dpin-v5` (commit `69349e941`, one commit on top of v4 `9a7b5dbca`), same
@@ -58,6 +63,10 @@ only a fallback.
   did not happen.
 
 ## Restore
+
+If the September 22 updater override is installed, disable it as documented in
+[UPDATE-RECOVERY.md](UPDATE-RECOVERY.md#return-to-packaged-boot-components) before
+returning to stock; otherwise a package update will reactivate the v5 inputs.
 
 `sudo python3 scripts/stage-usb4-dpin-v5.py restore` puts the v4 modules, the v4 loader
 (`boot.bin.before-usb4-dpin-v5`) and the GRUB file back. The v4 GRUB entry stays as a fallback

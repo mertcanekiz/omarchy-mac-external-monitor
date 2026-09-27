@@ -1,0 +1,8 @@
+# Local DP-IN v5 boot components for this M1 MacBook Air.
+# Read by the packaged /usr/bin/update-m1n1, including its pacman hook.
+# Keep the tested m1n1 + device trees together; U-Boot still comes from its package.
+# Remove this file to return to the packaged boot components.
+# Fail before changing the EFI image if any preserved input is missing or changed.
+sha256sum --status --check /usr/local/share/asahi-dpin-v5/SHA256SUMS
+M1N1=/usr/local/share/asahi-dpin-v5/m1n1.bin
+DTBS='/usr/local/share/asahi-dpin-v5/dtbs/*.dtb'
